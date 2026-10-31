@@ -34,6 +34,10 @@
       <div class="header__tools">
         <a href="index.html" class="lang-switch" lang="en" hreflang="en">English</a>
         <a href="#contact" class="btn btn--orange header__cta">عرض سعر مجاني</a>
+        <button class="cart-btn" id="cartOpen" aria-label="فتح السلة">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7V6a6 6 0 0 1 12 0v1h2.5a1 1 0 0 1 1 1.1l-1.3 12A2 2 0 0 1 18.2 22H5.8a2 2 0 0 1-2-1.9L2.5 8.1A1 1 0 0 1 3.5 7zm2 0h8V6a4 4 0 0 0-8 0zm-3.4 2 1.2 11h12.4l1.2-11z"/></svg>
+          <span class="cart-btn__count" id="cartCount" hidden>0</span>
+        </button>
       </div>
     </div>
     <nav class="cats" aria-label="الأقسام">
@@ -100,7 +104,7 @@
         <div class="section__head">
           <p class="eyebrow">منتجاتنا</p>
           <h2>ألعاب خشبية وأثاث لعب</h2>
-          <p>اختر المنتج وأرسل لنا رسالة على واتساب، وسنرد عليك بالسعر والألوان وتفاصيل التوصيل.</p>
+          <p>أضف المنتجات إلى السلة، وادفع عبر إنستاباي، ويصلنا طلبك مباشرة على واتساب.</p>
         </div>
         <div class="toolbar">
           <div class="filters" role="group" aria-label="تصفية المنتجات">
@@ -113,106 +117,7 @@
           </div>
           <p class="count" id="productCount" aria-live="polite"></p>
         </div>
-        <div class="products">
-          <article class="product" data-cat="climbing">
-            <div class="product__img"><img src="assets/img/products/climbing-triangle.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">تسلق وحركة</p>
-            <h3>مثلث تسلق مع منحدر</h3>
-            <p>مثلث تسلق خشبي قابل للطي مع منحدر بوجهين للتسلق والتزحلق.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="climbing">
-            <div class="product__img"><img src="assets/img/products/climbing-arch.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">تسلق وحركة</p>
-            <h3>قوس تسلق وهزاز</h3>
-            <p>استخدمه كقوس للتسلق أو اقلبه ليصبح هزازاً. أضف وسادة ناعمة لوقت القراءة.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="climbing">
-            <div class="product__img"><img src="assets/img/products/ball-pit.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">تسلق وحركة</p>
-            <h3>طقم سوفت بلاي وحمام كرات</h3>
-            <p>مكعبات إسفنجية ومنحدر وحمام كرات للتسلق والتدحرج بأمان في البيت.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="pretend">
-            <div class="product__img"><img src="assets/img/products/play-kitchen.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">لعب تخيلي</p>
-            <h3>مطبخ لعب خشبي</h3>
-            <p>فرن وحوض وموقد ومساحات تخزين كثيرة للطهاة الصغار. متوفر بألوان مختلفة.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="pretend">
-            <div class="product__img"><img src="assets/img/products/dollhouse.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">لعب تخيلي</p>
-            <h3>بيت دمى خشبي</h3>
-            <p>بيت دمى من ثلاثة طوابق بغرف مفتوحة وأثاث صغير لترتيبه.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="pretend">
-            <div class="product__img"><img src="assets/img/products/market-stall.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">لعب تخيلي</p>
-            <h3>كشك سوق للعب</h3>
-            <p>محل صغير بمظلة وصناديق، جاهز لطعام اللعب والتسوق التخيلي.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="baby">
-            <div class="product__img"><img src="assets/img/products/activity-cube.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">رضع وأطفال صغار</p>
-            <h3>مكعب أنشطة خشبي</h3>
-            <p>سقف إكسيليفون، فرز أشكال، متاهة خرز وأبواب تُفتح: أنشطة كثيرة على كل جانب.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="baby">
-            <div class="product__img"><img src="assets/img/products/push-walker.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">رضع وأطفال صغار</p>
-            <h3>مشاية دفع ولوحة أنشطة</h3>
-            <p>مشاية خشبية ثابتة للخطوات الأولى، مع لوحة أنشطة للعب أثناء الجلوس.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="baby">
-            <div class="product__img"><img src="assets/img/products/teepee.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">رضع وأطفال صغار</p>
-            <h3>خيمة لعب مع مفرش أرضي</h3>
-            <p>خيمة قطنية مريحة مع مفرش ناعم، مثالية لوقت الهدوء والاستغماية.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="furniture">
-            <div class="product__img"><img src="assets/img/products/easel.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">أثاث لعب</p>
-            <h3>حامل رسم بوجهين</h3>
-            <p>سبورة طباشير من جهة وسبورة بيضاء من الجهة الأخرى، مع لفة ورق في الأعلى.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="furniture">
-            <div class="product__img"><img src="assets/img/products/train-table.svg" alt="" width="400" height="400" loading="lazy"><span class="badge">مقاسات حسب الطلب</span></div>
-            <p class="product__cat">أثاث لعب</p>
-            <h3>طاولة لعب بأدراج</h3>
-            <p>طاولة لعب كبيرة للقطارات والمكعبات والألغاز، مع أدراج تخزين أسفلها.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="furniture">
-            <div class="product__img"><img src="assets/img/products/table-chairs.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">أثاث لعب</p>
-            <h3>طاولة وكراسي أطفال</h3>
-            <p>طاولة متينة وكرسيان بالارتفاع المناسب للرسم والوجبات الخفيفة واللعب.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="room">
-            <div class="product__img"><img src="assets/img/products/house-bed.svg" alt="" width="400" height="400" loading="lazy"><span class="badge">مقاسات حسب الطلب</span></div>
-            <p class="product__cat">غرف الأطفال</p>
-            <h3>سرير أرضي على شكل بيت</h3>
-            <p>إطار سرير على شكل بيت قريب من الأرض، ليصعد الصغار وينزلوا بأمان.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-          <article class="product" data-cat="room">
-            <div class="product__img"><img src="assets/img/products/bookshelf.svg" alt="" width="400" height="400" loading="lazy"><span class="badge">مقاسات حسب الطلب</span></div>
-            <p class="product__cat">غرف الأطفال</p>
-            <h3>مكتبة بواجهة أمامية</h3>
-            <p>الكتب تظهر بأغلفتها للأمام ليرى الأطفال الأغلفة ويختاروا قصتهم بأنفسهم.</p>
-            <div class="product__foot"><span class="price">السعر عند الطلب</span><a class="btn btn--soft product__order" href="#contact">اطلب عبر واتساب</a></div>
-          </article>
-        </div>
+        <div class="products" id="products"></div>
       </div>
     </section>
 
@@ -298,7 +203,8 @@
           <h2>أسئلة يطرحها الآباء</h2>
         </div>
         <div class="faq">
-          <details><summary>كيف أطلب منتجاً؟</summary><p>اضغط "اطلب عبر واتساب" تحت المنتج. ستفتح رسالة باسم المنتج، وسنرد عليك بالسعر والألوان وتفاصيل التوصيل.</p></details>
+          <details><summary>كيف أطلب منتجاً؟</summary><p>أضف المنتجات إلى السلة واضغط "إتمام الطلب". أدخل بيانات التوصيل، وادفع الإجمالي عبر إنستاباي، ثم اضغط "أرسل الطلب". سيفتح طلبك في واتساب، أرفق صورة التحويل وأرسله لنا.</p></details>
+          <details><summary>كيف أدفع؟</summary><p>نقبل الدفع عبر إنستاباي. يظهر الإجمالي وعنوان إنستاباي الخاص بنا عند إتمام الطلب، ونؤكد طلبك فور استلام التحويل.</p></details>
           <details><summary>هل يمكنني رؤية المنتجات قبل الشراء؟</summary><p>نعم. يسعدنا زيارتك لمعرضنا في بارك مول، القاهرة الجديدة. راسلنا أولاً لنخبرك بالمعروض.</p></details>
           <details><summary>هل يمكن تنفيذ منتج بمقاس أو لون مختلف؟</summary><p>غالباً نعم. أخبرنا بما تحتاجه وسنخبرك بالممكن.</p></details>
           <details><summary>هل تنفذون أماكن لعب للأماكن التجارية؟</summary><p>نعم. نصمم وننفذ أماكن لعب للحضانات والمدارس والنوادي والمطاعم والعيادات وغيرها. أرسل لنا تفاصيل المساحة وسنقترح عليك خطة.</p></details>
@@ -363,10 +269,69 @@
     </div>
   </footer>
 
+  <div class="drawer" id="cart" hidden>
+    <div class="drawer__backdrop" data-close></div>
+    <aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="drawer__head">
+        <h2 id="cartTitle">سلة التسوق</h2>
+        <button class="drawer__close" data-close aria-label="إغلاق السلة">×</button>
+      </div>
+
+      <div class="drawer__body">
+        <div id="cartView">
+          <p class="cart__empty" id="cartEmpty">سلة التسوق فارغة.</p>
+          <ul class="cart__items" id="cartItems"></ul>
+        </div>
+
+        <form class="checkout" id="checkoutForm" hidden>
+          <button type="button" class="link-btn" id="backToCart">› العودة إلى السلة</button>
+          <h3>بيانات التوصيل</h3>
+          <label>الاسم<input name="name" autocomplete="name" required></label>
+          <label>الهاتف<input name="phone" type="tel" autocomplete="tel" required></label>
+          <label>المدينة / المنطقة<input name="area" autocomplete="address-level2" required></label>
+          <label>العنوان<textarea name="address" rows="2" autocomplete="street-address" required></textarea></label>
+          <label>ملاحظات (اختياري)<input name="notes"></label>
+
+          <div class="pay">
+            <h3>الدفع عبر إنستاباي</h3>
+            <p><strong>١.</strong> حوّل <strong class="js-total"></strong> عبر إنستاباي إلى:</p>
+            <div class="pay__address" id="payAddressBox">
+              <code id="payAddress" dir="ltr"></code>
+              <button type="button" class="btn btn--soft" id="copyAddress">نسخ</button>
+            </div>
+            <p class="pay__missing" id="payMissing">سنرسل لك عنوان إنستاباي الخاص بنا على واتساب.</p>
+            <a class="btn btn--outline btn--block" id="payLink" target="_blank" rel="noopener" hidden>افتح رابط الدفع في إنستاباي</a>
+            <p><strong>٢.</strong> اضغط "أرسل الطلب" وأرفق صورة التحويل في واتساب.</p>
+          </div>
+          <button type="submit" class="btn btn--orange btn--block">أرسل الطلب عبر واتساب</button>
+        </form>
+
+        <div class="done" id="orderDone" hidden>
+          <div class="done__icon" aria-hidden="true">✓</div>
+          <h3>شكراً لك!</h3>
+          <p>طلبك <strong id="orderId"></strong> جاهز في واتساب. أرسل الرسالة مع صورة تحويل إنستاباي وسنؤكد طلبك وموعد التوصيل.</p>
+          <a class="btn btn--outline btn--block" id="orderResend" target="_blank" rel="noopener">لم يفتح واتساب؟ اضغط هنا</a>
+        </div>
+      </div>
+
+      <div class="drawer__foot" id="cartFoot" hidden>
+        <dl class="totals">
+          <div><dt>المجموع</dt><dd id="subtotal"></dd></div>
+          <div><dt>التوصيل</dt><dd id="delivery"></dd></div>
+          <div class="totals__total"><dt>الإجمالي</dt><dd class="js-total"></dd></div>
+        </dl>
+        <button class="btn btn--orange btn--block" id="toCheckout">إتمام الطلب</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
   <a href="https://wa.me/201117776589" class="fab" target="_blank" rel="noopener" aria-label="تحدث مع WORX Kids على واتساب">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.4z"/></svg>
   </a>
 
+  <script src="products.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

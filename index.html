@@ -34,6 +34,10 @@
       <div class="header__tools">
         <a href="ar.html" class="lang-switch" lang="ar" hreflang="ar">عربي</a>
         <a href="#contact" class="btn btn--orange header__cta">Free Quote</a>
+        <button class="cart-btn" id="cartOpen" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7V6a6 6 0 0 1 12 0v1h2.5a1 1 0 0 1 1 1.1l-1.3 12A2 2 0 0 1 18.2 22H5.8a2 2 0 0 1-2-1.9L2.5 8.1A1 1 0 0 1 3.5 7zm2 0h8V6a4 4 0 0 0-8 0zm-3.4 2 1.2 11h12.4l1.2-11z"/></svg>
+          <span class="cart-btn__count" id="cartCount" hidden>0</span>
+        </button>
       </div>
     </div>
     <nav class="cats" aria-label="Categories">
@@ -100,7 +104,7 @@
         <div class="section__head">
           <p class="eyebrow">Our products</p>
           <h2>Wooden toys &amp; play furniture</h2>
-          <p>Choose a product and send us a message on WhatsApp. We'll reply with the price, colours and delivery details.</p>
+          <p>Add products to your cart, pay with InstaPay, and your order comes straight to us on WhatsApp.</p>
         </div>
         <div class="toolbar">
           <div class="filters" role="group" aria-label="Filter products">
@@ -113,106 +117,7 @@
           </div>
           <p class="count" id="productCount" aria-live="polite"></p>
         </div>
-        <div class="products">
-          <article class="product" data-cat="climbing">
-            <div class="product__img"><img src="assets/img/products/climbing-triangle.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">Climbing &amp; Active</p>
-            <h3>Climbing Triangle &amp; Ramp</h3>
-            <p>A foldable wooden climbing triangle with a two-sided ramp to climb up and slide down.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="climbing">
-            <div class="product__img"><img src="assets/img/products/climbing-arch.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">Climbing &amp; Active</p>
-            <h3>Climbing Arch &amp; Rocker</h3>
-            <p>Climb over it as an arch, or flip it into a rocker. Add a soft cushion for reading time.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="climbing">
-            <div class="product__img"><img src="assets/img/products/ball-pit.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">Climbing &amp; Active</p>
-            <h3>Soft Play &amp; Ball Pit Set</h3>
-            <p>Foam blocks, a ramp and a ball pit for safe climbing and tumbling at home.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="pretend">
-            <div class="product__img"><img src="assets/img/products/play-kitchen.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">Pretend Play</p>
-            <h3>Wooden Play Kitchen</h3>
-            <p>Oven, sink, hob and plenty of storage for little chefs. Available in different colours.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="pretend">
-            <div class="product__img"><img src="assets/img/products/dollhouse.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">Pretend Play</p>
-            <h3>Wooden Dollhouse</h3>
-            <p>A three-storey dollhouse with open rooms and mini furniture to arrange.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="pretend">
-            <div class="product__img"><img src="assets/img/products/market-stall.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">Pretend Play</p>
-            <h3>Play Market Stall</h3>
-            <p>A little shop with an awning and crates, ready for play food and pretend shopping.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="baby">
-            <div class="product__img"><img src="assets/img/products/activity-cube.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">Baby &amp; Toddler</p>
-            <h3>Wooden Activity Cube</h3>
-            <p>Xylophone roof, shape sorter, bead maze and doors to open: lots to do on every side.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="baby">
-            <div class="product__img"><img src="assets/img/products/push-walker.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">Baby &amp; Toddler</p>
-            <h3>Push Walker &amp; Activity Board</h3>
-            <p>A steady wooden walker for first steps, with an activity board for sitting play.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="baby">
-            <div class="product__img"><img src="assets/img/products/teepee.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">Baby &amp; Toddler</p>
-            <h3>Play Tent with Floor Mat</h3>
-            <p>A cosy cotton tent with a soft mat, perfect for quiet time and hide-and-seek.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="furniture">
-            <div class="product__img"><img src="assets/img/products/easel.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">Play Furniture</p>
-            <h3>Double-Sided Art Easel</h3>
-            <p>Chalkboard on one side and whiteboard on the other, with a paper roll on top.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="furniture">
-            <div class="product__img"><img src="assets/img/products/train-table.svg" alt="" width="400" height="400" loading="lazy"><span class="badge">Custom sizes</span></div>
-            <p class="product__cat">Play Furniture</p>
-            <h3>Play Table with Drawers</h3>
-            <p>A big play table for trains, blocks and puzzles, with storage drawers underneath.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="furniture">
-            <div class="product__img"><img src="assets/img/products/table-chairs.svg" alt="" width="400" height="400" loading="lazy"></div>
-            <p class="product__cat">Play Furniture</p>
-            <h3>Kids' Table &amp; Chairs</h3>
-            <p>A sturdy table and two chairs at just the right height for drawing, snacks and play.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="room">
-            <div class="product__img"><img src="assets/img/products/house-bed.svg" alt="" width="400" height="400" loading="lazy"><span class="badge">Custom sizes</span></div>
-            <p class="product__cat">Kids' Rooms</p>
-            <h3>House Floor Bed</h3>
-            <p>A house-shaped bed frame low to the floor, so little ones can climb in and out safely.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-          <article class="product" data-cat="room">
-            <div class="product__img"><img src="assets/img/products/bookshelf.svg" alt="" width="400" height="400" loading="lazy"><span class="badge">Custom sizes</span></div>
-            <p class="product__cat">Kids' Rooms</p>
-            <h3>Front-Facing Bookshelf</h3>
-            <p>Books face out so children can see the covers and pick their own story.</p>
-            <div class="product__foot"><span class="price">Price on request</span><a class="btn btn--soft product__order" href="#contact">Order on WhatsApp</a></div>
-          </article>
-        </div>
+        <div class="products" id="products"></div>
       </div>
     </section>
 
@@ -298,7 +203,8 @@
           <h2>Questions parents ask</h2>
         </div>
         <div class="faq">
-          <details><summary>How do I order a product?</summary><p>Tap "Order on WhatsApp" under the product. A message opens with the product name, and we reply with the price, colours and delivery details.</p></details>
+          <details><summary>How do I order a product?</summary><p>Add products to your cart and tap Checkout. Enter your delivery details, pay the total with InstaPay, then tap "Send order". Your order opens in WhatsApp, where you attach the payment screenshot and send it to us.</p></details>
+          <details><summary>How do I pay?</summary><p>We accept InstaPay. The total and our InstaPay address are shown at checkout. We confirm your order as soon as we receive the payment.</p></details>
           <details><summary>Can I see the products before buying?</summary><p>Yes. You're welcome to visit our showroom in Park Mall, New Cairo. Message us first to check what's on display.</p></details>
           <details><summary>Can you make a product in a different size or colour?</summary><p>Often, yes. Tell us what you need and we'll let you know what's possible.</p></details>
           <details><summary>Do you build play areas for businesses?</summary><p>Yes. We design and build play areas for nurseries, schools, clubs, restaurants, clinics and more. Send us your space and we'll suggest a plan.</p></details>
@@ -363,10 +269,69 @@
     </div>
   </footer>
 
+  <div class="drawer" id="cart" hidden>
+    <div class="drawer__backdrop" data-close></div>
+    <aside class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="drawer__head">
+        <h2 id="cartTitle">Your cart</h2>
+        <button class="drawer__close" data-close aria-label="Close cart">×</button>
+      </div>
+
+      <div class="drawer__body">
+        <div id="cartView">
+          <p class="cart__empty" id="cartEmpty">Your cart is empty.</p>
+          <ul class="cart__items" id="cartItems"></ul>
+        </div>
+
+        <form class="checkout" id="checkoutForm" hidden>
+          <button type="button" class="link-btn" id="backToCart">‹ Back to cart</button>
+          <h3>Delivery details</h3>
+          <label>Name<input name="name" autocomplete="name" required></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+          <label>City / area<input name="area" autocomplete="address-level2" required></label>
+          <label>Address<textarea name="address" rows="2" autocomplete="street-address" required></textarea></label>
+          <label>Notes (optional)<input name="notes"></label>
+
+          <div class="pay">
+            <h3>Pay with InstaPay</h3>
+            <p><strong>1.</strong> Send <strong class="js-total"></strong> with InstaPay to:</p>
+            <div class="pay__address" id="payAddressBox">
+              <code id="payAddress" dir="ltr"></code>
+              <button type="button" class="btn btn--soft" id="copyAddress">Copy</button>
+            </div>
+            <p class="pay__missing" id="payMissing">We'll send you our InstaPay address on WhatsApp.</p>
+            <a class="btn btn--outline btn--block" id="payLink" target="_blank" rel="noopener" hidden>Open InstaPay payment link</a>
+            <p><strong>2.</strong> Tap "Send order" and attach your payment screenshot in WhatsApp.</p>
+          </div>
+          <button type="submit" class="btn btn--orange btn--block">Send order on WhatsApp</button>
+        </form>
+
+        <div class="done" id="orderDone" hidden>
+          <div class="done__icon" aria-hidden="true">✓</div>
+          <h3>Thank you!</h3>
+          <p>Your order <strong id="orderId"></strong> is ready in WhatsApp. Send the message with your InstaPay screenshot and we'll confirm your order and delivery.</p>
+          <a class="btn btn--outline btn--block" id="orderResend" target="_blank" rel="noopener">WhatsApp didn't open? Tap here</a>
+        </div>
+      </div>
+
+      <div class="drawer__foot" id="cartFoot" hidden>
+        <dl class="totals">
+          <div><dt>Subtotal</dt><dd id="subtotal"></dd></div>
+          <div><dt>Delivery</dt><dd id="delivery"></dd></div>
+          <div class="totals__total"><dt>Total</dt><dd class="js-total"></dd></div>
+        </dl>
+        <button class="btn btn--orange btn--block" id="toCheckout">Checkout</button>
+      </div>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
   <a href="https://wa.me/201117776589" class="fab" target="_blank" rel="noopener" aria-label="Chat with WORX Kids on WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.4z"/></svg>
   </a>
 
+  <script src="products.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
