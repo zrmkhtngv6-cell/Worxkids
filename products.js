@@ -13,8 +13,9 @@ const STORE = {
   accountNumber: '2020302314501016',
   // Optional InstaPay payment link (starts with https://ipn.eg/...). Leave empty if you don't have one.
   instapayLink: '',
-  // Delivery fee in EGP. Set to null if it depends on the area and you'll confirm it on WhatsApp.
-  deliveryFee: null,
+  // Delivery fees in EGP: 0 = free, null = confirmed on WhatsApp
+  deliveryCairo: 0,
+  deliveryOutsideCairo: null,
 };
 
 // Category ids are used by the filters and menu in index.html

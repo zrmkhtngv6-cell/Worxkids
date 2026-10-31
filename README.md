@@ -23,7 +23,7 @@ There is no server and no online card payment; orders are confirmed by hand on W
 Everything is in `products.js`, in English and Arabic:
 
 - `STORE.bank`, `STORE.accountName`, `STORE.accountNumber` — the bank account customers transfer to with InstaPay; `STORE.instapayLink` — optional InstaPay payment link
-- `STORE.deliveryFee` — a number in EGP, `0` for free delivery, or `null` to confirm it on WhatsApp
+- `STORE.deliveryCairo` / `STORE.deliveryOutsideCairo` — delivery fee in EGP, `0` for free, or `null` to confirm it on WhatsApp (currently free in Cairo, confirmed on WhatsApp outside)
 - `PRODUCTS` — one entry per product. `price: null` shows "Price on request" with an "Ask on WhatsApp" button instead of "Add to cart". `oldPrice` shows a crossed-out sale price.
 - Photos go in `assets/img/products/` (square works best); set the product's `img` to the file name.
 - Categories: `climbing`, `pretend`, `baby`, `furniture`, `room` (names in `CATEGORIES`).

@@ -20,7 +20,7 @@
 </head>
 <body>
   <div class="topbar">
-    <a href="tel:+201117776589"><span class="topbar__label">عرض سعر مجاني لغرف الأطفال وأماكن اللعب حسب الطلب</span><span class="topbar__short">عرض سعر مجاني</span> · <span dir="ltr">+20 111 777 6589</span></a>
+    <a href="tel:+201117776589"><span class="topbar__label">توصيل مجاني داخل القاهرة · عرض سعر مجاني لغرف الأطفال وأماكن اللعب</span><span class="topbar__short">توصيل مجاني داخل القاهرة</span> · <span dir="ltr">+20 111 777 6589</span></a>
   </div>
 
   <header class="header">
@@ -67,7 +67,8 @@
             <a href="#custom" class="btn btn--outline">غرف وأماكن لعب حسب الطلب</a>
           </div>
           <ul class="hero__points">
-            <li>اطلب عبر واتساب</li>
+            <li>توصيل مجاني داخل القاهرة</li>
+            <li>ادفع عبر إنستاباي</li>
             <li>معرض في بارك مول</li>
             <li>عرض سعر مجاني للأعمال حسب الطلب</li>
           </ul>
@@ -204,6 +205,7 @@
         </div>
         <div class="faq">
           <details><summary>كيف أطلب منتجاً؟</summary><p>أضف المنتجات إلى السلة واضغط "إتمام الطلب". أدخل بيانات التوصيل، وادفع الإجمالي عبر إنستاباي، ثم اضغط "أرسل الطلب". سيفتح طلبك في واتساب، أرفق صورة التحويل وأرسله لنا.</p></details>
+          <details><summary>كم تكلفة التوصيل؟</summary><p>التوصيل مجاني في أي مكان داخل القاهرة. للمحافظات الأخرى، نؤكد معك رسوم التوصيل على واتساب قبل الدفع.</p></details>
           <details><summary>كيف أدفع؟</summary><p>نقبل التحويل عبر إنستاباي إلى حسابنا البنكي. يظهر الإجمالي وبيانات الحساب عند إتمام الطلب، ونؤكد طلبك فور استلام التحويل.</p></details>
           <details><summary>هل يمكنني رؤية المنتجات قبل الشراء؟</summary><p>نعم. يسعدنا زيارتك لمعرضنا في بارك مول، القاهرة الجديدة. راسلنا أولاً لنخبرك بالمعروض.</p></details>
           <details><summary>هل يمكن تنفيذ منتج بمقاس أو لون مختلف؟</summary><p>غالباً نعم. أخبرنا بما تحتاجه وسنخبرك بالممكن.</p></details>
@@ -288,7 +290,13 @@
           <h3>بيانات التوصيل</h3>
           <label>الاسم<input name="name" autocomplete="name" required></label>
           <label>الهاتف<input name="phone" type="tel" autocomplete="tel" required></label>
-          <label>المدينة / المنطقة<input name="area" autocomplete="address-level2" required></label>
+          <label>التوصيل إلى
+            <select name="zone" id="zone">
+              <option value="cairo">القاهرة (توصيل مجاني)</option>
+              <option value="outside">خارج القاهرة</option>
+            </select>
+          </label>
+          <label>المنطقة<input name="area" autocomplete="address-level2" placeholder="مثلاً التجمع، المعادي" required></label>
           <label>العنوان<textarea name="address" rows="2" autocomplete="street-address" required></textarea></label>
           <label>ملاحظات (اختياري)<input name="notes"></label>
 

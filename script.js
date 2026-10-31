@@ -15,13 +15,14 @@ const STRINGS = {
     decrease: 'Decrease quantity', increase: 'Increase quantity', remove: 'Remove',
     deliveryLater: 'Confirmed on WhatsApp',
     free: 'Free',
+    freeCairo: 'Free in Cairo',
     plusDelivery: ' + delivery',
     waIntro: 'Hello WORX Kids, I would like a free quote.',
     waAsk: name => `Hello WORX Kids, I'm interested in the ${name}. Could you send me the price and details?`,
     order: {
       title: id => `New order ${id}`,
       subtotal: 'Subtotal', delivery: 'Delivery', total: 'Total',
-      name: 'Name', phone: 'Phone', area: 'City / area', address: 'Address', notes: 'Notes',
+      name: 'Name', phone: 'Phone', zone: 'Delivery to', area: 'Area', address: 'Address', notes: 'Notes',
       payment: bank => `Payment: InstaPay transfer to the ${bank} account (screenshot attached)`,
       paymentAsk: 'Payment: InstaPay (please send me your bank account details)',
     },
@@ -38,13 +39,14 @@ const STRINGS = {
     decrease: 'تقليل الكمية', increase: 'زيادة الكمية', remove: 'حذف',
     deliveryLater: 'يُحدد عبر واتساب',
     free: 'مجاني',
+    freeCairo: 'مجاني داخل القاهرة',
     plusDelivery: ' + التوصيل',
     waIntro: 'مرحباً WORX Kids، أود الحصول على عرض سعر مجاني.',
     waAsk: name => `مرحباً WORX Kids، أنا مهتم بـ ${name}. هل يمكنكم إرسال السعر والتفاصيل؟`,
     order: {
       title: id => `طلب جديد ${id}`,
       subtotal: 'المجموع', delivery: 'التوصيل', total: 'الإجمالي',
-      name: 'الاسم', phone: 'الهاتف', area: 'المدينة / المنطقة', address: 'العنوان', notes: 'ملاحظات',
+      name: 'الاسم', phone: 'الهاتف', zone: 'التوصيل إلى', area: 'المنطقة', address: 'العنوان', notes: 'ملاحظات',
       payment: bank => `الدفع: تحويل إنستاباي إلى حساب ${bank} (مرفق صورة التحويل)`,
       paymentAsk: 'الدفع: إنستاباي (برجاء إرسال بيانات الحساب البنكي)',
     },
@@ -116,8 +118,11 @@ Object.keys(cart).forEach(id => { if (!forSale(byId[id]) || !(cart[id] > 0)) del
 const saveCart = () => { localStorage.setItem(CART_KEY, JSON.stringify(cart)); renderCart(); };
 const cartLines = () => Object.entries(cart).map(([id, qty]) => ({ p: byId[id], qty }));
 const subtotal = () => cartLines().reduce((sum, l) => sum + l.p.price * l.qty, 0);
-const deliveryKnown = () => typeof STORE.deliveryFee === 'number';
-const total = () => subtotal() + (deliveryKnown() ? STORE.deliveryFee : 0);
+// Delivery depends on the zone picked at checkout (Cairo until they choose)
+const deliveryFee = () => ($('zone').value === 'outside' ? STORE.deliveryOutsideCairo : STORE.deliveryCairo);
+const deliveryKnown = () => typeof deliveryFee() === 'number';
+const deliveryText = () => (!deliveryKnown() ? t.deliveryLater : deliveryFee() === 0 ? t.free : t.money(deliveryFee()));
+const total = () => subtotal() + (deliveryKnown() ? deliveryFee() : 0);
 const totalText = () => t.money(total()) + (deliveryKnown() ? '' : t.plusDelivery);
 
 const drawer = $('cart');
@@ -126,6 +131,7 @@ const showView = name => {
   Object.entries(views).forEach(([k, el]) => { el.hidden = k !== name; });
   $('toCheckout').hidden = name !== 'cart';
   $('cartFoot').hidden = name === 'done' || !cartLines().length;
+  if (name !== 'done') renderCart();
 };
 
 function renderCart() {
@@ -149,7 +155,8 @@ function renderCart() {
       <button type="button" class="cart__remove" data-remove="${esc(p.id)}" aria-label="${t.remove}">×</button>
     </li>`).join('');
   $('subtotal').textContent = t.money(subtotal());
-  $('delivery').textContent = !deliveryKnown() ? t.deliveryLater : STORE.deliveryFee === 0 ? t.free : t.money(STORE.deliveryFee);
+  // In the cart (before a zone is chosen) show the Cairo offer
+  $('delivery').textContent = views.checkout.hidden && STORE.deliveryCairo === 0 ? t.freeCairo : deliveryText();
   document.querySelectorAll('.js-total').forEach(el => { el.textContent = totalText(); });
   // Emptied the cart while checking out: go back to the (empty) cart
   if (!lines.length && !views.checkout.hidden) showView('cart');
@@ -226,6 +233,7 @@ $('toCheckout').addEventListener('click', () => {
   views.checkout.querySelector('input').focus();
 });
 $('backToCart').addEventListener('click', () => showView('cart'));
+$('zone').addEventListener('change', renderCart);
 
 views.checkout.addEventListener('submit', e => {
   e.preventDefault();
@@ -238,11 +246,12 @@ views.checkout.addEventListener('submit', e => {
     ...cartLines().map(({ p, qty }) => `${qty} × ${p.name[lang]} — ${t.money(p.price * qty)}`),
     '',
     `${o.subtotal}: ${t.money(subtotal())}`,
-    `${o.delivery}: ${$('delivery').textContent}`,
+    `${o.delivery}: ${deliveryText()}`,
     `${o.total}: ${totalText()}`,
     '',
     `${o.name}: ${data.get('name')}`,
     `${o.phone}: ${data.get('phone')}`,
+    `${o.zone}: ${$('zone').selectedOptions[0].text}`,
     `${o.area}: ${data.get('area')}`,
     `${o.address}: ${data.get('address')}`,
     data.get('notes') ? `${o.notes}: ${data.get('notes')}` : null,
