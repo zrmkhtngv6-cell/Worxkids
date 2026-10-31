@@ -102,6 +102,24 @@ const PRODUCTS = [
       ar: ['السعر لرف واحد', 'المقاس: طول 41 سم × عمق 8 سم × ارتفاع 10 سم', 'حافة أمامية متموجة (5 سم) تحافظ على ثبات الكتب', 'عرض أمامي للكتب والألعاب والمجسمات', 'يُعلّق على الحائط بارتفاع طفلك', 'خشب طبيعي بزوايا ناعمة ودائرية', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    id: 'textile-bookshelf', section: 'shelves', price: 2500,
+    images: ['textile-bookshelf.jpg', 'textile-bookshelf-room.jpg', 'textile-bookshelf-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Textile Bookshelf', ar: 'مكتبة القماش' },
+    desc: {
+      en: 'A tall book display with soft fabric slings that keep every cover in view, so little readers can see all their books and choose their own.',
+      ar: 'مكتبة عرض طويلة بجيوب قماشية ناعمة تُظهر غلاف كل كتاب، ليرى الصغار كل كتبهم ويختاروا بأنفسهم.',
+    },
+    long: {
+      en: "Give your child's books a home they can't wait to explore. The Textile Bookshelf has tiered slings of soft, cream-coloured fabric stretched across a natural wood frame, so every book faces forward and every cover is easy to see. The lower slings sit right at a toddler's reach, the fabric is gentle on book corners and little fingers, and the angled frame stands steady on the floor. It holds a whole collection of picture books in a small space, perfect for a bedroom, playroom or reading corner.",
+      ar: 'امنح كتب طفلك مكاناً يتشوق لاكتشافه. مكتبة القماش فيها جيوب متدرجة من القماش الناعم بلون كريمي مشدودة على إطار من الخشب الطبيعي، فيظهر كل كتاب بواجهته ويسهل رؤية كل غلاف. الجيوب السفلية في متناول الأطفال الصغار، والقماش لطيف على أطراف الكتب والأصابع الصغيرة، والإطار المائل ثابت على الأرض. تتسع لمجموعة كاملة من كتب الصور في مساحة صغيرة، ومثالية لغرفة النوم أو غرفة اللعب أو ركن القراءة.',
+    },
+    details: {
+      en: ['Size: 53 cm wide × 30 cm deep × 79 cm tall', 'Tiered fabric slings keep every cover facing forward', 'Soft cream fabric, gentle on books and little fingers', 'Natural wood frame with a steady, angled stand', 'Holds a whole book collection in a small space', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 53 سم × عمق 30 سم × ارتفاع 79 سم', 'جيوب قماشية متدرجة تُظهر كل غلاف للأمام', 'قماش كريمي ناعم لطيف على الكتب والأصابع الصغيرة', 'إطار من الخشب الطبيعي بقاعدة مائلة ثابتة', 'تتسع لمجموعة كتب كاملة في مساحة صغيرة', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
