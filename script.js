@@ -1,49 +1,62 @@
-// WhatsApp number used by the form and floating button (international format, digits only)
+// WhatsApp number used by the order buttons, form and floating button (international format, digits only)
 const WHATSAPP_NUMBER = '201117776589';
 
 // Text set from script, per page language (index.html = en, ar.html = ar)
 const STRINGS = {
   en: {
-    openMenu: 'Open menu', closeMenu: 'Close menu',
-    waIntro: 'Hello WORX Kids, I would like a free quote.', waName: 'Name', waPhone: 'Phone', waProject: 'Project', waAge: "Child's age", waMessage: 'Message',
+    products: n => `${n} product${n === 1 ? '' : 's'}`,
+    waIntro: 'Hello WORX Kids, I would like a free quote.',
+    waOrder: name => `Hello WORX Kids, I'm interested in the ${name}. Could you send me the price and details?`,
+    waName: 'Name', waPhone: 'Phone', waProject: 'Project', waAge: "Child's age", waMessage: 'Message',
   },
   ar: {
-    openMenu: 'فتح القائمة', closeMenu: 'إغلاق القائمة',
-    waIntro: 'مرحباً WORX Kids، أود الحصول على عرض سعر مجاني.', waName: 'الاسم', waPhone: 'الهاتف', waProject: 'المشروع', waAge: 'عمر الطفل', waMessage: 'الرسالة',
+    products: n => `${n} منتج`,
+    waIntro: 'مرحباً WORX Kids، أود الحصول على عرض سعر مجاني.',
+    waOrder: name => `مرحباً WORX Kids، أنا مهتم بـ ${name}. هل يمكنكم إرسال السعر والتفاصيل؟`,
+    waName: 'الاسم', waPhone: 'الهاتف', waProject: 'المشروع', waAge: 'عمر الطفل', waMessage: 'الرسالة',
   },
 };
 const t = STRINGS[document.documentElement.lang] || STRINGS.en;
-
-const header = document.querySelector('.header');
-const nav = document.getElementById('nav');
-const toggle = document.getElementById('navToggle');
-
-// Mobile menu
-toggle.addEventListener('click', () => {
-  const open = nav.classList.toggle('is-open');
-  toggle.setAttribute('aria-expanded', open);
-  toggle.setAttribute('aria-label', open ? t.closeMenu : t.openMenu);
-});
-nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  nav.classList.remove('is-open');
-  toggle.setAttribute('aria-expanded', 'false');
-  toggle.setAttribute('aria-label', t.openMenu);
-}));
+const waLink = text => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
 // Header shadow on scroll
+const header = document.querySelector('.header');
 const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
 window.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
-// Highlight the nav link for the section in view
-const links = [...nav.querySelectorAll('a[href^="#"]')];
-const sectionObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === '#' + entry.target.id));
+// Product filters
+const products = [...document.querySelectorAll('.product')];
+const filters = [...document.querySelectorAll('.filter')];
+const count = document.getElementById('productCount');
+const catLinks = [...document.querySelectorAll('[data-show]')];
+const setFilter = cat => {
+  filters.forEach(b => {
+    const on = b.dataset.filter === cat;
+    b.classList.toggle('is-active', on);
+    b.setAttribute('aria-pressed', on);
   });
-}, { rootMargin: '-45% 0px -50% 0px' });
-document.querySelectorAll('main section[id]').forEach(s => sectionObserver.observe(s));
+  let shown = 0;
+  products.forEach(p => {
+    p.hidden = cat !== 'all' && p.dataset.cat !== cat;
+    if (!p.hidden) shown++;
+  });
+  count.textContent = t.products(shown);
+  catLinks.forEach(l => l.classList.toggle('is-active', l.closest('.cats') && l.dataset.show === cat));
+};
+filters.forEach(b => b.addEventListener('click', () => setFilter(b.dataset.filter)));
+// Category links (top nav and round tiles) jump to the shop with that filter on
+catLinks.forEach(l => l.addEventListener('click', () => setFilter(l.dataset.show)));
+setFilter('all');
+
+// "Order on WhatsApp" buttons carry the product name
+products.forEach(p => {
+  const name = p.querySelector('h3').textContent.trim();
+  const btn = p.querySelector('.product__order');
+  btn.href = waLink(t.waOrder(name));
+  btn.target = '_blank';
+  btn.rel = 'noopener';
+});
 
 // Fade blocks in as they scroll into view
 const revealObserver = new IntersectionObserver(entries => {
@@ -53,14 +66,14 @@ const revealObserver = new IntersectionObserver(entries => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
-document.querySelectorAll('.card, .world, .checks li, .steps li, .section__head').forEach(el => {
+}, { threshold: 0.1 });
+document.querySelectorAll('.product, .tiles li, .custom__card, .checks li, .steps li, .section__head').forEach(el => {
   el.classList.add('reveal');
   revealObserver.observe(el);
 });
 
 // Floating button opens a WhatsApp chat
-document.querySelector('.fab').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t.waIntro)}`;
+document.querySelector('.fab').href = waLink(t.waIntro);
 
 // Quote form → WhatsApp
 document.getElementById('quoteForm').addEventListener('submit', e => {
@@ -74,7 +87,7 @@ document.getElementById('quoteForm').addEventListener('submit', e => {
     data.get('age') && `${t.waAge}: ${data.get('age')}`,
     data.get('message') && `${t.waMessage}: ${data.get('message')}`,
   ].filter(Boolean);
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+  window.open(waLink(lines.join('\n')), '_blank', 'noopener');
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
