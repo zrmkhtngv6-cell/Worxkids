@@ -40,15 +40,10 @@
         </button>
       </div>
     </div>
-    <nav class="cats" aria-label="الأقسام">
-      <ul>
-        <li><a href="#shop" data-show="all">كل المنتجات</a></li>
-        <li><a href="#shop" data-show="climbing">تسلق وحركة</a></li>
-        <li><a href="#shop" data-show="pretend">لعب تخيلي</a></li>
-        <li><a href="#shop" data-show="baby">رضع وأطفال صغار</a></li>
-        <li><a href="#shop" data-show="furniture">أثاث لعب</a></li>
-        <li><a href="#shop" data-show="room">غرف الأطفال</a></li>
-        <li><a href="#custom">أماكن لعب حسب الطلب</a></li>
+    <nav class="cats" aria-label="أقسام المتجر">
+      <ul id="catsMenu">
+        <li><a href="#shop" data-nav="home">كل الأقسام</a></li>
+        <li class="cats__after"><a href="#custom">أماكن لعب حسب الطلب</a></li>
         <li><a href="#contact">تواصل معنا</a></li>
       </ul>
     </nav>
@@ -81,44 +76,33 @@
       </div>
     </section>
 
-    <!-- CATEGORIES -->
-    <section class="section section--white" id="categories">
-      <div class="container">
-        <div class="section__head">
-          <p class="eyebrow">تسوق حسب القسم</p>
-          <h2>شيء لكل مرحلة</h2>
-        </div>
-        <ul class="tiles">
-          <li><a href="#shop" data-show="climbing"><img src="assets/img/products/climbing-arch.svg" alt="" width="400" height="400" loading="lazy">تسلق وحركة</a></li>
-          <li><a href="#shop" data-show="pretend"><img src="assets/img/products/market-stall.svg" alt="" width="400" height="400" loading="lazy">لعب تخيلي</a></li>
-          <li><a href="#shop" data-show="baby"><img src="assets/img/products/activity-cube.svg" alt="" width="400" height="400" loading="lazy">رضع وأطفال صغار</a></li>
-          <li><a href="#shop" data-show="furniture"><img src="assets/img/products/easel.svg" alt="" width="400" height="400" loading="lazy">أثاث لعب</a></li>
-          <li><a href="#shop" data-show="room"><img src="assets/img/products/house-bed.svg" alt="" width="400" height="400" loading="lazy">غرف الأطفال</a></li>
-          <li><a href="#custom"><img src="assets/img/products/ball-pit.svg" alt="" width="400" height="400" loading="lazy">أماكن لعب حسب الطلب</a></li>
-        </ul>
-      </div>
-    </section>
-
     <!-- SHOP -->
-    <section class="section" id="shop">
+    <section class="section section--white" id="shop">
       <div class="container">
-        <div class="section__head">
-          <p class="eyebrow">منتجاتنا</p>
-          <h2>ألعاب خشبية وأثاث لعب</h2>
-          <p>أضف المنتجات إلى السلة، وادفع عبر إنستاباي، ويصلنا طلبك مباشرة على واتساب.</p>
-        </div>
-        <div class="toolbar">
-          <div class="filters" role="group" aria-label="تصفية المنتجات">
-            <button class="filter is-active" data-filter="all" aria-pressed="true">الكل</button>
-            <button class="filter" data-filter="climbing" aria-pressed="false">تسلق وحركة</button>
-            <button class="filter" data-filter="pretend" aria-pressed="false">لعب تخيلي</button>
-            <button class="filter" data-filter="baby" aria-pressed="false">رضع وأطفال صغار</button>
-            <button class="filter" data-filter="furniture" aria-pressed="false">أثاث لعب</button>
-            <button class="filter" data-filter="room" aria-pressed="false">غرف الأطفال</button>
+        <div id="shopHome">
+          <div class="section__head">
+            <p class="eyebrow">المتجر</p>
+            <h2>تسوق حسب القسم</h2>
+            <p>اختر قسماً لترى منتجاته. أضف إلى السلة، وادفع عبر إنستاباي، ويصلنا طلبك مباشرة على واتساب.</p>
           </div>
-          <p class="count" id="productCount" aria-live="polite"></p>
+          <ul class="sections" id="sections"></ul>
         </div>
-        <div class="products" id="products"></div>
+
+        <div id="shopSection" hidden>
+          <a href="#shop" class="crumb">› كل الأقسام</a>
+          <div class="sec-head">
+            <img id="secImg" src="" alt="" width="400" height="400">
+            <div>
+              <h2 id="secName" tabindex="-1"></h2>
+              <p class="count" id="productCount"></p>
+            </div>
+          </div>
+          <div class="products" id="products"></div>
+          <div class="sec-empty" id="secEmpty" hidden>
+            <p>منتجات جديدة قادمة إلى هذا القسم قريباً. أخبرنا بما تبحث عنه وسنساعدك في إيجاده.</p>
+            <a class="btn btn--orange" id="secAsk" target="_blank" rel="noopener">اسأل عبر واتساب</a>
+          </div>
+        </div>
       </div>
     </section>
 

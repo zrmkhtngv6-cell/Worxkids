@@ -24,9 +24,9 @@ Everything is in `products.js`, in English and Arabic:
 
 - `STORE.bank`, `STORE.accountName`, `STORE.accountNumber` — the bank account customers transfer to with InstaPay; `STORE.instapayLink` — optional InstaPay payment link
 - `STORE.deliveryCairo` / `STORE.deliveryOutsideCairo` — delivery fee in EGP, `0` for free, or `null` to confirm it on WhatsApp (currently free in Cairo, confirmed on WhatsApp outside)
-- `PRODUCTS` — one entry per product. `price: null` shows "Price on request" with an "Ask on WhatsApp" button instead of "Add to cart". `oldPrice` shows a crossed-out sale price.
+- `SECTIONS` — the shop sections (name, picture, order; `menu: true` puts a section in the menu under the logo)
+- `PRODUCTS` — one entry per product, with the `section` it belongs to. `price: null` shows "Price on request" with an "Ask on WhatsApp" button instead of "Add to cart". `oldPrice` shows a crossed-out sale price.
 - Photos go in `assets/img/products/` (square works best); list the file names in the product's `images` (first = main photo, second = hover photo).
-- Categories: `climbing`, `pretend`, `baby`, `furniture`, `room` (names in `CATEGORIES`).
 
 ## Arabic version
 
@@ -38,7 +38,7 @@ The script stops with an error if any English text it expects is missing.
 
 ## To do
 
-- Replace the illustrations with real product photos
+- Add products to each section (sections without products show "Coming soon")
 - Add prices in `products.js`
 - Review the product list and safety wording so it matches what WORX actually sells
 - Connect a domain (add a `CNAME` file) and add canonical / og:url / og:image tags

@@ -1,4 +1,4 @@
-// Store settings and products live in products.js (STORE, CATEGORIES, PRODUCTS)
+// Store settings and products live in products.js (STORE, SECTIONS, PRODUCTS)
 
 const lang = document.documentElement.lang === 'ar' ? 'ar' : 'en';
 
@@ -8,6 +8,8 @@ const STRINGS = {
     products: n => `${n} product${n === 1 ? '' : 's'}`,
     money: n => `${n.toLocaleString('en-US')} EGP`,
     priceOnRequest: 'Price on request',
+    comingSoon: 'Coming soon',
+    waSection: name => `Hello WORX Kids, I'm looking for something from ${name}. What do you have?`,
     addToCart: 'Add to cart',
     viewDetails: name => `View details: ${name}`,
     photo: n => `Photo ${n}`,
@@ -35,6 +37,8 @@ const STRINGS = {
     products: n => `${n} منتج`,
     money: n => `${n.toLocaleString('en-US')} ج.م`,
     priceOnRequest: 'السعر عند الطلب',
+    comingSoon: 'قريباً',
+    waSection: name => `مرحباً WORX Kids، أبحث عن منتج من قسم ${name}. ماذا لديكم؟`,
     addToCart: 'أضف إلى السلة',
     viewDetails: name => `عرض التفاصيل: ${name}`,
     photo: n => `صورة ${n}`,
@@ -82,21 +86,60 @@ const imgSrc = file => `assets/img/products/${esc(file)}`;
 const actionHtml = p => (forSale(p)
   ? `<button class="btn btn--orange product__add" data-id="${esc(p.id)}">${t.addToCart}</button>`
   : `<a class="btn btn--soft" href="${waLink(t.waAsk(p.name[lang]))}" target="_blank" rel="noopener">${t.askWhatsApp}</a>`);
-$('products').innerHTML = PRODUCTS.map(p => `
-  <article class="product" data-cat="${esc(p.cat)}">
+const cardHtml = p => `
+  <article class="product">
     <button type="button" class="product__img" data-open="${esc(p.id)}" aria-label="${esc(t.viewDetails(p.name[lang]))}">
       <img src="${imgSrc(p.images[0])}" alt="" width="400" height="400" loading="lazy">
       ${p.images[1] ? `<img class="product__img-alt" src="${imgSrc(p.images[1])}" alt="" width="400" height="400" loading="lazy">` : ''}
       ${p.badge ? `<span class="badge">${esc(p.badge[lang])}</span>` : ''}
     </button>
-    <p class="product__cat">${esc(CATEGORIES[p.cat][lang])}</p>
     <h3><button type="button" class="product__name" data-open="${esc(p.id)}">${esc(p.name[lang])}</button></h3>
     <p>${esc(p.desc[lang])}</p>
     <div class="product__foot">
       ${priceHtml(p)}
       ${actionHtml(p)}
     </div>
-  </article>`).join('');
+  </article>`;
+
+// ---------- Shop: section grid and section pages (#shop/<section id>) ----------
+const sectionById = Object.fromEntries(SECTIONS.map(s => [s.id, s]));
+const inSection = id => PRODUCTS.filter(p => p.section === id);
+const sectionCount = id => { const n = inSection(id).length; return n ? t.products(n) : t.comingSoon; };
+
+$('sections').innerHTML = SECTIONS.map(s => `
+  <li><a href="#shop/${esc(s.id)}" class="sec-tile">
+    <img src="${imgSrc(s.img)}" alt="" width="400" height="400" loading="lazy">
+    <span class="sec-tile__name">${esc(s.name[lang])}</span>
+    <span class="sec-tile__count">${sectionCount(s.id)}</span>
+  </a></li>`).join('');
+
+// Sections marked menu: true go in the menu under the logo
+$('catsMenu').querySelector('.cats__after').insertAdjacentHTML('beforebegin', SECTIONS.filter(s => s.menu)
+  .map(s => `<li><a href="#shop/${esc(s.id)}" data-nav="${esc(s.id)}">${esc(s.name[lang])}</a></li>`).join(''));
+
+const renderShop = () => {
+  const m = location.hash.match(/^#shop\/([\w-]+)/);
+  const sec = m && sectionById[m[1]];
+  $('shopHome').hidden = !!sec;
+  $('shopSection').hidden = !sec;
+  document.querySelectorAll('[data-nav]').forEach(l => l.classList.toggle('is-active', l.dataset.nav === (sec ? sec.id : location.hash === '#shop' ? 'home' : '')));
+  if (!sec) return false;
+  const items = inSection(sec.id);
+  $('secImg').src = imgSrc(sec.img);
+  $('secName').textContent = sec.name[lang];
+  $('productCount').textContent = sectionCount(sec.id);
+  $('products').innerHTML = items.map(cardHtml).join('');
+  $('secEmpty').hidden = items.length > 0;
+  $('secAsk').href = waLink(t.waSection(sec.name[lang]));
+  return true;
+};
+window.addEventListener('hashchange', () => {
+  if (renderShop()) {
+    $('shop').scrollIntoView();
+    $('secName').focus({ preventScroll: true });
+  }
+});
+renderShop();
 
 // ---------- Product details window ----------
 const modal = $('productModal');
@@ -108,7 +151,7 @@ const showPhoto = (p, i) => {
 const openProduct = id => {
   const p = byId[id];
   modalReturn = document.activeElement;
-  $('pmCat').textContent = CATEGORIES[p.cat][lang];
+  $('pmCat').textContent = sectionById[p.section].name[lang];
   $('pmName').textContent = p.name[lang];
   $('pmPrice').innerHTML = priceHtml(p);
   $('pmLong').textContent = (p.long || p.desc)[lang];
@@ -132,28 +175,6 @@ const closeProduct = () => {
 $('products').addEventListener('click', e => { const b = e.target.closest('[data-open]'); if (b) openProduct(b.dataset.open); });
 modal.querySelectorAll('[data-close-modal]').forEach(el => el.addEventListener('click', closeProduct));
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeProduct(); });
-
-// Product filters; category links (top menu and round tiles) jump to the shop with that filter on
-const products = [...document.querySelectorAll('.product')];
-const filters = [...document.querySelectorAll('.filter')];
-const catLinks = [...document.querySelectorAll('[data-show]')];
-const setFilter = cat => {
-  filters.forEach(b => {
-    const on = b.dataset.filter === cat;
-    b.classList.toggle('is-active', on);
-    b.setAttribute('aria-pressed', on);
-  });
-  let shown = 0;
-  products.forEach(p => {
-    p.hidden = cat !== 'all' && p.dataset.cat !== cat;
-    if (!p.hidden) shown++;
-  });
-  $('productCount').textContent = t.products(shown);
-  catLinks.forEach(l => l.classList.toggle('is-active', !!l.closest('.cats') && l.dataset.show === cat));
-};
-filters.forEach(b => b.addEventListener('click', () => setFilter(b.dataset.filter)));
-catLinks.forEach(l => l.addEventListener('click', () => setFilter(l.dataset.show)));
-setFilter('all');
 
 // ---------- Cart (kept in this browser between visits) ----------
 const CART_KEY = 'worxkids-cart';
@@ -332,7 +353,7 @@ const revealObserver = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.1 });
-document.querySelectorAll('.product, .tiles li, .custom__card, .checks li, .steps li, .section__head').forEach(el => {
+document.querySelectorAll('.sections li, .custom__card, .checks li, .steps li, .section__head').forEach(el => {
   el.classList.add('reveal');
   revealObserver.observe(el);
 });

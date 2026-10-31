@@ -40,15 +40,10 @@
         </button>
       </div>
     </div>
-    <nav class="cats" aria-label="Categories">
-      <ul>
-        <li><a href="#shop" data-show="all">Shop all</a></li>
-        <li><a href="#shop" data-show="climbing">Climbing &amp; Active</a></li>
-        <li><a href="#shop" data-show="pretend">Pretend Play</a></li>
-        <li><a href="#shop" data-show="baby">Baby &amp; Toddler</a></li>
-        <li><a href="#shop" data-show="furniture">Play Furniture</a></li>
-        <li><a href="#shop" data-show="room">Kids' Rooms</a></li>
-        <li><a href="#custom">Custom Play Areas</a></li>
+    <nav class="cats" aria-label="Shop sections">
+      <ul id="catsMenu">
+        <li><a href="#shop" data-nav="home">All sections</a></li>
+        <li class="cats__after"><a href="#custom">Custom Play Areas</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -81,44 +76,33 @@
       </div>
     </section>
 
-    <!-- CATEGORIES -->
-    <section class="section section--white" id="categories">
-      <div class="container">
-        <div class="section__head">
-          <p class="eyebrow">Shop by category</p>
-          <h2>Something for every stage</h2>
-        </div>
-        <ul class="tiles">
-          <li><a href="#shop" data-show="climbing"><img src="assets/img/products/climbing-arch.svg" alt="" width="400" height="400" loading="lazy">Climbing &amp; Active</a></li>
-          <li><a href="#shop" data-show="pretend"><img src="assets/img/products/market-stall.svg" alt="" width="400" height="400" loading="lazy">Pretend Play</a></li>
-          <li><a href="#shop" data-show="baby"><img src="assets/img/products/activity-cube.svg" alt="" width="400" height="400" loading="lazy">Baby &amp; Toddler</a></li>
-          <li><a href="#shop" data-show="furniture"><img src="assets/img/products/easel.svg" alt="" width="400" height="400" loading="lazy">Play Furniture</a></li>
-          <li><a href="#shop" data-show="room"><img src="assets/img/products/house-bed.svg" alt="" width="400" height="400" loading="lazy">Kids' Rooms</a></li>
-          <li><a href="#custom"><img src="assets/img/products/ball-pit.svg" alt="" width="400" height="400" loading="lazy">Custom Play Areas</a></li>
-        </ul>
-      </div>
-    </section>
-
     <!-- SHOP -->
-    <section class="section" id="shop">
+    <section class="section section--white" id="shop">
       <div class="container">
-        <div class="section__head">
-          <p class="eyebrow">Our products</p>
-          <h2>Wooden toys &amp; play furniture</h2>
-          <p>Add products to your cart, pay with InstaPay, and your order comes straight to us on WhatsApp.</p>
-        </div>
-        <div class="toolbar">
-          <div class="filters" role="group" aria-label="Filter products">
-            <button class="filter is-active" data-filter="all" aria-pressed="true">All</button>
-            <button class="filter" data-filter="climbing" aria-pressed="false">Climbing &amp; Active</button>
-            <button class="filter" data-filter="pretend" aria-pressed="false">Pretend Play</button>
-            <button class="filter" data-filter="baby" aria-pressed="false">Baby &amp; Toddler</button>
-            <button class="filter" data-filter="furniture" aria-pressed="false">Play Furniture</button>
-            <button class="filter" data-filter="room" aria-pressed="false">Kids' Rooms</button>
+        <div id="shopHome">
+          <div class="section__head">
+            <p class="eyebrow">Shop</p>
+            <h2>Shop by section</h2>
+            <p>Pick a section to see its products. Add to cart, pay with InstaPay, and your order comes straight to us on WhatsApp.</p>
           </div>
-          <p class="count" id="productCount" aria-live="polite"></p>
+          <ul class="sections" id="sections"></ul>
         </div>
-        <div class="products" id="products"></div>
+
+        <div id="shopSection" hidden>
+          <a href="#shop" class="crumb">‹ All sections</a>
+          <div class="sec-head">
+            <img id="secImg" src="" alt="" width="400" height="400">
+            <div>
+              <h2 id="secName" tabindex="-1"></h2>
+              <p class="count" id="productCount"></p>
+            </div>
+          </div>
+          <div class="products" id="products"></div>
+          <div class="sec-empty" id="secEmpty" hidden>
+            <p>New products are coming to this section soon. Tell us what you're looking for and we'll help you find it.</p>
+            <a class="btn btn--orange" id="secAsk" target="_blank" rel="noopener">Ask on WhatsApp</a>
+          </div>
+        </div>
       </div>
     </section>
 

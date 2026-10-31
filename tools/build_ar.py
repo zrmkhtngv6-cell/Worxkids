@@ -32,15 +32,8 @@ PAIRS = [
     ('<a href="ar.html" class="lang-switch" lang="ar" hreflang="ar">عربي</a>',
      '<a href="index.html" class="lang-switch" lang="en" hreflang="en">English</a>'),
     ('header__cta">Free Quote</a>', 'header__cta">عرض سعر مجاني</a>'),
-    ('aria-label="Categories"', 'aria-label="الأقسام"'),
-    ('>Shop all<', '>كل المنتجات<'),
 
     # Category names (menu, tiles, filters, product cards)
-    ('>Climbing &amp; Active<', '>تسلق وحركة<'),
-    ('>Pretend Play<', '>لعب تخيلي<'),
-    ('>Baby &amp; Toddler<', '>رضع وأطفال صغار<'),
-    ('>Play Furniture<', '>أثاث لعب<'),
-    (">Kids' Rooms<", '>غرف الأطفال<'),
     ('>Custom Play Areas<', '>أماكن لعب حسب الطلب<'),
     ('>Contact<', '>تواصل معنا<'),
 
@@ -59,17 +52,18 @@ PAIRS = [
     ('alt="Wooden play kitchen"', 'alt="مطبخ لعب خشبي"'),
     ('alt="Wooden dollhouse"', 'alt="بيت دمى خشبي"'),
 
-    # Categories section
-    ('<p class="eyebrow">Shop by category</p>', '<p class="eyebrow">تسوق حسب القسم</p>'),
-    ('<h2>Something for every stage</h2>', '<h2>شيء لكل مرحلة</h2>'),
 
     # Shop
-    ('<p class="eyebrow">Our products</p>', '<p class="eyebrow">منتجاتنا</p>'),
-    ('<h2>Wooden toys &amp; play furniture</h2>', '<h2>ألعاب خشبية وأثاث لعب</h2>'),
-    ('Add products to your cart, pay with InstaPay, and your order comes straight to us on WhatsApp.',
-     'أضف المنتجات إلى السلة، وادفع عبر إنستاباي، ويصلنا طلبك مباشرة على واتساب.'),
-    ('aria-label="Filter products"', 'aria-label="تصفية المنتجات"'),
-    ('aria-pressed="true">All</button>', 'aria-pressed="true">الكل</button>'),
+    ('aria-label="Shop sections"', 'aria-label="أقسام المتجر"'),
+    ('data-nav="home">All sections<', 'data-nav="home">كل الأقسام<'),
+    ('<p class="eyebrow">Shop</p>', '<p class="eyebrow">المتجر</p>'),
+    ('<h2>Shop by section</h2>', '<h2>تسوق حسب القسم</h2>'),
+    ('Pick a section to see its products. Add to cart, pay with InstaPay, and your order comes straight to us on WhatsApp.',
+     'اختر قسماً لترى منتجاته. أضف إلى السلة، وادفع عبر إنستاباي، ويصلنا طلبك مباشرة على واتساب.'),
+    ('>‹ All sections<', '>› كل الأقسام<'),
+    ("New products are coming to this section soon. Tell us what you're looking for and we'll help you find it.",
+     'منتجات جديدة قادمة إلى هذا القسم قريباً. أخبرنا بما تبحث عنه وسنساعدك في إيجاده.'),
+    ('id="secAsk" target="_blank" rel="noopener">Ask on WhatsApp<', 'id="secAsk" target="_blank" rel="noopener">اسأل عبر واتساب<'),
 
     # Custom
     ('<p class="eyebrow">Made to measure</p>', '<p class="eyebrow">حسب المقاس</p>'),
