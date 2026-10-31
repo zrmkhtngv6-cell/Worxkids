@@ -5,6 +5,7 @@ const lang = document.documentElement.lang === 'ar' ? 'ar' : 'en';
 // Text set from script, per page language (index.html = en, ar.html = ar)
 const STRINGS = {
   en: {
+    openMenu: 'Open menu', closeMenu: 'Close menu',
     products: n => `${n} product${n === 1 ? '' : 's'}`,
     money: n => `${n.toLocaleString('en-US')} EGP`,
     priceOnRequest: 'Price on request',
@@ -38,6 +39,7 @@ const STRINGS = {
     waName: 'Name', waPhone: 'Phone', waProject: 'Project', waAge: "Child's age", waMessage: 'Message',
   },
   ar: {
+    openMenu: 'فتح القائمة', closeMenu: 'إغلاق القائمة',
     products: n => `${n} منتج`,
     money: n => `${n.toLocaleString('en-US')} ج.م`,
     priceOnRequest: 'السعر عند الطلب',
@@ -78,6 +80,17 @@ const $ = id => document.getElementById(id);
 const byId = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
 const forSale = p => p && typeof p.price === 'number';
 
+// Menu button (small screens): opens the menu under the header
+const catsNav = $('catsNav');
+const navToggle = $('navToggle');
+const setMenu = open => {
+  catsNav.classList.toggle('is-open', open);
+  navToggle.setAttribute('aria-expanded', open);
+  navToggle.setAttribute('aria-label', open ? t.closeMenu : t.openMenu);
+};
+navToggle.addEventListener('click', () => setMenu(!catsNav.classList.contains('is-open')));
+catsNav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+
 // Header shadow on scroll
 const header = document.querySelector('.header');
 const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
@@ -92,7 +105,7 @@ const priceHtml = p => {
 };
 const imgSrc = file => `assets/img/products/${esc(file)}`;
 const actionHtml = p => (forSale(p)
-  ? `<button class="btn btn--orange product__add" data-id="${esc(p.id)}">${t.addToCart}</button>`
+  ? `<button class="btn btn--coral product__add" data-id="${esc(p.id)}">${t.addToCart}</button>`
   : `<a class="btn btn--soft" href="${waLink(t.waAsk(p.name[lang]))}" target="_blank" rel="noopener">${t.askWhatsApp}</a>`);
 const cardHtml = p => `
   <article class="product">

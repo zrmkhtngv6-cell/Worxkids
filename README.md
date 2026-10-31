@@ -7,7 +7,7 @@ Wooden toys, play furniture, kids' rooms and play areas by WORX. Static one-page
 - `styles.css` — styling
 - `products.js` — **store settings (WhatsApp, InstaPay address, delivery fee) and the product list with prices**
 - `script.js` — shop sections, product details, kids' rooms gallery, design-meeting booking, cart, checkout and quote form
-- `assets/img/logo.png` / `logo-white.png` — WORX Kids logo for light / dark backgrounds; `favicon.png` — browser tab icon
+- `assets/img/worx.png` / `worx-white.png` — WORX wordmark (the colourful "KIDS" next to it is styled text); `favicon.svg` — browser tab icon
 - `assets/img/products/` — product pictures (placeholder illustrations for now)
 
 ## How the store works

@@ -25,10 +25,37 @@ PAIRS = [
      'content="ألعاب تسلق، مطابخ لعب، بيوت دمى، أثاث أطفال وأماكن لعب حسب الطلب من WORX."'),
 
     # Top bar & header
-    ("<span class=\"topbar__label\">Free delivery in Cairo · Free quote on custom kids' rooms &amp; play areas</span><span class=\"topbar__short\">Free delivery in Cairo</span>",
-     '<span class="topbar__label">توصيل مجاني داخل القاهرة · عرض سعر مجاني لغرف الأطفال وأماكن اللعب</span><span class="topbar__short">توصيل مجاني داخل القاهرة</span>'),
+    ('<span class="topbar__label">Free delivery in Cairo · Call for a free quote</span><span class="topbar__short">Free quote</span>',
+     '<span class="topbar__label">توصيل مجاني داخل القاهرة · اتصل لعرض سعر مجاني</span><span class="topbar__short">عرض سعر مجاني</span>'),
+    ('aria-label="Open menu"', 'aria-label="فتح القائمة"'),
+
+    # Hero
+    ("<p class=\"eyebrow\">Kids' furniture · Play areas · New Cairo</p>",
+     '<p class="eyebrow">أثاث أطفال · أماكن لعب · القاهرة الجديدة</p>'),
+    ("<h1>Rooms they'll love. <em>Play they'll remember.</em></h1>",
+     '<h1>غرف يحبونها. <em>ولعب لا يُنسى.</em></h1>'),
+    ("Custom kids' rooms and play spaces, designed and built by WORX. Every piece is made to fit your space, sized for little ones and built to last through the big ones.",
+     'غرف أطفال وأماكن لعب حسب الطلب، من تصميم وتنفيذ WORX. كل قطعة مصنوعة لتناسب مساحتك، بمقاس الصغار ومتينة لتكبر معهم.'),
+    ('>Get a free quote</a>', '>احصل على عرض سعر مجاني</a>'),
+    ('>See what we make</a>', '>شاهد ما نصنعه</a>'),
+    ("aria-label=\"Illustration of a kids' loft bed with a slide, storage cubes and toy balls\"",
+     'aria-label="رسم لسرير أطفال علوي بزحليقة وصناديق تخزين وكرات"'),
+
+    # Two worlds
+    ('<p class="eyebrow eyebrow--sky">What we do</p>', '<p class="eyebrow eyebrow--sky">ماذا نقدم</p>'),
+    ('<h2>Two worlds, one workshop</h2>', '<h2>عالمان، وورشة واحدة</h2>'),
+    ('The same WORX team that builds custom kitchens and dressing rooms now makes spaces just for kids, with the same care and craftsmanship.',
+     'نفس فريق WORX الذي يصنع المطابخ وغرف الملابس حسب الطلب، يصنع الآن مساحات خاصة للأطفال بنفس الاهتمام والإتقان.'),
+    ("<h3>Kids' furniture</h3>", '<h3>أثاث الأطفال</h3>'),
+    ("Beds, bunk beds, wardrobes, desks and clever storage, made to measure for your child's room.",
+     'سراير، سراير دورين، دواليب، مكاتب وحلول تخزين ذكية، بمقاسات غرفة طفلك.'),
+    ('Explore furniture →', 'اكتشف الأثاث ←'),
+    ('<h3>Play areas</h3>', '<h3>أماكن اللعب</h3>'),
+    ('Playrooms, soft play, climbing walls and slides for homes, nurseries, clubs and businesses.',
+     'غرف لعب، سوفت بلاي، حوائط تسلق وزحاليق للبيوت والحضانات والنوادي والأماكن التجارية.'),
+    ('Explore play areas →', 'اكتشف أماكن اللعب ←'),
+
     ('aria-label="WORX Kids — home"', 'aria-label="WORX Kids — الرئيسية"'),
-    ('Play furniture &amp; play areas by the <strong>WORX</strong> workshop', 'أثاث وأماكن لعب من ورشة <strong>WORX</strong>'),
     ('<a href="ar.html" class="lang-switch" lang="ar" hreflang="ar">عربي</a>',
      '<a href="index.html" class="lang-switch" lang="en" hreflang="en">English</a>'),
     ('header__cta">Free Quote</a>', 'header__cta">عرض سعر مجاني</a>'),
@@ -38,19 +65,6 @@ PAIRS = [
     ('>Contact<', '>تواصل معنا<'),
 
     # Hero
-    ('<p class="eyebrow">WORX Kids · New Cairo</p>', '<p class="eyebrow">WORX Kids · القاهرة الجديدة</p>'),
-    ('<h1>Made for play, <em>built to last.</em></h1>', '<h1>مصنوعة للعب، <em>ومتينة لتدوم.</em></h1>'),
-    ("Wooden climbing sets, play kitchens, dollhouses and kids' furniture, plus custom kids' rooms and play areas designed around your space.",
-     'ألعاب تسلق خشبية، مطابخ لعب، بيوت دمى وأثاث أطفال، بالإضافة إلى غرف أطفال وأماكن لعب حسب الطلب مصممة لمساحتك.'),
-    ('>Shop products</a>', '>تسوق المنتجات</a>'),
-    (">Design a kids' room</a>", '>صمّم غرفة طفلك</a>'),
-    ('<li>Free delivery in Cairo</li>', '<li>توصيل مجاني داخل القاهرة</li>'),
-    ('<li>Pay with InstaPay</li>', '<li>ادفع عبر إنستاباي</li>'),
-    ('<li>Showroom in Park Mall</li>', '<li>معرض في بارك مول</li>'),
-    ('<li>Free quote on custom work</li>', '<li>عرض سعر مجاني للأعمال حسب الطلب</li>'),
-    ('alt="Wooden climbing triangle with ramp"', 'alt="مثلث تسلق خشبي مع منحدر"'),
-    ('alt="Wooden play kitchen"', 'alt="مطبخ لعب خشبي"'),
-    ('alt="Wooden dollhouse"', 'alt="بيت دمى خشبي"'),
 
 
     # Kids' rooms
