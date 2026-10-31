@@ -6,7 +6,7 @@ Wooden toys, play furniture, kids' rooms and play areas by WORX. Static one-page
 - `ar.html` — Arabic (right-to-left) page, generated from `index.html`
 - `styles.css` — styling
 - `products.js` — **store settings (WhatsApp, InstaPay address, delivery fee) and the product list with prices**
-- `script.js` — product grid, filters, cart, checkout and quote form
+- `script.js` — shop sections, product details, kids' rooms gallery, design-meeting booking, cart, checkout and quote form
 - `assets/img/logo.png` / `logo-white.png` — WORX Kids logo for light / dark backgrounds; `favicon.png` — browser tab icon
 - `assets/img/products/` — product pictures (placeholder illustrations for now)
 
@@ -25,6 +25,7 @@ Everything is in `products.js`, in English and Arabic:
 - `STORE.bank`, `STORE.accountName`, `STORE.accountNumber` — the bank account customers transfer to with InstaPay; `STORE.instapayLink` — optional InstaPay payment link
 - `STORE.deliveryCairo` / `STORE.deliveryOutsideCairo` — delivery fee in EGP, `0` for free, or `null` to confirm it on WhatsApp (currently free in Cairo, confirmed on WhatsApp outside)
 - `SECTIONS` — the shop sections (name, picture, order; `menu: true` puts a section in the menu under the logo)
+- `ROOMS` — the "Rooms we've designed" gallery: one entry per kids' room, photos in `assets/img/rooms/`. Empty = "photos coming soon".
 - `PRODUCTS` — one entry per product, with the `section` it belongs to. `price: null` shows "Price on request" with an "Ask on WhatsApp" button instead of "Add to cart". `oldPrice` shows a crossed-out sale price.
 - Photos go in `assets/img/products/` (square works best); list the file names in the product's `images` (first = main photo, second = hover photo).
 
@@ -38,6 +39,7 @@ The script stops with an error if any English text it expects is missing.
 
 ## To do
 
+- Add photos of kids' rooms WORX has made to `ROOMS`
 - Add products to each section (sections without products show "Coming soon")
 - Add prices in `products.js`
 - Review the product list and safety wording so it matches what WORX actually sells

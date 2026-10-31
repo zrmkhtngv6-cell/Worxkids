@@ -42,6 +42,7 @@
     </div>
     <nav class="cats" aria-label="Shop sections">
       <ul id="catsMenu">
+        <li><a href="#rooms">Kids' Rooms</a></li>
         <li><a href="#shop" data-nav="home">All sections</a></li>
         <li class="cats__after"><a href="#custom">Custom Play Areas</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -59,7 +60,7 @@
           <p class="lead">Wooden climbing sets, play kitchens, dollhouses and kids' furniture, plus custom kids' rooms and play areas designed around your space.</p>
           <div class="hero__actions">
             <a href="#shop" class="btn btn--orange">Shop products</a>
-            <a href="#custom" class="btn btn--outline">Custom rooms &amp; play areas</a>
+            <a href="#rooms" class="btn btn--outline">Design a kids' room</a>
           </div>
           <ul class="hero__points">
             <li>Free delivery in Cairo</li>
@@ -72,6 +73,69 @@
           <img src="assets/img/products/climbing-triangle.svg" alt="Wooden climbing triangle with ramp" width="400" height="400">
           <img src="assets/img/products/play-kitchen.svg" alt="Wooden play kitchen" width="400" height="400">
           <img src="assets/img/products/dollhouse.svg" alt="Wooden dollhouse" width="400" height="400">
+        </div>
+      </div>
+    </section>
+
+    <!-- KIDS' ROOMS -->
+    <section class="section" id="rooms">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">Kids' rooms &amp; furniture</p>
+          <h2>Rooms we've designed for kids</h2>
+          <p>Every room is designed and built by the WORX team to fit the child and the space. See some of our work, then book a meeting at our showroom to design yours.</p>
+        </div>
+        <ul class="rooms" id="roomsGallery"></ul>
+        <div class="rooms-empty" id="roomsEmpty" hidden>
+          <p>Photos of our kids' rooms are coming soon. Visit our showroom at Park Mall to see our work and materials in person.</p>
+        </div>
+
+        <div class="plan">
+          <div class="plan__info">
+            <h3>Design your child's room with us</h3>
+            <p>Meet our designers at our showroom in Park Mall. Bring your room measurements or a few photos, and we'll plan the room together: layout, colours, materials and price.</p>
+            <ul>
+              <li>Beds, bunk beds and loft beds</li>
+              <li>Wardrobes with low rails and adjustable shelves</li>
+              <li>Study desks, toy storage and reading corners</li>
+            </ul>
+            <p class="plan__where"><strong>Showroom:</strong> G 32 AB Park Mall, 90th St, New Cairo<br><strong>Open:</strong> every day, 12pm – 11:45pm</p>
+          </div>
+          <form class="form plan__form" id="bookForm">
+            <h3>Book a design meeting</h3>
+            <label>Name<input name="name" autocomplete="name" required></label>
+            <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+            <div class="form__row">
+              <label>Preferred day<input name="day" type="date" id="bookDay" required></label>
+              <label>Preferred time
+                <select name="time">
+                  <option>12pm – 3pm</option>
+                  <option>3pm – 6pm</option>
+                  <option>6pm – 9pm</option>
+                  <option>9pm – 11:45pm</option>
+                </select>
+              </label>
+            </div>
+            <label>The room is for
+              <select name="room">
+                <option>A baby (nursery)</option>
+                <option>One child</option>
+                <option>Siblings sharing a room</option>
+                <option>A teenager</option>
+              </select>
+            </label>
+            <label>Notes (optional)<textarea name="notes" rows="3" placeholder="Room size, children's ages, ideas..."></textarea></label>
+            <button type="submit" class="btn btn--orange btn--block">Book via WhatsApp</button>
+            <p class="form__note">We'll confirm your meeting time on WhatsApp.</p>
+          </form>
+        </div>
+
+        <div class="ready">
+          <div>
+            <h3>Ready-made kids' furniture</h3>
+            <p>Prefer something ready to order? Browse our beds, wardrobes and shelves.</p>
+          </div>
+          <ul class="ready__list" id="readyList"></ul>
         </div>
       </div>
     </section>
@@ -111,20 +175,10 @@
       <div class="container">
         <div class="section__head">
           <p class="eyebrow">Made to measure</p>
-          <h2>Custom kids' rooms &amp; play areas</h2>
-          <p>The WORX team that builds custom kitchens and dressing rooms designs and builds complete spaces for kids, made to fit your room.</p>
+          <h2>Custom play areas</h2>
+          <p>The WORX team that builds custom kitchens and dressing rooms also designs and builds play areas, made to fit your space.</p>
         </div>
         <div class="custom">
-          <div class="custom__card custom__card--rooms">
-            <h3>Kids' rooms</h3>
-            <p>A complete room planned around your child and your space.</p>
-            <ul>
-              <li>Beds, bunk beds and loft beds with slides or desks below</li>
-              <li>Wardrobes with low rails and adjustable shelves</li>
-              <li>Study desks, toy storage and reading corners</li>
-            </ul>
-            <a href="#contact" class="btn btn--orange">Plan a kids' room</a>
-          </div>
           <div class="custom__card custom__card--play">
             <h3>Play areas</h3>
             <p>From a playroom at home to a full indoor play zone for your business.</p>
@@ -224,7 +278,7 @@
           <label>What would you like?
             <select name="project" required>
               <option>A product from the shop</option>
-              <option>Kids' room furniture</option>
+              <option>A kids' room design</option>
               <option>Home playroom</option>
               <option>Play area for a business</option>
               <option>Something else</option>
@@ -337,6 +391,18 @@
         <p id="pmLong"></p>
         <ul class="modal__details" id="pmDetails"></ul>
         <div id="pmAction"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="roomModal" hidden>
+    <div class="drawer__backdrop" data-close-room></div>
+    <div class="modal__panel modal__panel--photo" role="dialog" aria-modal="true" aria-labelledby="rmTitle">
+      <button class="drawer__close modal__close" data-close-room aria-label="Close photos">×</button>
+      <div class="modal__gallery">
+        <img id="rmImg" alt="" width="900" height="900">
+        <div class="modal__thumbs" id="rmThumbs"></div>
+        <p class="rm-title" id="rmTitle"></p>
       </div>
     </div>
   </div>

@@ -31,6 +31,10 @@ const STRINGS = {
       paymentAsk: 'Payment: InstaPay (please send me your bank account details)',
       paymentAfter: 'Payment: InstaPay, after you confirm the delivery fee',
     },
+    booking: {
+      intro: "Hello WORX Kids, I'd like to book a meeting at your Park Mall showroom to design a kids' room.",
+      name: 'Name', phone: 'Phone', day: 'Preferred day', time: 'Preferred time', room: 'The room is for', notes: 'Notes',
+    },
     waName: 'Name', waPhone: 'Phone', waProject: 'Project', waAge: "Child's age", waMessage: 'Message',
   },
   ar: {
@@ -59,6 +63,10 @@ const STRINGS = {
       payment: bank => `الدفع: تحويل إنستاباي إلى حساب ${bank} (مرفق صورة التحويل)`,
       paymentAsk: 'الدفع: إنستاباي (برجاء إرسال بيانات الحساب البنكي)',
       paymentAfter: 'الدفع: إنستاباي، بعد تأكيد رسوم التوصيل',
+    },
+    booking: {
+      intro: 'مرحباً WORX Kids، أود حجز موعد في معرضكم ببارك مول لتصميم غرفة أطفال.',
+      name: 'الاسم', phone: 'الهاتف', day: 'اليوم المفضل', time: 'الوقت المفضل', room: 'الغرفة لـ', notes: 'ملاحظات',
     },
     waName: 'الاسم', waPhone: 'الهاتف', waProject: 'المشروع', waAge: 'عمر الطفل', waMessage: 'الرسالة',
   },
@@ -140,6 +148,70 @@ window.addEventListener('hashchange', () => {
   }
 });
 renderShop();
+
+// ---------- Kids' rooms: gallery, ready-made furniture, design meeting ----------
+const roomSrc = file => `assets/img/rooms/${esc(file)}`;
+$('roomsGallery').innerHTML = ROOMS.map((r, i) => `
+  <li><button type="button" class="room" data-room="${i}">
+    <img src="${roomSrc(r.images[0])}" alt="" width="600" height="600" loading="lazy">
+    <span class="room__title">${esc(r.title[lang])}</span>
+  </button></li>`).join('');
+$('roomsGallery').hidden = !ROOMS.length;
+$('roomsEmpty').hidden = ROOMS.length > 0;
+
+const roomModal = $('roomModal');
+let roomReturn = null;
+const openRoom = i => {
+  const r = ROOMS[i];
+  const show = j => {
+    $('rmImg').src = roomSrc(r.images[j]);
+    $('rmThumbs').querySelectorAll('button').forEach((b, k) => b.classList.toggle('is-active', k === j));
+  };
+  roomReturn = document.activeElement;
+  $('rmTitle').textContent = r.title[lang];
+  $('rmThumbs').innerHTML = r.images.length > 1
+    ? r.images.map((f, j) => `<button type="button" data-photo="${j}" aria-label="${t.photo(j + 1)}"><img src="${roomSrc(f)}" alt="" width="72" height="72"></button>`).join('')
+    : '';
+  $('rmThumbs').onclick = e => { const b = e.target.closest('[data-photo]'); if (b) show(Number(b.dataset.photo)); };
+  show(0);
+  roomModal.hidden = false;
+  document.body.style.overflow = 'hidden';
+  roomModal.querySelector('.modal__close').focus();
+};
+const closeRoom = () => {
+  roomModal.hidden = true;
+  document.body.style.overflow = '';
+  if (roomReturn) roomReturn.focus();
+};
+$('roomsGallery').addEventListener('click', e => { const b = e.target.closest('[data-room]'); if (b) openRoom(Number(b.dataset.room)); });
+roomModal.querySelectorAll('[data-close-room]').forEach(el => el.addEventListener('click', closeRoom));
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !roomModal.hidden) closeRoom(); });
+
+$('readyList').innerHTML = SECTIONS.filter(s => s.furniture).map(s => `
+  <li><a href="#shop/${esc(s.id)}" class="ready__item">
+    <img src="${imgSrc(s.img)}" alt="" width="80" height="80" loading="lazy">
+    <span><strong>${esc(s.name[lang])}</strong><small>${sectionCount(s.id)}</small></span>
+  </a></li>`).join('');
+
+// Design meeting: earliest day is today
+const today = new Date();
+$('bookDay').min = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+$('bookForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const data = new FormData(e.target);
+  const day = new Date(data.get('day') + 'T12:00').toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+  const b = t.booking;
+  const lines = [
+    b.intro,
+    `${b.name}: ${data.get('name')}`,
+    `${b.phone}: ${data.get('phone')}`,
+    `${b.day}: ${day}`,
+    `${b.time}: ${data.get('time')}`,
+    `${b.room}: ${data.get('room')}`,
+    data.get('notes') ? `${b.notes}: ${data.get('notes')}` : null,
+  ].filter(l => l !== null);
+  window.open(waLink(lines.join('\n')), '_blank', 'noopener');
+});
 
 // ---------- Product details window ----------
 const modal = $('productModal');
@@ -353,7 +425,7 @@ const revealObserver = new IntersectionObserver(entries => {
     }
   });
 }, { threshold: 0.1 });
-document.querySelectorAll('.sections li, .custom__card, .checks li, .steps li, .section__head').forEach(el => {
+document.querySelectorAll('.sections li, .rooms li, .plan, .ready, .custom__card, .checks li, .steps li, .section__head').forEach(el => {
   el.classList.add('reveal');
   revealObserver.observe(el);
 });

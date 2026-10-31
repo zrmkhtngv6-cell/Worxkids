@@ -42,6 +42,7 @@
     </div>
     <nav class="cats" aria-label="أقسام المتجر">
       <ul id="catsMenu">
+        <li><a href="#rooms">غرف الأطفال</a></li>
         <li><a href="#shop" data-nav="home">كل الأقسام</a></li>
         <li class="cats__after"><a href="#custom">أماكن لعب حسب الطلب</a></li>
         <li><a href="#contact">تواصل معنا</a></li>
@@ -59,7 +60,7 @@
           <p class="lead">ألعاب تسلق خشبية، مطابخ لعب، بيوت دمى وأثاث أطفال، بالإضافة إلى غرف أطفال وأماكن لعب حسب الطلب مصممة لمساحتك.</p>
           <div class="hero__actions">
             <a href="#shop" class="btn btn--orange">تسوق المنتجات</a>
-            <a href="#custom" class="btn btn--outline">غرف وأماكن لعب حسب الطلب</a>
+            <a href="#rooms" class="btn btn--outline">صمّم غرفة طفلك</a>
           </div>
           <ul class="hero__points">
             <li>توصيل مجاني داخل القاهرة</li>
@@ -72,6 +73,69 @@
           <img src="assets/img/products/climbing-triangle.svg" alt="مثلث تسلق خشبي مع منحدر" width="400" height="400">
           <img src="assets/img/products/play-kitchen.svg" alt="مطبخ لعب خشبي" width="400" height="400">
           <img src="assets/img/products/dollhouse.svg" alt="بيت دمى خشبي" width="400" height="400">
+        </div>
+      </div>
+    </section>
+
+    <!-- KIDS' ROOMS -->
+    <section class="section" id="rooms">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow">غرف وأثاث الأطفال</p>
+          <h2>غرف صممناها للأطفال</h2>
+          <p>كل غرفة يصممها وينفذها فريق WORX لتناسب الطفل والمساحة. شاهد بعض أعمالنا، ثم احجز موعداً في معرضنا لتصميم غرفتك.</p>
+        </div>
+        <ul class="rooms" id="roomsGallery"></ul>
+        <div class="rooms-empty" id="roomsEmpty" hidden>
+          <p>صور غرف الأطفال التي نفذناها قريباً. زر معرضنا في بارك مول لترى أعمالنا والخامات بنفسك.</p>
+        </div>
+
+        <div class="plan">
+          <div class="plan__info">
+            <h3>صمّم غرفة طفلك معنا</h3>
+            <p>قابل مصممينا في معرضنا ببارك مول. أحضر مقاسات الغرفة أو بعض الصور، وسنخطط الغرفة معاً: التوزيع والألوان والخامات والسعر.</p>
+            <ul>
+              <li>سراير، سراير دورين وسراير علوية</li>
+              <li>دواليب بشماعات منخفضة ورفوف قابلة للتعديل</li>
+              <li>مكاتب مذاكرة، تخزين ألعاب وأركان قراءة</li>
+            </ul>
+            <p class="plan__where"><strong>المعرض:</strong> G 32 AB بارك مول، شارع التسعين، القاهرة الجديدة<br><strong>المواعيد:</strong> يومياً، ١٢ ظهراً – ١١:٤٥ مساءً</p>
+          </div>
+          <form class="form plan__form" id="bookForm">
+            <h3>احجز موعد تصميم</h3>
+            <label>الاسم<input name="name" autocomplete="name" required></label>
+            <label>الهاتف<input name="phone" type="tel" autocomplete="tel" required></label>
+            <div class="form__row">
+              <label>اليوم المفضل<input name="day" type="date" id="bookDay" required></label>
+              <label>الوقت المفضل
+                <select name="time">
+                  <option>١٢ ظهراً – ٣ عصراً</option>
+                  <option>٣ عصراً – ٦ مساءً</option>
+                  <option>٦ – ٩ مساءً</option>
+                  <option>٩ – ١١:٤٥ مساءً</option>
+                </select>
+              </label>
+            </div>
+            <label>الغرفة لـ
+              <select name="room">
+                <option>رضيع (غرفة مولود)</option>
+                <option>طفل واحد</option>
+                <option>إخوة في غرفة واحدة</option>
+                <option>مراهق</option>
+              </select>
+            </label>
+            <label>ملاحظات (اختياري)<textarea name="notes" rows="3" placeholder="مساحة الغرفة، أعمار الأطفال، أفكارك..."></textarea></label>
+            <button type="submit" class="btn btn--orange btn--block">احجز عبر واتساب</button>
+            <p class="form__note">سنؤكد موعدك على واتساب.</p>
+          </form>
+        </div>
+
+        <div class="ready">
+          <div>
+            <h3>أثاث أطفال جاهز</h3>
+            <p>تفضّل قطعاً جاهزة للطلب؟ تصفح السراير والدواليب والرفوف.</p>
+          </div>
+          <ul class="ready__list" id="readyList"></ul>
         </div>
       </div>
     </section>
@@ -111,20 +175,10 @@
       <div class="container">
         <div class="section__head">
           <p class="eyebrow">حسب المقاس</p>
-          <h2>غرف أطفال وأماكن لعب حسب الطلب</h2>
-          <p>فريق WORX الذي يصنع المطابخ وغرف الملابس حسب الطلب يصمم وينفذ مساحات كاملة للأطفال، مصنوعة لتناسب غرفتك.</p>
+          <h2>أماكن لعب حسب الطلب</h2>
+          <p>فريق WORX الذي يصنع المطابخ وغرف الملابس حسب الطلب يصمم وينفذ أيضاً أماكن اللعب، مصنوعة لتناسب مساحتك.</p>
         </div>
         <div class="custom">
-          <div class="custom__card custom__card--rooms">
-            <h3>غرف الأطفال</h3>
-            <p>غرفة كاملة مخططة حول طفلك ومساحتك.</p>
-            <ul>
-              <li>سراير، سراير دورين وسراير علوية بزحليقة أو مكتب أسفلها</li>
-              <li>دواليب بشماعات منخفضة ورفوف قابلة للتعديل</li>
-              <li>مكاتب مذاكرة، تخزين ألعاب وأركان قراءة</li>
-            </ul>
-            <a href="#contact" class="btn btn--orange">خطط غرفة طفلك</a>
-          </div>
           <div class="custom__card custom__card--play">
             <h3>أماكن اللعب</h3>
             <p>من غرفة لعب في البيت إلى منطقة لعب داخلية كاملة لمشروعك.</p>
@@ -224,7 +278,7 @@
           <label>ماذا تحتاج؟
             <select name="project" required>
               <option>منتج من المتجر</option>
-              <option>أثاث غرفة أطفال</option>
+              <option>تصميم غرفة أطفال</option>
               <option>غرفة لعب منزلية</option>
               <option>مكان لعب لمشروع تجاري</option>
               <option>شيء آخر</option>
@@ -337,6 +391,18 @@
         <p id="pmLong"></p>
         <ul class="modal__details" id="pmDetails"></ul>
         <div id="pmAction"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="roomModal" hidden>
+    <div class="drawer__backdrop" data-close-room></div>
+    <div class="modal__panel modal__panel--photo" role="dialog" aria-modal="true" aria-labelledby="rmTitle">
+      <button class="drawer__close modal__close" data-close-room aria-label="إغلاق الصور">×</button>
+      <div class="modal__gallery">
+        <img id="rmImg" alt="" width="900" height="900">
+        <div class="modal__thumbs" id="rmThumbs"></div>
+        <p class="rm-title" id="rmTitle"></p>
       </div>
     </div>
   </div>
