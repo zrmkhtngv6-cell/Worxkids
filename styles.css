@@ -52,19 +52,15 @@ h3 { font-size: 1.15rem; }
 
 .header { position: sticky; top: 0; z-index: 50; background: var(--cream); transition: box-shadow .2s; }
 .header.is-scrolled { box-shadow: 0 4px 20px rgba(0,0,0,.06); }
-.header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 74px; }
+.header__inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 82px; }
 .header__brand { display: flex; align-items: center; gap: 1.5rem; }
 .tagline { margin: 0; font: 400 .95rem var(--head); color: var(--ink-soft); }
 .tagline strong { font-weight: 600; color: var(--ink); }
 @media (max-width: 900px) { .tagline { display: none; } }
 
 .logo { direction: ltr; display: flex; align-items: center; gap: .5rem; text-decoration: none; }
-.logo img { height: 28px; width: auto; }
-.logo__kids { font: 700 1.25rem/1 "Poppins", sans-serif; letter-spacing: .06em; display: flex; transform: translateY(1px); }
-.logo__kids span:nth-child(1) { color: var(--orange); }
-.logo__kids span:nth-child(2) { color: #e9b44c; }
-.logo__kids span:nth-child(3) { color: #6aa3c8; }
-.logo__kids span:nth-child(4) { color: #7fae8c; }
+.logo img { height: 52px; width: auto; }
+.footer .logo img { height: 64px; }
 
 .header__tools { display: flex; align-items: center; gap: .75rem; }
 .lang-switch { text-decoration: none; font-weight: 700; padding: .45rem .9rem; border: 1.5px solid var(--line); border-radius: 999px; transition: border-color .2s; }

@@ -6,6 +6,7 @@ Wooden toys, play furniture, kids' rooms and play areas by WORX. Static one-page
 - `ar.html` — Arabic (right-to-left) page, generated from `index.html`
 - `styles.css` — styling
 - `script.js` — product filters, "Order on WhatsApp" buttons, quote form (`WHATSAPP_NUMBER` at the top)
+- `assets/img/logo.png` / `logo-white.png` — WORX Kids logo for light / dark backgrounds; `favicon.png` — browser tab icon
 - `assets/img/products/` — product pictures (placeholder illustrations for now)
 
 ## Products
