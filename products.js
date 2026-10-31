@@ -7,8 +7,10 @@
 const STORE = {
   // WhatsApp number that receives orders (international format, digits only)
   whatsapp: '201117776589',
-  // Your InstaPay address (e.g. 'worxkids@instapay'). Leave empty to send it on WhatsApp instead.
-  instapay: '',
+  // Bank account customers transfer to with InstaPay. Leave accountNumber empty to send the details on WhatsApp instead.
+  bank: 'EBank',
+  accountName: 'WORX',
+  accountNumber: '2020302314501016',
   // Optional InstaPay payment link (starts with https://ipn.eg/...). Leave empty if you don't have one.
   instapayLink: '',
   // Delivery fee in EGP. Set to null if it depends on the area and you'll confirm it on WhatsApp.

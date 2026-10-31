@@ -204,7 +204,7 @@
         </div>
         <div class="faq">
           <details><summary>How do I order a product?</summary><p>Add products to your cart and tap Checkout. Enter your delivery details, pay the total with InstaPay, then tap "Send order". Your order opens in WhatsApp, where you attach the payment screenshot and send it to us.</p></details>
-          <details><summary>How do I pay?</summary><p>We accept InstaPay. The total and our InstaPay address are shown at checkout. We confirm your order as soon as we receive the payment.</p></details>
+          <details><summary>How do I pay?</summary><p>We accept InstaPay transfers to our bank account. The total and the account details are shown at checkout. We confirm your order as soon as we receive the payment.</p></details>
           <details><summary>Can I see the products before buying?</summary><p>Yes. You're welcome to visit our showroom in Park Mall, New Cairo. Message us first to check what's on display.</p></details>
           <details><summary>Can you make a product in a different size or colour?</summary><p>Often, yes. Tell us what you need and we'll let you know what's possible.</p></details>
           <details><summary>Do you build play areas for businesses?</summary><p>Yes. We design and build play areas for nurseries, schools, clubs, restaurants, clinics and more. Send us your space and we'll suggest a plan.</p></details>
@@ -294,12 +294,13 @@
 
           <div class="pay">
             <h3>Pay with InstaPay</h3>
-            <p><strong>1.</strong> Send <strong class="js-total"></strong> with InstaPay to:</p>
-            <div class="pay__address" id="payAddressBox">
-              <code id="payAddress" dir="ltr"></code>
-              <button type="button" class="btn btn--soft" id="copyAddress">Copy</button>
-            </div>
-            <p class="pay__missing" id="payMissing">We'll send you our InstaPay address on WhatsApp.</p>
+            <p><strong>1.</strong> Open InstaPay and transfer <strong class="js-total"></strong> to this bank account:</p>
+            <dl class="pay__account" id="payAccount">
+              <div><dt>Bank</dt><dd id="payBank"></dd></div>
+              <div><dt>Account name</dt><dd id="payName"></dd></div>
+              <div><dt>Account number</dt><dd class="pay__number"><code id="payNumber" dir="ltr"></code><button type="button" class="btn btn--soft" id="copyNumber">Copy</button></dd></div>
+            </dl>
+            <p class="pay__missing" id="payMissing">We'll send you our bank account details on WhatsApp.</p>
             <a class="btn btn--outline btn--block" id="payLink" target="_blank" rel="noopener" hidden>Open InstaPay payment link</a>
             <p><strong>2.</strong> Tap "Send order" and attach your payment screenshot in WhatsApp.</p>
           </div>

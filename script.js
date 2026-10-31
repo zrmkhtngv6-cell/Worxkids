@@ -22,8 +22,8 @@ const STRINGS = {
       title: id => `New order ${id}`,
       subtotal: 'Subtotal', delivery: 'Delivery', total: 'Total',
       name: 'Name', phone: 'Phone', area: 'City / area', address: 'Address', notes: 'Notes',
-      payment: 'Payment: InstaPay (screenshot attached)',
-      paymentAsk: 'Payment: InstaPay (please send me your InstaPay address)',
+      payment: bank => `Payment: InstaPay transfer to the ${bank} account (screenshot attached)`,
+      paymentAsk: 'Payment: InstaPay (please send me your bank account details)',
     },
     waName: 'Name', waPhone: 'Phone', waProject: 'Project', waAge: "Child's age", waMessage: 'Message',
   },
@@ -45,8 +45,8 @@ const STRINGS = {
       title: id => `طلب جديد ${id}`,
       subtotal: 'المجموع', delivery: 'التوصيل', total: 'الإجمالي',
       name: 'الاسم', phone: 'الهاتف', area: 'المدينة / المنطقة', address: 'العنوان', notes: 'ملاحظات',
-      payment: 'الدفع: إنستاباي (مرفق صورة التحويل)',
-      paymentAsk: 'الدفع: إنستاباي (برجاء إرسال عنوان إنستاباي)',
+      payment: bank => `الدفع: تحويل إنستاباي إلى حساب ${bank} (مرفق صورة التحويل)`,
+      paymentAsk: 'الدفع: إنستاباي (برجاء إرسال بيانات الحساب البنكي)',
     },
     waName: 'الاسم', waPhone: 'الهاتف', waProject: 'المشروع', waAge: 'عمر الطفل', waMessage: 'الرسالة',
   },
@@ -205,18 +205,20 @@ $('cartItems').addEventListener('click', e => {
 });
 
 // ---------- Checkout ----------
-if (STORE.instapay) {
-  $('payAddress').textContent = STORE.instapay;
+if (STORE.accountNumber) {
+  $('payBank').textContent = STORE.bank;
+  $('payName').textContent = STORE.accountName;
+  $('payNumber').textContent = STORE.accountNumber;
   $('payMissing').hidden = true;
 } else {
-  $('payAddressBox').hidden = true;
+  $('payAccount').hidden = true;
 }
 if (STORE.instapayLink) {
   $('payLink').href = STORE.instapayLink;
   $('payLink').hidden = false;
 }
-$('copyAddress').addEventListener('click', async () => {
-  try { await navigator.clipboard.writeText(STORE.instapay); toast(t.copied); } catch { /* clipboard not allowed: address is still visible */ }
+$('copyNumber').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(STORE.accountNumber); toast(t.copied); } catch { /* clipboard not allowed: number is still visible */ }
 });
 
 $('toCheckout').addEventListener('click', () => {
@@ -245,7 +247,7 @@ views.checkout.addEventListener('submit', e => {
     `${o.address}: ${data.get('address')}`,
     data.get('notes') ? `${o.notes}: ${data.get('notes')}` : null,
     '',
-    STORE.instapay ? o.payment : o.paymentAsk,
+    STORE.accountNumber ? o.payment(STORE.bank) : o.paymentAsk,
   ].filter(l => l !== null);
   const link = waLink(lines.join('\n'));
   window.open(link, '_blank', 'noopener');

@@ -253,10 +253,14 @@ h3 { font-size: 1.15rem; }
 .link-btn:hover { color: var(--ink); text-decoration: underline; }
 .pay { background: var(--cream); border-radius: 12px; padding: 1.1rem 1.2rem; display: grid; gap: .7rem; margin-top: .4rem; }
 .pay p { margin: 0; }
-.pay__address { display: flex; align-items: center; justify-content: space-between; gap: .8rem; background: #fff; border: 1.5px dashed var(--sand); border-radius: 8px; padding: .5rem .5rem .5rem .9rem; }
-.pay__address[hidden] { display: none; }
-.pay__address code { font: 600 1rem var(--head); word-break: break-all; }
-.pay__address .btn { padding: .6rem .9rem; }
+.pay__account { margin: 0; background: #fff; border: 1.5px dashed var(--sand); border-radius: 8px; padding: .4rem .9rem; }
+.pay__account > div { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .45rem 0; }
+.pay__account > div + div { border-top: 1px solid var(--line); }
+.pay__account dt { color: var(--ink-soft); font-size: .9rem; }
+.pay__account dd { margin: 0; font: 600 1rem var(--head); text-align: end; }
+.pay__number { display: flex; align-items: center; gap: .5rem; }
+.pay__number code { font: 600 1.02rem var(--head); letter-spacing: .02em; }
+.pay__number .btn { padding: .5rem .8rem; font-size: .85rem; }
 .pay__missing { color: var(--ink-soft); font-style: italic; }
 
 .done { text-align: center; padding: 2rem 0; }

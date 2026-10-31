@@ -204,7 +204,7 @@
         </div>
         <div class="faq">
           <details><summary>كيف أطلب منتجاً؟</summary><p>أضف المنتجات إلى السلة واضغط "إتمام الطلب". أدخل بيانات التوصيل، وادفع الإجمالي عبر إنستاباي، ثم اضغط "أرسل الطلب". سيفتح طلبك في واتساب، أرفق صورة التحويل وأرسله لنا.</p></details>
-          <details><summary>كيف أدفع؟</summary><p>نقبل الدفع عبر إنستاباي. يظهر الإجمالي وعنوان إنستاباي الخاص بنا عند إتمام الطلب، ونؤكد طلبك فور استلام التحويل.</p></details>
+          <details><summary>كيف أدفع؟</summary><p>نقبل التحويل عبر إنستاباي إلى حسابنا البنكي. يظهر الإجمالي وبيانات الحساب عند إتمام الطلب، ونؤكد طلبك فور استلام التحويل.</p></details>
           <details><summary>هل يمكنني رؤية المنتجات قبل الشراء؟</summary><p>نعم. يسعدنا زيارتك لمعرضنا في بارك مول، القاهرة الجديدة. راسلنا أولاً لنخبرك بالمعروض.</p></details>
           <details><summary>هل يمكن تنفيذ منتج بمقاس أو لون مختلف؟</summary><p>غالباً نعم. أخبرنا بما تحتاجه وسنخبرك بالممكن.</p></details>
           <details><summary>هل تنفذون أماكن لعب للأماكن التجارية؟</summary><p>نعم. نصمم وننفذ أماكن لعب للحضانات والمدارس والنوادي والمطاعم والعيادات وغيرها. أرسل لنا تفاصيل المساحة وسنقترح عليك خطة.</p></details>
@@ -294,12 +294,13 @@
 
           <div class="pay">
             <h3>الدفع عبر إنستاباي</h3>
-            <p><strong>١.</strong> حوّل <strong class="js-total"></strong> عبر إنستاباي إلى:</p>
-            <div class="pay__address" id="payAddressBox">
-              <code id="payAddress" dir="ltr"></code>
-              <button type="button" class="btn btn--soft" id="copyAddress">نسخ</button>
-            </div>
-            <p class="pay__missing" id="payMissing">سنرسل لك عنوان إنستاباي الخاص بنا على واتساب.</p>
+            <p><strong>١.</strong> افتح إنستاباي وحوّل <strong class="js-total"></strong> إلى هذا الحساب البنكي:</p>
+            <dl class="pay__account" id="payAccount">
+              <div><dt>البنك</dt><dd id="payBank"></dd></div>
+              <div><dt>اسم الحساب</dt><dd id="payName"></dd></div>
+              <div><dt>رقم الحساب</dt><dd class="pay__number"><code id="payNumber" dir="ltr"></code><button type="button" class="btn btn--soft" id="copyNumber">نسخ</button></dd></div>
+            </dl>
+            <p class="pay__missing" id="payMissing">سنرسل لك بيانات الحساب البنكي على واتساب.</p>
             <a class="btn btn--outline btn--block" id="payLink" target="_blank" rel="noopener" hidden>افتح رابط الدفع في إنستاباي</a>
             <p><strong>٢.</strong> اضغط "أرسل الطلب" وأرفق صورة التحويل في واتساب.</p>
           </div>
