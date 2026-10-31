@@ -25,6 +25,7 @@ const STRINGS = {
       name: 'Name', phone: 'Phone', zone: 'Delivery to', area: 'Area', address: 'Address', notes: 'Notes',
       payment: bank => `Payment: InstaPay transfer to the ${bank} account (screenshot attached)`,
       paymentAsk: 'Payment: InstaPay (please send me your bank account details)',
+      paymentAfter: 'Payment: InstaPay, after you confirm the delivery fee',
     },
     waName: 'Name', waPhone: 'Phone', waProject: 'Project', waAge: "Child's age", waMessage: 'Message',
   },
@@ -49,6 +50,7 @@ const STRINGS = {
       name: 'الاسم', phone: 'الهاتف', zone: 'التوصيل إلى', area: 'المنطقة', address: 'العنوان', notes: 'ملاحظات',
       payment: bank => `الدفع: تحويل إنستاباي إلى حساب ${bank} (مرفق صورة التحويل)`,
       paymentAsk: 'الدفع: إنستاباي (برجاء إرسال بيانات الحساب البنكي)',
+      paymentAfter: 'الدفع: إنستاباي، بعد تأكيد رسوم التوصيل',
     },
     waName: 'الاسم', waPhone: 'الهاتف', waProject: 'المشروع', waAge: 'عمر الطفل', waMessage: 'الرسالة',
   },
@@ -158,6 +160,9 @@ function renderCart() {
   // In the cart (before a zone is chosen) show the Cairo offer
   $('delivery').textContent = views.checkout.hidden && STORE.deliveryCairo === 0 ? t.freeCairo : deliveryText();
   document.querySelectorAll('.js-total').forEach(el => { el.textContent = totalText(); });
+  // Delivery fee not known yet (outside Cairo): order first, pay after we confirm the fee
+  const payMode = deliveryKnown() ? 'now' : 'later';
+  document.querySelectorAll('[data-pay]').forEach(el => { el.hidden = el.dataset.pay !== payMode; });
   // Emptied the cart while checking out: go back to the (empty) cart
   if (!lines.length && !views.checkout.hidden) showView('cart');
   else if (views.done.hidden) $('cartFoot').hidden = !lines.length;
@@ -256,11 +261,11 @@ views.checkout.addEventListener('submit', e => {
     `${o.address}: ${data.get('address')}`,
     data.get('notes') ? `${o.notes}: ${data.get('notes')}` : null,
     '',
-    STORE.accountNumber ? o.payment(STORE.bank) : o.paymentAsk,
+    !deliveryKnown() ? o.paymentAfter : STORE.accountNumber ? o.payment(STORE.bank) : o.paymentAsk,
   ].filter(l => l !== null);
   const link = waLink(lines.join('\n'));
   window.open(link, '_blank', 'noopener');
-  $('orderId').textContent = id;
+  document.querySelectorAll('.js-order-id').forEach(el => { el.textContent = id; });
   $('orderResend').href = link;
   cart = {};
   saveCart();
