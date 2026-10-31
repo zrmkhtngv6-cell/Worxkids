@@ -160,7 +160,8 @@ window.addEventListener('hashchange', () => {
     $('secName').focus({ preventScroll: true });
   }
 });
-renderShop();
+// Opening a shared section link (…#shop/shelves) goes straight to that section
+if (renderShop()) requestAnimationFrame(() => $('shop').scrollIntoView());
 
 // ---------- Kids' rooms: gallery, ready-made furniture, design meeting ----------
 const roomSrc = file => `assets/img/rooms/${esc(file)}`;

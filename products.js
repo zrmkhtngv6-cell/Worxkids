@@ -66,6 +66,24 @@ const PRODUCTS = [
       ar: ['المقاس (واقف): ارتفاع 65 سم × عرض 24.5 سم', 'خشب طبيعي بتشطيب ناعم', '4 رفوف منحنية للكتب والألعاب والأشياء الصغيرة', 'يُستخدم واقفاً على الأرض أو معلقاً على الحائط', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    id: 'house-of-books', section: 'shelves', price: 2000,
+    images: ['house-of-books.jpg', 'house-of-books-room.jpg', 'house-of-books-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'House of Books', ar: 'بيت الكتب' },
+    desc: {
+      en: "A little wooden house for your child's favourite books. Covers face forward so they can pick their own story, and the handle makes it easy to carry around.",
+      ar: 'بيت خشبي صغير لكتب طفلك المفضلة. الكتب تظهر بأغلفتها للأمام ليختار قصته بنفسه، والمقبض يجعل نقله سهلاً.',
+    },
+    long: {
+      en: "Make story time a habit with the House of Books. Shaped like a little house with window cut-outs and a playful scalloped edge, it keeps picture books facing forward so even the smallest readers can see the covers and choose their own story. Two compartments hold books at the front and toys or more books at the back, and the wooden handle on top makes it easy to carry from the bedroom to the living room. Made from natural pine with rounded, child-safe edges, it sits on the floor right at your child's height.",
+      ar: 'اجعل وقت القصة عادة يومية مع بيت الكتب. مصمم على شكل بيت صغير بنوافذ مفرغة وحافة متموجة مرحة، ويحفظ كتب الصور بأغلفتها للأمام ليرى حتى أصغر القراء الأغلفة ويختاروا قصتهم بأنفسهم. يحتوي على قسمين: الكتب في الأمام والألعاب أو مزيد من الكتب في الخلف، والمقبض الخشبي في الأعلى يسهّل نقله من غرفة النوم إلى غرفة المعيشة. مصنوع من خشب الصنوبر الطبيعي بحواف دائرية آمنة للأطفال، ويوضع على الأرض بارتفاع طفلك تماماً.',
+    },
+    details: {
+      en: ['Size: 31.5 cm wide × 19.7 cm deep × 29.3 cm tall', 'Natural pine wood with rounded, child-safe edges', 'Two compartments for books and small toys', 'Front-facing books at your child\'s height', 'Wooden carry handle', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 31.5 سم × عمق 19.7 سم × ارتفاع 29.3 سم', 'خشب صنوبر طبيعي بحواف دائرية آمنة للأطفال', 'قسمان للكتب والألعاب الصغيرة', 'الكتب بواجهة أمامية بارتفاع طفلك', 'مقبض خشبي للحمل', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
