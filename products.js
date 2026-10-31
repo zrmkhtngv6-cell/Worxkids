@@ -29,13 +29,11 @@ const SECTIONS = [
   { id: 'climbing', img: 'climbing-triangle.svg', menu: true, name: { en: 'Climbing Sets', ar: 'ألعاب التسلق' } },
   { id: 'arches', img: 'climbing-arch.svg', name: { en: 'Climbing Arches & Rockers', ar: 'أقواس تسلق وهزازات' } },
   { id: 'dollhouses', img: 'dollhouse.svg', name: { en: 'Dollhouses', ar: 'بيوت دمى' } },
-  { id: 'softplay', img: 'ball-pit.svg', name: { en: 'Soft Play & Ball Pits', ar: 'سوفت بلاي وحمامات كرات' } },
   { id: 'shops', img: 'market-stall.svg', name: { en: 'Play Shops & Market Stalls', ar: 'محلات وأكشاك لعب' } },
   { id: 'activity', img: 'activity-cube.svg', name: { en: 'Activity Cubes & Busy Boards', ar: 'مكعبات ولوحات أنشطة' } },
   { id: 'walkers', img: 'push-walker.svg', name: { en: 'Baby Walkers', ar: 'مشايات أطفال' } },
   { id: 'tents', img: 'teepee.svg', name: { en: 'Play Tents', ar: 'خيام لعب' } },
   { id: 'easels', img: 'easel.svg', name: { en: 'Easels & Art', ar: 'حوامل رسم وفنون' } },
-  { id: 'playtables', img: 'train-table.svg', name: { en: 'Play Tables', ar: 'طاولات لعب' } },
   { id: 'tables', img: 'table-chairs.svg', name: { en: "Kids' Tables & Chairs", ar: 'طاولات وكراسي أطفال' } },
 ];
 
