@@ -98,8 +98,8 @@ const PRODUCTS = [
       ar: 'حوّل حائط غرفة طفلك إلى مكتبة صغيرة. رف الموجة يحمل كتب الصور بأغلفتها للأمام، ليرى الأطفال قصتهم المفضلة ويختاروها بأنفسهم، بينما تحافظ الموجة الهادئة على الحافة الأمامية على ثبات الكتب وتضيف لمسة مرحة. علّقه منخفضاً ليصل إليه الصغار، أو ضع رفين أو ثلاثة بجانب بعض لحائط قراءة كامل. ويناسب أيضاً لعرض الألعاب الصغيرة والمجسمات والكنوز الصغيرة. مصنوع من الخشب الطبيعي بزوايا ناعمة ودائرية.',
     },
     details: {
-      en: ['Size: 41 cm long × 8 cm deep × 10 cm tall', 'Wave-edged front rail (5 cm) keeps books in place', 'Front-facing display for books, toys and figures', 'Wall-mounted: hang it at your child\'s height', 'Natural wood with smooth, rounded corners', 'Free delivery in Cairo'],
-      ar: ['المقاس: طول 41 سم × عمق 8 سم × ارتفاع 10 سم', 'حافة أمامية متموجة (5 سم) تحافظ على ثبات الكتب', 'عرض أمامي للكتب والألعاب والمجسمات', 'يُعلّق على الحائط بارتفاع طفلك', 'خشب طبيعي بزوايا ناعمة ودائرية', 'توصيل مجاني داخل القاهرة'],
+      en: ['Price is for one shelf', 'Size: 41 cm long × 8 cm deep × 10 cm tall', 'Wave-edged front rail (5 cm) keeps books in place', 'Front-facing display for books, toys and figures', 'Wall-mounted: hang it at your child\'s height', 'Natural wood with smooth, rounded corners', 'Free delivery in Cairo'],
+      ar: ['السعر لرف واحد', 'المقاس: طول 41 سم × عمق 8 سم × ارتفاع 10 سم', 'حافة أمامية متموجة (5 سم) تحافظ على ثبات الكتب', 'عرض أمامي للكتب والألعاب والمجسمات', 'يُعلّق على الحائط بارتفاع طفلك', 'خشب طبيعي بزوايا ناعمة ودائرية', 'توصيل مجاني داخل القاهرة'],
     },
   },
 ];
