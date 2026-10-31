@@ -84,6 +84,24 @@ const PRODUCTS = [
       ar: ['المقاس: عرض 31.5 سم × عمق 19.7 سم × ارتفاع 29.3 سم', 'خشب صنوبر طبيعي بحواف دائرية آمنة للأطفال', 'قسمان للكتب والألعاب الصغيرة', 'الكتب بواجهة أمامية بارتفاع طفلك', 'مقبض خشبي للحمل', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    id: 'wave-shelf', section: 'shelves', price: 1000,
+    images: ['wave-shelf.jpg', 'wave-shelf-room.jpg', 'wave-shelf-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Wave Shelf', ar: 'رف الموجة' },
+    desc: {
+      en: 'A wall shelf with a playful wave edge that shows off books with their covers facing out. Hang it low so little hands can reach.',
+      ar: 'رف حائط بحافة متموجة مرحة يعرض الكتب بأغلفتها للأمام. علّقه منخفضاً لتصل إليه الأيدي الصغيرة.',
+    },
+    long: {
+      en: "Turn your child's wall into a little library. The Wave Shelf holds picture books with their covers facing out, so children can spot their favourite story and pick it themselves, while the gentle wave along the front rail keeps books in place and adds a playful touch. Hang it low for toddlers to reach, or line up two or three for a full reading wall. It's just as lovely for displaying small toys, figures and treasures. Made from natural wood with smooth, rounded corners.",
+      ar: 'حوّل حائط غرفة طفلك إلى مكتبة صغيرة. رف الموجة يحمل كتب الصور بأغلفتها للأمام، ليرى الأطفال قصتهم المفضلة ويختاروها بأنفسهم، بينما تحافظ الموجة الهادئة على الحافة الأمامية على ثبات الكتب وتضيف لمسة مرحة. علّقه منخفضاً ليصل إليه الصغار، أو ضع رفين أو ثلاثة بجانب بعض لحائط قراءة كامل. ويناسب أيضاً لعرض الألعاب الصغيرة والمجسمات والكنوز الصغيرة. مصنوع من الخشب الطبيعي بزوايا ناعمة ودائرية.',
+    },
+    details: {
+      en: ['Size: 41 cm long × 8 cm deep × 10 cm tall', 'Wave-edged front rail (5 cm) keeps books in place', 'Front-facing display for books, toys and figures', 'Wall-mounted: hang it at your child\'s height', 'Natural wood with smooth, rounded corners', 'Free delivery in Cairo'],
+      ar: ['المقاس: طول 41 سم × عمق 8 سم × ارتفاع 10 سم', 'حافة أمامية متموجة (5 سم) تحافظ على ثبات الكتب', 'عرض أمامي للكتب والألعاب والمجسمات', 'يُعلّق على الحائط بارتفاع طفلك', 'خشب طبيعي بزوايا ناعمة ودائرية', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.

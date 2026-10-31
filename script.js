@@ -40,7 +40,7 @@ const STRINGS = {
   },
   ar: {
     openMenu: 'فتح القائمة', closeMenu: 'إغلاق القائمة',
-    products: n => `${n} منتج`,
+    products: n => (n === 2 ? 'منتجان' : n >= 3 && n <= 10 ? `${n} منتجات` : `${n} منتج`),
     money: n => `${n.toLocaleString('en-US')} ج.م`,
     priceOnRequest: 'السعر عند الطلب',
     comingSoon: 'قريباً',
