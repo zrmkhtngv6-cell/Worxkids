@@ -174,6 +174,7 @@ PAIRS = [
     ('aria-label="Open cart"', 'aria-label="فتح السلة"'),
     ('<h2 id="cartTitle">Your cart</h2>', '<h2 id="cartTitle">سلة التسوق</h2>'),
     ('aria-label="Close cart"', 'aria-label="إغلاق السلة"'),
+    ('aria-label="Close product details"', 'aria-label="إغلاق تفاصيل المنتج"'),
     ('>Your cart is empty.<', '>سلة التسوق فارغة.<'),
     ('>‹ Back to cart<', '>› العودة إلى السلة<'),
     ('<h3>Delivery details</h3>', '<h3>بيانات التوصيل</h3>'),

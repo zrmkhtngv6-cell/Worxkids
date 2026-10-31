@@ -338,6 +338,25 @@
     </aside>
   </div>
 
+  <div class="modal" id="productModal" hidden>
+    <div class="drawer__backdrop" data-close-modal></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="pmName">
+      <button class="drawer__close modal__close" data-close-modal aria-label="Close product details">×</button>
+      <div class="modal__gallery">
+        <img id="pmImg" alt="" width="900" height="900">
+        <div class="modal__thumbs" id="pmThumbs"></div>
+      </div>
+      <div class="modal__info">
+        <p class="product__cat" id="pmCat"></p>
+        <h2 id="pmName"></h2>
+        <div id="pmPrice"></div>
+        <p id="pmLong"></p>
+        <ul class="modal__details" id="pmDetails"></ul>
+        <div id="pmAction"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
   <a href="https://wa.me/201117776589" class="fab" target="_blank" rel="noopener" aria-label="Chat with WORX Kids on WhatsApp">

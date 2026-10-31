@@ -25,7 +25,7 @@ Everything is in `products.js`, in English and Arabic:
 - `STORE.bank`, `STORE.accountName`, `STORE.accountNumber` — the bank account customers transfer to with InstaPay; `STORE.instapayLink` — optional InstaPay payment link
 - `STORE.deliveryCairo` / `STORE.deliveryOutsideCairo` — delivery fee in EGP, `0` for free, or `null` to confirm it on WhatsApp (currently free in Cairo, confirmed on WhatsApp outside)
 - `PRODUCTS` — one entry per product. `price: null` shows "Price on request" with an "Ask on WhatsApp" button instead of "Add to cart". `oldPrice` shows a crossed-out sale price.
-- Photos go in `assets/img/products/` (square works best); set the product's `img` to the file name.
+- Photos go in `assets/img/products/` (square works best); list the file names in the product's `images` (first = main photo, second = hover photo).
 - Categories: `climbing`, `pretend`, `baby`, `furniture`, `room` (names in `CATEGORIES`).
 
 ## Arabic version

@@ -9,6 +9,8 @@ const STRINGS = {
     money: n => `${n.toLocaleString('en-US')} EGP`,
     priceOnRequest: 'Price on request',
     addToCart: 'Add to cart',
+    viewDetails: name => `View details: ${name}`,
+    photo: n => `Photo ${n}`,
     askWhatsApp: 'Ask on WhatsApp',
     added: name => `${name} added to your cart`,
     copied: 'Copied',
@@ -34,6 +36,8 @@ const STRINGS = {
     money: n => `${n.toLocaleString('en-US')} ج.م`,
     priceOnRequest: 'السعر عند الطلب',
     addToCart: 'أضف إلى السلة',
+    viewDetails: name => `عرض التفاصيل: ${name}`,
+    photo: n => `صورة ${n}`,
     askWhatsApp: 'اسأل عبر واتساب',
     added: name => `تمت إضافة ${name} إلى السلة`,
     copied: 'تم النسخ',
@@ -74,19 +78,60 @@ const priceHtml = p => {
   const old = p.oldPrice ? `<s>${t.money(p.oldPrice)}</s> ` : '';
   return `<span class="price">${old}${t.money(p.price)}</span>`;
 };
+const imgSrc = file => `assets/img/products/${esc(file)}`;
+const actionHtml = p => (forSale(p)
+  ? `<button class="btn btn--orange product__add" data-id="${esc(p.id)}">${t.addToCart}</button>`
+  : `<a class="btn btn--soft" href="${waLink(t.waAsk(p.name[lang]))}" target="_blank" rel="noopener">${t.askWhatsApp}</a>`);
 $('products').innerHTML = PRODUCTS.map(p => `
   <article class="product" data-cat="${esc(p.cat)}">
-    <div class="product__img"><img src="assets/img/products/${esc(p.img)}" alt="" width="400" height="400" loading="lazy">${p.badge ? `<span class="badge">${esc(p.badge[lang])}</span>` : ''}</div>
+    <button type="button" class="product__img" data-open="${esc(p.id)}" aria-label="${esc(t.viewDetails(p.name[lang]))}">
+      <img src="${imgSrc(p.images[0])}" alt="" width="400" height="400" loading="lazy">
+      ${p.images[1] ? `<img class="product__img-alt" src="${imgSrc(p.images[1])}" alt="" width="400" height="400" loading="lazy">` : ''}
+      ${p.badge ? `<span class="badge">${esc(p.badge[lang])}</span>` : ''}
+    </button>
     <p class="product__cat">${esc(CATEGORIES[p.cat][lang])}</p>
-    <h3>${esc(p.name[lang])}</h3>
+    <h3><button type="button" class="product__name" data-open="${esc(p.id)}">${esc(p.name[lang])}</button></h3>
     <p>${esc(p.desc[lang])}</p>
     <div class="product__foot">
       ${priceHtml(p)}
-      ${forSale(p)
-        ? `<button class="btn btn--orange product__add" data-id="${esc(p.id)}">${t.addToCart}</button>`
-        : `<a class="btn btn--soft" href="${waLink(t.waAsk(p.name[lang]))}" target="_blank" rel="noopener">${t.askWhatsApp}</a>`}
+      ${actionHtml(p)}
     </div>
   </article>`).join('');
+
+// ---------- Product details window ----------
+const modal = $('productModal');
+let modalReturn = null;
+const showPhoto = (p, i) => {
+  $('pmImg').src = imgSrc(p.images[i]);
+  $('pmThumbs').querySelectorAll('button').forEach((b, j) => b.classList.toggle('is-active', j === i));
+};
+const openProduct = id => {
+  const p = byId[id];
+  modalReturn = document.activeElement;
+  $('pmCat').textContent = CATEGORIES[p.cat][lang];
+  $('pmName').textContent = p.name[lang];
+  $('pmPrice').innerHTML = priceHtml(p);
+  $('pmLong').textContent = (p.long || p.desc)[lang];
+  $('pmDetails').innerHTML = p.details ? p.details[lang].map(d => `<li>${esc(d)}</li>`).join('') : '';
+  $('pmDetails').hidden = !p.details;
+  $('pmAction').innerHTML = actionHtml(p);
+  $('pmThumbs').innerHTML = p.images.length > 1
+    ? p.images.map((f, i) => `<button type="button" data-photo="${i}" aria-label="${t.photo(i + 1)}"><img src="${imgSrc(f)}" alt="" width="72" height="72"></button>`).join('')
+    : '';
+  $('pmThumbs').onclick = e => { const b = e.target.closest('[data-photo]'); if (b) showPhoto(p, Number(b.dataset.photo)); };
+  showPhoto(p, 0);
+  modal.hidden = false;
+  document.body.style.overflow = 'hidden';
+  modal.querySelector('.modal__close').focus();
+};
+const closeProduct = () => {
+  modal.hidden = true;
+  document.body.style.overflow = '';
+  if (modalReturn) modalReturn.focus();
+};
+$('products').addEventListener('click', e => { const b = e.target.closest('[data-open]'); if (b) openProduct(b.dataset.open); });
+modal.querySelectorAll('[data-close-modal]').forEach(el => el.addEventListener('click', closeProduct));
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeProduct(); });
 
 // Product filters; category links (top menu and round tiles) jump to the shop with that filter on
 const products = [...document.querySelectorAll('.product')];
@@ -144,7 +189,7 @@ function renderCart() {
   $('cartEmpty').hidden = !!lines.length;
   $('cartItems').innerHTML = lines.map(({ p, qty }) => `
     <li class="cart__item">
-      <img src="assets/img/products/${esc(p.img)}" alt="" width="72" height="72">
+      <img src="${imgSrc(p.images[0])}" alt="" width="72" height="72">
       <div>
         <p class="cart__name">${esc(p.name[lang])}</p>
         <p class="cart__price">${t.money(p.price)}</p>
@@ -194,12 +239,13 @@ const toast = msg => {
   toastTimer = setTimeout(() => { el.hidden = true; }, 2500);
 };
 
-$('products').addEventListener('click', e => {
+document.addEventListener('click', e => {
   const btn = e.target.closest('.product__add');
   if (!btn) return;
   const p = byId[btn.dataset.id];
   cart[p.id] = (cart[p.id] || 0) + 1;
   saveCart();
+  if (!modal.hidden) closeProduct();
   toast(t.added(p.name[lang]));
 });
 
