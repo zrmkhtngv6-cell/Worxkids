@@ -120,6 +120,24 @@ const PRODUCTS = [
       ar: ['المقاس: عرض 53 سم × عمق 30 سم × ارتفاع 79 سم', 'جيوب قماشية متدرجة تُظهر كل غلاف للأمام', 'قماش كريمي ناعم لطيف على الكتب والأصابع الصغيرة', 'إطار من الخشب الطبيعي بقاعدة مائلة ثابتة', 'تتسع لمجموعة كتب كاملة في مساحة صغيرة', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    id: 'jeep-bed', section: 'beds', price: null,
+    images: ['jeep-bed.jpg', 'jeep-bed-room.jpg', 'jeep-bed-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Toddler Jeep Bed', ar: 'سرير الجيب للأطفال' },
+    desc: {
+      en: 'A wooden car bed that turns bedtime into an adventure. Low to the floor with high sides, so little ones can climb in by themselves and sleep safely.',
+      ar: 'سرير خشبي على شكل سيارة يحوّل وقت النوم إلى مغامرة. قريب من الأرض بجوانب عالية، ليصعد الصغار بأنفسهم وينامون بأمان.',
+    },
+    long: {
+      en: 'Every night is a road trip in the Toddler Jeep Bed. Shaped like a classic off-road car, with wheels, window cut-outs and a front grille with round headlights, it makes moving to a big-kid bed something to look forward to. The bed sits low to the floor so toddlers can climb in and out on their own, and the high sides keep them safely tucked in at night. It fits a standard 80 × 190 cm mattress and is made from smooth natural wood, ready for years of bedtime stories and pretend drives.',
+      ar: 'كل ليلة رحلة على الطريق مع سرير الجيب للأطفال. مصمم على شكل سيارة دفع رباعي كلاسيكية، بعجلات ونوافذ مفرغة وشبكة أمامية بمصابيح دائرية، ليجعل الانتقال إلى سرير الكبار شيئاً ينتظره طفلك بشوق. السرير قريب من الأرض ليصعد الصغار وينزلوا بأنفسهم، والجوانب العالية تحافظ عليهم بأمان أثناء النوم. يناسب مرتبة قياسية 80 × 190 سم، ومصنوع من الخشب الطبيعي الناعم، وجاهز لسنوات من حكايات قبل النوم والرحلات الخيالية.',
+    },
+    details: {
+      en: ['Size: 207 cm long × 94 cm wide × 52 cm tall', 'Fits an 80 × 190 cm mattress', 'Low to the floor, so toddlers can climb in by themselves', '35 cm high sides keep little ones safely in bed', 'Car details: wheels, windows, grille and headlights', 'Natural wood with smooth edges', 'Free delivery in Cairo'],
+      ar: ['المقاس: طول 207 سم × عرض 94 سم × ارتفاع 52 سم', 'يناسب مرتبة 80 × 190 سم', 'قريب من الأرض ليصعد الصغار بأنفسهم', 'جوانب بارتفاع 35 سم تحافظ على الطفل بأمان في السرير', 'تفاصيل السيارة: عجلات ونوافذ وشبكة أمامية ومصابيح', 'خشب طبيعي بحواف ناعمة', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
