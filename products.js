@@ -121,7 +121,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: 'jeep-bed', section: 'beds', price: null,
+    id: 'jeep-bed', section: 'beds', price: 8000,
     images: ['jeep-bed.jpg', 'jeep-bed-room.jpg', 'jeep-bed-size.jpg'],
     badge: { en: 'New', ar: 'جديد' },
     name: { en: 'Toddler Jeep Bed', ar: 'سرير الجيب للأطفال' },
