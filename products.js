@@ -134,8 +134,8 @@ const PRODUCTS = [
       ar: 'يصبح وقت النوم مغامرة مع سرير سيارة السفاري. مصمم مثل سيارة المستكشفين في البرية، بعجلات كبيرة دائرية ونوافذ مفرغة وشبكة أمامية ومصابيح، ليجعل الانتقال إلى سرير الكبار شيئاً ينتظره طفلك بشوق. السرير قريب من الأرض ليصعد الصغار وينزلوا بأنفسهم، والجوانب العالية تحافظ عليهم بأمان طوال الليل. مصنوع من الخشب الطبيعي الناعم، ويناسب مرتبة قياسية 80 × 190 سم، ويتسع لسنوات من حكايات قبل النوم ورحلات السفاري الخيالية والأحلام الجميلة.',
     },
     details: {
-      en: ['Size: 207 cm long × 94 cm wide × 52 cm tall', 'Fits an 80 × 190 cm mattress', 'Low to the floor, so toddlers can climb in by themselves', '35 cm high sides keep little ones safely in bed', 'Car details: wheels, windows, grille and headlights', 'Natural wood with smooth edges', 'Free delivery in Cairo'],
-      ar: ['المقاس: طول 207 سم × عرض 94 سم × ارتفاع 52 سم', 'يناسب مرتبة 80 × 190 سم', 'قريب من الأرض ليصعد الصغار بأنفسهم', 'جوانب بارتفاع 35 سم تحافظ على الطفل بأمان في السرير', 'تفاصيل السيارة: عجلات ونوافذ وشبكة أمامية ومصابيح', 'خشب طبيعي بحواف ناعمة', 'توصيل مجاني داخل القاهرة'],
+      en: ['Size: 207 cm long × 94 cm wide × 52 cm tall', 'Fits an 80 × 190 cm mattress (mattress not included)', 'Low to the floor, so toddlers can climb in by themselves', '35 cm high sides keep little ones safely in bed', 'Car details: wheels, windows, grille and headlights', 'Natural wood with smooth edges', 'Free delivery in Cairo'],
+      ar: ['المقاس: طول 207 سم × عرض 94 سم × ارتفاع 52 سم', 'يناسب مرتبة 80 × 190 سم (المرتبة غير مشمولة)', 'قريب من الأرض ليصعد الصغار بأنفسهم', 'جوانب بارتفاع 35 سم تحافظ على الطفل بأمان في السرير', 'تفاصيل السيارة: عجلات ونوافذ وشبكة أمامية ومصابيح', 'خشب طبيعي بحواف ناعمة', 'توصيل مجاني داخل القاهرة'],
     },
   },
 ];
