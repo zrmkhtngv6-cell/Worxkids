@@ -121,17 +121,17 @@ const PRODUCTS = [
     },
   },
   {
-    id: 'jeep-bed', section: 'beds', price: 8000,
-    images: ['jeep-bed.jpg', 'jeep-bed-room.jpg', 'jeep-bed-size.jpg'],
+    id: 'safari-car-bed', section: 'beds', price: 12000,
+    images: ['safari-car-bed.jpg', 'safari-car-bed-room.jpg', 'safari-car-bed-size.jpg'],
     badge: { en: 'New', ar: 'جديد' },
-    name: { en: 'Toddler Jeep Bed', ar: 'سرير الجيب للأطفال' },
+    name: { en: 'Safari Car Bed', ar: 'سرير سيارة السفاري' },
     desc: {
-      en: 'A wooden car bed that turns bedtime into an adventure. Low to the floor with high sides, so little ones can climb in by themselves and sleep safely.',
-      ar: 'سرير خشبي على شكل سيارة يحوّل وقت النوم إلى مغامرة. قريب من الأرض بجوانب عالية، ليصعد الصغار بأنفسهم وينامون بأمان.',
+      en: 'A wooden safari car bed for little explorers. Low to the floor with high sides, so they can climb in by themselves and sleep safely.',
+      ar: 'سرير خشبي على شكل سيارة سفاري للمستكشفين الصغار. قريب من الأرض بجوانب عالية، ليصعدوا بأنفسهم وينامون بأمان.',
     },
     long: {
-      en: 'Every night is a road trip in the Toddler Jeep Bed. Shaped like a classic off-road car, with wheels, window cut-outs and a front grille with round headlights, it makes moving to a big-kid bed something to look forward to. The bed sits low to the floor so toddlers can climb in and out on their own, and the high sides keep them safely tucked in at night. It fits a standard 80 × 190 cm mattress and is made from smooth natural wood, ready for years of bedtime stories and pretend drives.',
-      ar: 'كل ليلة رحلة على الطريق مع سرير الجيب للأطفال. مصمم على شكل سيارة دفع رباعي كلاسيكية، بعجلات ونوافذ مفرغة وشبكة أمامية بمصابيح دائرية، ليجعل الانتقال إلى سرير الكبار شيئاً ينتظره طفلك بشوق. السرير قريب من الأرض ليصعد الصغار وينزلوا بأنفسهم، والجوانب العالية تحافظ عليهم بأمان أثناء النوم. يناسب مرتبة قياسية 80 × 190 سم، ومصنوع من الخشب الطبيعي الناعم، وجاهز لسنوات من حكايات قبل النوم والرحلات الخيالية.',
+      en: "Bedtime becomes an adventure in the Safari Car Bed. Built like an off-road explorer's car, with big round wheels, window cut-outs, a front grille and headlights, it turns the move to a big-kid bed into something your child can't wait for. It sits low to the floor so toddlers can climb in and out on their own, and the high sides keep them safely tucked in through the night. Made from smooth natural wood, it fits a standard 80 × 190 cm mattress and has room for years of bedtime stories, pretend safaris and sweet dreams.",
+      ar: 'يصبح وقت النوم مغامرة مع سرير سيارة السفاري. مصمم مثل سيارة المستكشفين في البرية، بعجلات كبيرة دائرية ونوافذ مفرغة وشبكة أمامية ومصابيح، ليجعل الانتقال إلى سرير الكبار شيئاً ينتظره طفلك بشوق. السرير قريب من الأرض ليصعد الصغار وينزلوا بأنفسهم، والجوانب العالية تحافظ عليهم بأمان طوال الليل. مصنوع من الخشب الطبيعي الناعم، ويناسب مرتبة قياسية 80 × 190 سم، ويتسع لسنوات من حكايات قبل النوم ورحلات السفاري الخيالية والأحلام الجميلة.',
     },
     details: {
       en: ['Size: 207 cm long × 94 cm wide × 52 cm tall', 'Fits an 80 × 190 cm mattress', 'Low to the floor, so toddlers can climb in by themselves', '35 cm high sides keep little ones safely in bed', 'Car details: wheels, windows, grille and headlights', 'Natural wood with smooth edges', 'Free delivery in Cairo'],
