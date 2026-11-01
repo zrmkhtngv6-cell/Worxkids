@@ -138,6 +138,24 @@ const PRODUCTS = [
       ar: ['المقاس: طول 207 سم × عرض 94 سم × ارتفاع 52 سم', 'يناسب مرتبة 80 × 190 سم (المرتبة غير مشمولة)', 'قريب من الأرض ليصعد الصغار بأنفسهم', 'جوانب بارتفاع 35 سم تحافظ على الطفل بأمان في السرير', 'تفاصيل السيارة: عجلات ونوافذ وشبكة أمامية ومصابيح', 'خشب طبيعي بحواف ناعمة', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    id: 'cozy-house-bed', section: 'beds', price: 10000,
+    images: ['cozy-house-bed.jpg', 'cozy-house-bed-pink.jpg', 'cozy-house-bed-green.jpg', 'cozy-house-bed-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Cozy House Bed', ar: 'سرير البيت الدافئ' },
+    desc: {
+      en: 'A Montessori-style floor bed with a house-shaped roof and safety rails all around. Low enough for little ones to climb in and out on their own.',
+      ar: 'سرير أرضي بأسلوب مونتيسوري بسقف على شكل بيت وسور حماية من كل الجهات. منخفض ليصعد الصغار وينزلوا بأنفسهم.',
+    },
+    long: {
+      en: "Give your child a little house of their own. The Cozy House Bed sits low to the floor in the Montessori style, so toddlers can climb in and out by themselves, while rails on every side keep them safe through the night. A front opening makes getting in easy, and the house-shaped roof frame is perfect for bunting, fairy lights or a soft canopy, so you can make it truly theirs. Made from natural pine with a slatted base, it is a bed your child can grow with from toddler years well into childhood.",
+      ar: 'امنح طفلك بيتاً صغيراً خاصاً به. سرير البيت الدافئ قريب من الأرض على طريقة مونتيسوري، ليصعد الصغار وينزلوا بأنفسهم، بينما يحافظ السور من كل الجهات على أمانهم طوال الليل. فتحة أمامية تسهّل الدخول، وإطار السقف على شكل بيت مثالي لتعليق الزينة أو الإضاءة أو قماش الناموسية، لتجعله خاصاً بطفلك تماماً. مصنوع من خشب الصنوبر الطبيعي بقاعدة من الشرائح الخشبية، سرير يكبر معه طفلك من سنوات الطفولة الأولى وما بعدها.',
+    },
+    details: {
+      en: ['Size: 195 cm long × 98 cm wide × 146 cm tall', 'Fits a 90 × 190 cm mattress (mattress not included)', 'Low Montessori floor bed with a slatted base', 'Safety rails on all sides, with an opening to climb in and out', 'House-shaped roof frame, ready for bunting, lights or a canopy', 'Natural pine wood', 'Free delivery in Cairo'],
+      ar: ['المقاس: طول 195 سم × عرض 98 سم × ارتفاع 146 سم', 'يناسب مرتبة 90 × 190 سم (المرتبة غير مشمولة)', 'سرير أرضي منخفض بأسلوب مونتيسوري بقاعدة من الشرائح الخشبية', 'سور حماية من كل الجهات مع فتحة للصعود والنزول', 'إطار سقف على شكل بيت جاهز للزينة أو الإضاءة أو الناموسية', 'خشب صنوبر طبيعي', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
