@@ -192,6 +192,24 @@ const PRODUCTS = [
       ar: ['المقاس: طول 140 سم × عرض 70 سم × ارتفاع 85 سم', 'درجان كبيران للتخزين أسفل السرير (ارتفاع 30 سم)', 'قضبان دائرية ناعمة تتيح رؤية طفلك بوضوح', 'ألواح خشبية صلبة على الجانبين', 'خشب طبيعي بلون عسلي دافئ', 'المرتبة غير مشمولة', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    id: 'rainbow-arch-cot', section: 'beds', price: 7000,
+    images: ['rainbow-arch-cot.jpg', 'rainbow-arch-cot-room.jpg', 'rainbow-arch-cot-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Rainbow Arch Cot', ar: 'سرير قوس قزح' },
+    desc: {
+      en: 'A dreamy wooden baby cot with soft rainbow-arched ends and rounded spindles all around, for peaceful nights in a beautiful nursery.',
+      ar: 'سرير خشبي حالم للرضيع بأطراف مقوسة كقوس قزح وقضبان دائرية من كل الجهات، لليالٍ هادئة في غرفة طفل جميلة.',
+    },
+    long: {
+      en: "Let your baby drift off under a little wooden rainbow. The Rainbow Arch Cot has gently curved, arch-shaped ends and smooth, rounded spindles on every side, so air flows freely and you can always see your little one. The tall ends give the nursery a soft, dreamy look, while the sturdy frame and steady legs keep everything safe and secure. Made from natural pine with a warm, honey-toned finish, it's a timeless piece that makes any nursery feel calm and cosy.",
+      ar: 'دع طفلك ينام تحت قوس قزح خشبي صغير. سرير قوس قزح بأطراف مقوسة بانحناء ناعم وقضبان دائرية ملساء من كل الجهات، ليتدفق الهواء بحرية وتستطيع رؤية طفلك دائماً. الأطراف العالية تمنح غرفة الطفل مظهراً ناعماً وحالماً، بينما يحافظ الإطار المتين والأرجل الثابتة على الأمان. مصنوع من خشب الصنوبر الطبيعي بلون عسلي دافئ، قطعة كلاسيكية تجعل أي غرفة أطفال هادئة ودافئة.',
+    },
+    details: {
+      en: ['Size: 140 cm long × 70 cm wide × 110 cm tall', 'Side rails 85 cm high', 'Rainbow-arched ends with rounded spindles', 'Open spindles all around for airflow and clear views', 'Natural pine wood with a warm honey finish', 'Mattress not included', 'Free delivery in Cairo'],
+      ar: ['المقاس: طول 140 سم × عرض 70 سم × ارتفاع 110 سم', 'ارتفاع الجوانب 85 سم', 'أطراف مقوسة كقوس قزح بقضبان دائرية', 'قضبان مفتوحة من كل الجهات لتهوية جيدة ورؤية واضحة', 'خشب صنوبر طبيعي بلون عسلي دافئ', 'المرتبة غير مشمولة', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
