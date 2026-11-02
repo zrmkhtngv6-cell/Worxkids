@@ -158,7 +158,7 @@ const PRODUCTS = [
   },
   {
     id: 'dreamland-floor-bed', section: 'beds', price: 10000,
-    images: ['dreamland-floor-bed.jpg', 'dreamland-floor-bed-size.jpg'],
+    images: ['dreamland-floor-bed.jpg', 'dreamland-floor-bed-room.jpg', 'dreamland-floor-bed-size.jpg'],
     badge: { en: 'New', ar: 'جديد' },
     name: { en: 'Dreamland Floor Bed', ar: 'سرير أرض الأحلام' },
     desc: {
