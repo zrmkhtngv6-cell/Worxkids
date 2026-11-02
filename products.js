@@ -174,6 +174,24 @@ const PRODUCTS = [
       ar: ['المقاس: طول 197 سم × عرض 146 سم × ارتفاع 50 سم', 'يناسب مرتبة 140 × 190 سم (المرتبة غير مشمولة)', 'سرير أرضي منخفض بأسلوب مونتيسوري، يرتفع 8 سم فقط عن الأرض', 'سور حماية من كل الجهات مع فتحة للصعود والنزول', 'واسع للإخوة أو لأحد الوالدين وقت النوم', 'خشب صنوبر طبيعي', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    id: 'little-nest-cot', section: 'beds', price: 8000,
+    images: ['little-nest-cot.jpg', 'little-nest-cot-room.jpg', 'little-nest-cot-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Little Nest Cot', ar: 'سرير العش الصغير' },
+    desc: {
+      en: 'A warm wooden baby cot with rounded rails and two big storage drawers underneath, keeping everything your baby needs close at hand.',
+      ar: 'سرير خشبي دافئ للرضيع بقضبان دائرية ودرجين كبيرين للتخزين أسفله، ليبقى كل ما يحتاجه طفلك في متناول يدك.',
+    },
+    long: {
+      en: "Welcome your baby home to the Little Nest Cot. Its solid wooden end panels and smooth, rounded rails create a calm, cosy space for sleep, and you can see your little one clearly from every side. Underneath, two deep drawers glide out to hold nappies, blankets, sheets and tiny clothes, so the nursery stays tidy and everything you need is right where you are. With its warm honey-toned wood and clean, simple lines, it fits beautifully into any nursery.",
+      ar: 'استقبل طفلك في البيت مع سرير العش الصغير. ألواحه الخشبية الصلبة على الجانبين وقضبانه الدائرية الناعمة تصنع مساحة هادئة ودافئة للنوم، وتستطيع رؤية طفلك بوضوح من كل الجهات. وفي الأسفل درجان عميقان ينزلقان بسهولة لحفظ الحفاضات والبطانيات والملايات والملابس الصغيرة، لتبقى غرفة الطفل مرتبة وكل ما تحتاجه بجانبك. بلون الخشب العسلي الدافئ وخطوطه البسيطة الأنيقة، يناسب أي غرفة أطفال.',
+    },
+    details: {
+      en: ['Size: 140 cm long × 70 cm wide × 85 cm tall', 'Two large storage drawers underneath (30 cm high)', 'Smooth, rounded rails with clear views of your baby', 'Solid wooden end panels', 'Warm honey-toned natural wood', 'Mattress not included', 'Free delivery in Cairo'],
+      ar: ['المقاس: طول 140 سم × عرض 70 سم × ارتفاع 85 سم', 'درجان كبيران للتخزين أسفل السرير (ارتفاع 30 سم)', 'قضبان دائرية ناعمة تتيح رؤية طفلك بوضوح', 'ألواح خشبية صلبة على الجانبين', 'خشب طبيعي بلون عسلي دافئ', 'المرتبة غير مشمولة', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
