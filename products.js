@@ -228,6 +228,24 @@ const PRODUCTS = [
       ar: ['المقاس: طول 140 سم × عرض 75 سم × ارتفاع 95 سم', 'درج تخزين كبير منزلق (ارتفاع 20 سم) بفواصل', 'حواف مرحة على شكل أمواج على القاعدة والدرج', 'أعمدة أركان دائرية وقضبان ملساء', 'تشطيب خشب طبيعي فاتح', 'المرتبة غير مشمولة', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    id: 'zoo-toy-keeper', section: 'shelves', price: 3500,
+    images: ['zoo-toy-keeper.jpg', 'zoo-toy-keeper-room.jpg', 'zoo-toy-keeper-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Zoo Toy Keeper', ar: 'حديقة الألعاب' },
+    desc: {
+      en: "A tall wooden 'zoo' for soft toys, with an \"OUR ZOO\" sign on top. Tidying up becomes a game: just put the animals back in their enclosure.",
+      ar: 'حديقة حيوانات خشبية طويلة للألعاب المحشوة، مع لافتة "OUR ZOO" في الأعلى. يصبح الترتيب لعبة: فقط أعد الحيوانات إلى بيتها.',
+    },
+    long: {
+      en: "Every stuffed animal needs a home, and the Zoo Toy Keeper turns a pile of plush toys into a proud little zoo. A tall natural-wood frame with soft cord bars holds dozens of teddies, bunnies and dinosaurs, keeping them off the floor yet always on display. Children can see every friend and pull one out through the bars or from the open top, then pop it back in at tidy-up time. The hanging \"OUR ZOO\" sign adds a playful finishing touch, and the slim footprint means it fits neatly into a corner of any bedroom or playroom.",
+      ar: 'كل لعبة محشوة تحتاج بيتاً، وحديقة الألعاب تحوّل كومة الدمى إلى حديقة حيوانات صغيرة رائعة. إطار طويل من الخشب الطبيعي بقضبان من الحبال الناعمة يتسع لعشرات الدببة والأرانب والديناصورات، فيبعدها عن الأرض ويعرضها دائماً. يرى الأطفال كل أصدقائهم ويخرجون أي لعبة من بين القضبان أو من الفتحة العلوية، ثم يعيدونها وقت الترتيب. لافتة "OUR ZOO" المعلقة تضيف لمسة مرحة، ومساحتها الصغيرة تجعلها مناسبة لأي ركن في غرفة النوم أو غرفة اللعب.',
+    },
+    details: {
+      en: ['Size: 60 cm wide × 47 cm deep × 161 cm tall', 'Holds a big collection of soft toys', 'Soft cord bars: toys stay in view and are easy to reach', 'Open top for quick tidying', 'Hanging "OUR ZOO" wooden sign included', 'Natural wood frame', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 60 سم × عمق 47 سم × ارتفاع 161 سم', 'تتسع لمجموعة كبيرة من الألعاب المحشوة', 'قضبان من الحبال الناعمة: الألعاب ظاهرة وسهلة الوصول', 'فتحة علوية للترتيب السريع', 'لافتة خشبية معلقة "OUR ZOO" مشمولة', 'إطار من الخشب الطبيعي', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
