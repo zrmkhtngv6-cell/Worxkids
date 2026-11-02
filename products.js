@@ -229,7 +229,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: 'zoo-toy-keeper', section: 'shelves', price: 3500,
+    id: 'zoo-toy-keeper', section: 'shelves', price: 1500,
     images: ['zoo-toy-keeper.jpg', 'zoo-toy-keeper-room.jpg', 'zoo-toy-keeper-size.jpg'],
     badge: { en: 'New', ar: 'جديد' },
     name: { en: 'Zoo Toy Keeper', ar: 'حديقة الألعاب' },
