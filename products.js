@@ -156,6 +156,24 @@ const PRODUCTS = [
       ar: ['المقاس: طول 195 سم × عرض 98 سم × ارتفاع 146 سم', 'يناسب مرتبة 90 × 190 سم (المرتبة غير مشمولة)', 'سرير أرضي منخفض بأسلوب مونتيسوري بقاعدة من الشرائح الخشبية', 'سور حماية من كل الجهات مع فتحة للصعود والنزول', 'إطار سقف على شكل بيت جاهز للزينة أو الإضاءة أو الناموسية', 'خشب صنوبر طبيعي', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    id: 'dreamland-floor-bed', section: 'beds', price: 10000,
+    images: ['dreamland-floor-bed.jpg', 'dreamland-floor-bed-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Dreamland Floor Bed', ar: 'سرير أرض الأحلام' },
+    desc: {
+      en: 'A big, low Montessori floor bed with safety rails all around. Roomy enough for siblings, sleepovers or a parent at bedtime.',
+      ar: 'سرير أرضي كبير ومنخفض بأسلوب مونتيسوري بسور حماية من كل الجهات. واسع للإخوة أو للضيوف أو لأحد الوالدين وقت النوم.',
+    },
+    long: {
+      en: "The Dreamland Floor Bed gives little ones plenty of room to sleep, play and grow. It sits just above the floor in the Montessori style, so children can climb in and out by themselves, while rails on every side keep them safely tucked in. An opening at the front makes getting in easy. At almost a metre and a half wide, it's spacious enough for two siblings to share, for sleepovers, or for a parent to lie down for bedtime stories. Made from natural pine, it brings a calm, warm feel to any kids' room.",
+      ar: 'سرير أرض الأحلام يمنح الصغار مساحة واسعة للنوم واللعب والنمو. يرتفع قليلاً عن الأرض على طريقة مونتيسوري، ليصعد الأطفال وينزلوا بأنفسهم، بينما يحافظ السور من كل الجهات على أمانهم. فتحة في الأمام تسهّل الدخول. بعرض يقارب متراً ونصف، يتسع لأخوين معاً أو للضيوف أو لأحد الوالدين وقت حكايات قبل النوم. مصنوع من خشب الصنوبر الطبيعي، ويضيف إحساساً هادئاً ودافئاً لأي غرفة أطفال.',
+    },
+    details: {
+      en: ['Size: 197 cm long × 146 cm wide × 50 cm tall', 'Fits a 140 × 190 cm mattress (mattress not included)', 'Low Montessori floor bed, just 8 cm off the floor', 'Safety rails on all sides, with an opening to climb in and out', 'Roomy enough for siblings or a parent at bedtime', 'Natural pine wood', 'Free delivery in Cairo'],
+      ar: ['المقاس: طول 197 سم × عرض 146 سم × ارتفاع 50 سم', 'يناسب مرتبة 140 × 190 سم (المرتبة غير مشمولة)', 'سرير أرضي منخفض بأسلوب مونتيسوري، يرتفع 8 سم فقط عن الأرض', 'سور حماية من كل الجهات مع فتحة للصعود والنزول', 'واسع للإخوة أو لأحد الوالدين وقت النوم', 'خشب صنوبر طبيعي', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
