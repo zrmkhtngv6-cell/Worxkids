@@ -210,6 +210,24 @@ const PRODUCTS = [
       ar: ['المقاس: طول 140 سم × عرض 70 سم × ارتفاع 110 سم', 'ارتفاع الجوانب 85 سم', 'أطراف مقوسة كقوس قزح بقضبان دائرية', 'قضبان مفتوحة من كل الجهات لتهوية جيدة ورؤية واضحة', 'خشب صنوبر طبيعي بلون عسلي دافئ', 'المرتبة غير مشمولة', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    id: 'wavy-cloud-cot', section: 'beds', price: 8500,
+    images: ['wavy-cloud-cot.jpg', 'wavy-cloud-cot-room.jpg', 'wavy-cloud-cot-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Wavy Cloud Cot', ar: 'سرير الغيمة المتموجة' },
+    desc: {
+      en: 'A soft, light-wood baby cot with playful wavy edges and a big pull-out storage drawer underneath for blankets, sheets and baby clothes.',
+      ar: 'سرير رضيع من الخشب الفاتح بحواف متموجة مرحة ودرج تخزين كبير أسفله للبطانيات والملايات وملابس الطفل.',
+    },
+    long: {
+      en: "Bring a touch of whimsy to the nursery with the Wavy Cloud Cot. Gentle wave-shaped edges run along the base and drawer, while thick rounded corner posts and smooth spindles give it a soft, friendly look. Underneath, a wide pull-out drawer with dividers keeps blankets, sheets and tiny clothes neatly organised and always within reach. Made in light natural wood, it brings a calm, airy feel to the room and gives your baby a safe, cosy place to sleep and play.",
+      ar: 'أضف لمسة من المرح إلى غرفة الطفل مع سرير الغيمة المتموجة. حواف ناعمة على شكل أمواج تمتد على القاعدة والدرج، بينما تمنحه الأعمدة الدائرية السميكة في الأركان والقضبان الملساء مظهراً ناعماً ولطيفاً. وفي الأسفل درج واسع بفواصل يحفظ البطانيات والملايات والملابس الصغيرة مرتبة وفي متناول يدك دائماً. مصنوع من الخشب الطبيعي الفاتح، يمنح الغرفة إحساساً هادئاً ومنعشاً، ويوفر لطفلك مكاناً آمناً ودافئاً للنوم واللعب.',
+    },
+    details: {
+      en: ['Size: 140 cm long × 75 cm wide × 95 cm tall', 'Large pull-out storage drawer (20 cm high) with dividers', 'Playful wave-shaped edges on the base and drawer', 'Rounded corner posts and smooth spindles', 'Light natural wood finish', 'Mattress not included', 'Free delivery in Cairo'],
+      ar: ['المقاس: طول 140 سم × عرض 75 سم × ارتفاع 95 سم', 'درج تخزين كبير منزلق (ارتفاع 20 سم) بفواصل', 'حواف مرحة على شكل أمواج على القاعدة والدرج', 'أعمدة أركان دائرية وقضبان ملساء', 'تشطيب خشب طبيعي فاتح', 'المرتبة غير مشمولة', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
