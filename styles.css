@@ -98,7 +98,7 @@ h3 { font-size: 1.3rem; }
 
 /* Menu strip under the header; on small screens it opens from the menu button */
 .cats { background: #fff; border-top: 1px solid var(--line); }
-.cats ul { list-style: none; margin: 0 auto; padding: 0 16px; display: flex; justify-content: safe center; gap: 1.6rem; overflow-x: auto; scrollbar-width: none; }
+.cats ul { list-style: none; margin: 0 auto; padding: 0 16px; display: flex; justify-content: safe center; gap: 1.3rem; overflow-x: auto; scrollbar-width: none; }
 .cats ul::-webkit-scrollbar { display: none; }
 .cats a { display: block; padding: .8rem 0; white-space: nowrap; text-decoration: none; font: 500 .98rem var(--round); position: relative; }
 .cats a::after { content: ""; position: absolute; inset-inline: 0; bottom: 6px; height: 3px; border-radius: 3px; background: var(--sun); transform: scaleX(0); transition: transform .2s; }
