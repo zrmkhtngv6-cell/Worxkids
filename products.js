@@ -305,6 +305,25 @@ const PRODUCTS = [
       ar: ['المقاس: عرض 120 سم × عمق 30 سم × ارتفاع 130 سم', 'ثلاثة أقسام على شكل بيوت بأسقف مختلفة', 'نوافذ مفرغة مقوسة ومربعة', 'أعمدة تعليق ورفوف بالداخل', 'ارتفاع مناسب للأطفال', 'تشطيب خشب طبيعي فاتح', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'sunny-changing-dresser', section: 'wardrobes', price: 0,
+    images: ['sunny-changing-dresser.jpg', 'sunny-changing-dresser-room.jpg', 'sunny-changing-dresser-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Sunny Changing Dresser', ar: 'ترابيزة التغيير المشمسة' },
+    desc: {
+      en: 'A baby changing table and chest of drawers in one, with a raised changing tray, a side tray for nappies and lots of drawers and shelves for baby things.',
+      ar: 'ترابيزة تغيير للرضيع وشيفونيرة في قطعة واحدة، بصينية تغيير بحواف مرتفعة وصينية جانبية للحفاضات وأدراج ورفوف كثيرة لأغراض الطفل.',
+    },
+    long: {
+      en: "Make nappy changes calm and easy with the Sunny Changing Dresser. On top, a raised-edge changing tray holds a changing mat securely, with a separate side tray to keep nappies, wipes and creams right at hand. Below, four roomy drawers, two open shelves and an extra small drawer give you space for clothes, blankets, books and baskets. Later, when the changing days are over, simply lift off the tray and it becomes a lovely chest of drawers that grows with your child. Finished in warm natural wood with round wooden knobs, it brings a soft, cosy feel to any nursery.",
+      ar: 'اجعل تغيير الحفاض هادئاً وسهلاً مع ترابيزة التغيير المشمسة. في الأعلى صينية تغيير بحواف مرتفعة تثبّت مرتبة التغيير بأمان، مع صينية جانبية منفصلة تبقي الحفاضات والمناديل والكريمات في متناول يدك. وفي الأسفل أربعة أدراج واسعة ورفان مفتوحان ودرج صغير إضافي تمنحك مساحة للملابس والبطانيات والكتب والسلال. ولاحقاً، عندما تنتهي أيام التغيير، ارفع الصينية لتصبح شيفونيرة جميلة تكبر مع طفلك. بتشطيب الخشب الطبيعي الدافئ ومقابض خشبية دائرية، تضيف إحساساً ناعماً ودافئاً لأي غرفة أطفال.',
+    },
+    details: {
+      en: ['Size: 120 cm wide × 50 cm deep × 92 cm tall (85 cm body + 7 cm tray)', 'Raised-edge changing tray (74 cm) plus a side tray for nappies and wipes', 'Four large drawers and one small drawer', 'Two open shelves for baskets and books', 'Turns into a regular chest of drawers later', 'Round wooden knobs, natural wood finish', 'Changing mat not included', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 120 سم × عمق 50 سم × ارتفاع 92 سم (85 سم الجسم + 7 سم الصينية)', 'صينية تغيير بحواف مرتفعة (74 سم) وصينية جانبية للحفاضات والمناديل', 'أربعة أدراج كبيرة ودرج صغير', 'رفان مفتوحان للسلال والكتب', 'تتحول لاحقاً إلى شيفونيرة عادية', 'مقابض خشبية دائرية وتشطيب خشب طبيعي', 'مرتبة التغيير غير مشمولة', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
