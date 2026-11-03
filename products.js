@@ -267,6 +267,25 @@ const PRODUCTS = [
       ar: ['المقاس: عرض 80 سم × عمق 40 سم × ارتفاع 130 سم', 'عمود تعليق بمساحة 75 سم للملابس', 'رف واسع وثلاثة أقسام بارتفاع 25 سم', 'درج عميق منزلق (18 سم) بمقبض سهل', 'تصميم مفتوح بارتفاع الطفل بدون أبواب', 'خشب طبيعي بحواف ناعمة ودائرية', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'scallop-wardrobe', section: 'wardrobes', price: 0,
+    images: ['scallop-wardrobe.jpg', 'scallop-wardrobe-room.jpg', 'scallop-wardrobe-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Scallop Wardrobe', ar: 'دولاب الحواف المتموجة' },
+    desc: {
+      en: 'A charming two-door wardrobe with a scalloped base and turned wooden legs, plus two drawers for everything little ones own.',
+      ar: 'دولاب ساحر ببابين وقاعدة بحواف متموجة وأرجل خشبية مخروطة، مع درجين لكل أغراض الصغار.',
+    },
+    long: {
+      en: "Give your child's clothes a beautiful home with the Scallop Wardrobe. Two tall doors open onto plenty of space for hanging and folded clothes, while a small drawer and a wide full-width drawer below keep socks, pyjamas and blankets neatly sorted. The soft scalloped trim, rounded wooden knobs and classic turned legs give it a sweet, timeless look that suits a nursery and still feels right as your child grows. Finished in light natural wood, it brings a calm, airy feel to any kids' room.",
+      ar: 'امنح ملابس طفلك بيتاً جميلاً مع دولاب الحواف المتموجة. بابان طويلان يفتحان على مساحة واسعة للملابس المعلقة والمطوية، بينما يحافظ درج صغير ودرج واسع بعرض الدولاب بالأسفل على ترتيب الجوارب والبيجامات والبطانيات. الحافة المتموجة الناعمة ومقابض الخشب الدائرية والأرجل المخروطة الكلاسيكية تمنحه مظهراً لطيفاً لا يبطل، يناسب غرفة الرضيع ويظل مناسباً كلما كبر طفلك. بتشطيب الخشب الطبيعي الفاتح، يضيف إحساساً هادئاً ومنعشاً لأي غرفة أطفال.',
+    },
+    details: {
+      en: ['Size: 100 cm wide × 55 cm deep × 160 cm tall', 'Two doors with space for hanging and folded clothes', 'One small drawer and one wide full-width drawer', 'Scalloped base trim and turned wooden legs (15 cm)', 'Rounded wooden knobs, easy for little hands', 'Light natural wood finish', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 100 سم × عمق 55 سم × ارتفاع 160 سم', 'بابان بمساحة للملابس المعلقة والمطوية', 'درج صغير ودرج واسع بعرض الدولاب', 'قاعدة بحواف متموجة وأرجل خشبية مخروطة (15 سم)', 'مقابض خشبية دائرية سهلة للأيدي الصغيرة', 'تشطيب خشب طبيعي فاتح', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
