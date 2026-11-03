@@ -248,6 +248,25 @@ const PRODUCTS = [
       ar: ['المقاس: عرض 60 سم × عمق 47 سم × ارتفاع 161 سم', 'تتسع لمجموعة كبيرة من الألعاب المحشوة', 'قضبان من الحبال الناعمة: الألعاب ظاهرة وسهلة الوصول', 'فتحة علوية للترتيب السريع', 'لافتة خشبية معلقة "OUR ZOO" مشمولة', 'إطار من الخشب الطبيعي', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'montessori-wardrobe', section: 'wardrobes', price: 0,
+    images: ['montessori-wardrobe.jpg', 'montessori-wardrobe-room.jpg', 'montessori-wardrobe-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Montessori Open Wardrobe', ar: 'دولاب مونتيسوري المفتوح' },
+    desc: {
+      en: 'A child-height open wardrobe with a hanging rail, a shelf, three cubbies and a big drawer, so little ones can choose their own clothes and put them away.',
+      ar: 'دولاب مفتوح بارتفاع الطفل فيه عمود تعليق ورف وثلاثة أقسام ودرج كبير، ليختار الصغار ملابسهم بأنفسهم ويعيدوها إلى مكانها.',
+    },
+    long: {
+      en: "Help your child get dressed all by themselves. The Montessori Open Wardrobe is built at a child's height, so everything is in view and within easy reach. Hang shirts and jackets on the wooden rail, fold sweaters on the wide shelf, sort trousers, pyjamas and shoes into the three cubbies, and keep toys or extra clothes in the deep pull-out drawer below. With no doors to struggle with and smooth, rounded edges, it builds independence and makes tidy-up time easy. Made in warm natural wood, it brings a calm, orderly feel to any kids' room.",
+      ar: 'ساعد طفلك على ارتداء ملابسه بنفسه. دولاب مونتيسوري المفتوح مصمم بارتفاع الطفل، فيكون كل شيء ظاهراً وفي متناول يده. علّق القمصان والجواكت على العمود الخشبي، ورتّب البلوفرات على الرف الواسع، ونظّم البناطيل والبيجامات والأحذية في الأقسام الثلاثة، واحفظ الألعاب أو الملابس الإضافية في الدرج العميق بالأسفل. بلا أبواب صعبة الفتح وبحواف ناعمة ودائرية، يعزز الاستقلالية ويجعل وقت الترتيب سهلاً. مصنوع من الخشب الطبيعي الدافئ، ويضيف إحساساً هادئاً ومنظماً لأي غرفة أطفال.',
+    },
+    details: {
+      en: ['Size: 80 cm wide × 40 cm deep × 130 cm tall', 'Hanging rail with 75 cm of space for clothes', 'Wide shelf plus three 25 cm cubbies', 'Deep pull-out drawer (18 cm) with an easy finger grip', 'Open design at a child\'s height, no doors', 'Natural wood with smooth, rounded edges', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 80 سم × عمق 40 سم × ارتفاع 130 سم', 'عمود تعليق بمساحة 75 سم للملابس', 'رف واسع وثلاثة أقسام بارتفاع 25 سم', 'درج عميق منزلق (18 سم) بمقبض سهل', 'تصميم مفتوح بارتفاع الطفل بدون أبواب', 'خشب طبيعي بحواف ناعمة ودائرية', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
