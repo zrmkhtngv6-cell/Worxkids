@@ -7,8 +7,10 @@ const STRINGS = {
   en: {
     openMenu: 'Open menu', closeMenu: 'Close menu',
     products: n => `${n} product${n === 1 ? '' : 's'}`,
-    money: n => `${n.toLocaleString('en-US')} EGP`,
+    money: n => (STORE.hidePrices ? 'xxxx EGP' : `${n.toLocaleString('en-US')} EGP`),
     priceOnRequest: 'Price on request',
+    stepTotal: '<strong>1.</strong> Tap "Send order". We\'ll reply on WhatsApp with your order total.',
+    doneTotal: 'Your order <strong class="js-order-id"></strong> is ready in WhatsApp. Send it, and we\'ll reply with the total to transfer.',
     comingSoon: 'Coming soon',
     waSection: name => `Hello WORX Kids, I'm looking for something from ${name}. What do you have?`,
     addToCart: 'Add to cart',
@@ -31,6 +33,7 @@ const STRINGS = {
       payment: bank => `Payment: InstaPay transfer to the ${bank} account (screenshot attached)`,
       paymentAsk: 'Payment: InstaPay (please send me your bank account details)',
       paymentAfter: 'Payment: InstaPay, after you confirm the delivery fee',
+      paymentTotal: 'Payment: InstaPay, after you confirm the total',
     },
     booking: {
       intro: "Hello WORX Kids, I'd like to book a meeting at your Park Mall showroom to design a kids' room.",
@@ -41,8 +44,10 @@ const STRINGS = {
   ar: {
     openMenu: 'فتح القائمة', closeMenu: 'إغلاق القائمة',
     products: n => (n === 2 ? 'منتجان' : n >= 3 && n <= 10 ? `${n} منتجات` : `${n} منتج`),
-    money: n => `${n.toLocaleString('en-US')} ج.م`,
+    money: n => (STORE.hidePrices ? 'xxxx ج.م' : `${n.toLocaleString('en-US')} ج.م`),
     priceOnRequest: 'السعر عند الطلب',
+    stepTotal: '<strong>١.</strong> اضغط "أرسل الطلب"، وسنرد عليك على واتساب بإجمالي طلبك.',
+    doneTotal: 'طلبك <strong class="js-order-id"></strong> جاهز في واتساب. أرسله وسنرد عليك بالإجمالي المطلوب تحويله.',
     comingSoon: 'قريباً',
     waSection: name => `مرحباً WORX Kids، أبحث عن منتج من قسم ${name}. ماذا لديكم؟`,
     addToCart: 'أضف إلى السلة',
@@ -65,6 +70,7 @@ const STRINGS = {
       payment: bank => `الدفع: تحويل إنستاباي إلى حساب ${bank} (مرفق صورة التحويل)`,
       paymentAsk: 'الدفع: إنستاباي (برجاء إرسال بيانات الحساب البنكي)',
       paymentAfter: 'الدفع: إنستاباي، بعد تأكيد رسوم التوصيل',
+      paymentTotal: 'الدفع: إنستاباي، بعد تأكيد الإجمالي',
     },
     booking: {
       intro: 'مرحباً WORX Kids، أود حجز موعد في معرضكم ببارك مول لتصميم غرفة أطفال.',
@@ -277,7 +283,9 @@ const deliveryFee = () => ($('zone').value === 'outside' ? STORE.deliveryOutside
 const deliveryKnown = () => typeof deliveryFee() === 'number';
 const deliveryText = () => (!deliveryKnown() ? t.deliveryLater : deliveryFee() === 0 ? t.free : t.money(deliveryFee()));
 const total = () => subtotal() + (deliveryKnown() ? deliveryFee() : 0);
-const totalText = () => t.money(total()) + (deliveryKnown() ? '' : t.plusDelivery);
+const totalText = () => t.money(total()) + (deliveryKnown() || STORE.hidePrices ? '' : t.plusDelivery);
+// With prices hidden (or delivery unknown) customers send the order first and pay once we confirm the total
+const payLater = () => STORE.hidePrices || !deliveryKnown();
 
 const drawer = $('cart');
 const views = { cart: $('cartView'), checkout: $('checkoutForm'), done: $('orderDone') };
@@ -313,7 +321,7 @@ function renderCart() {
   $('delivery').textContent = views.checkout.hidden && STORE.deliveryCairo === 0 ? t.freeCairo : deliveryText();
   document.querySelectorAll('.js-total').forEach(el => { el.textContent = totalText(); });
   // Delivery fee not known yet (outside Cairo): order first, pay after we confirm the fee
-  const payMode = deliveryKnown() ? 'now' : 'later';
+  const payMode = payLater() ? 'later' : 'now';
   document.querySelectorAll('[data-pay]').forEach(el => { el.hidden = el.dataset.pay !== payMode; });
   // Emptied the cart while checking out: go back to the (empty) cart
   if (!lines.length && !views.checkout.hidden) showView('cart');
@@ -414,7 +422,7 @@ views.checkout.addEventListener('submit', e => {
     `${o.address}: ${data.get('address')}`,
     data.get('notes') ? `${o.notes}: ${data.get('notes')}` : null,
     '',
-    !deliveryKnown() ? o.paymentAfter : STORE.accountNumber ? o.payment(STORE.bank) : o.paymentAsk,
+    STORE.hidePrices ? o.paymentTotal : !deliveryKnown() ? o.paymentAfter : STORE.accountNumber ? o.payment(STORE.bank) : o.paymentAsk,
   ].filter(l => l !== null);
   const link = waLink(lines.join('\n'));
   window.open(link, '_blank', 'noopener');
@@ -426,6 +434,10 @@ views.checkout.addEventListener('submit', e => {
   showView('done');
 });
 
+if (STORE.hidePrices) {
+  document.querySelector('.pay [data-pay="later"]').innerHTML = t.stepTotal;
+  document.querySelector('.done [data-pay="later"]').innerHTML = t.doneTotal;
+}
 renderCart();
 
 // ---------- Rest of the page ----------

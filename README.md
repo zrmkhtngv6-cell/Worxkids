@@ -23,6 +23,7 @@ There is no server and no online card payment; orders are confirmed by hand on W
 Everything is in `products.js`, in English and Arabic:
 
 - `STORE.bank`, `STORE.accountName`, `STORE.accountNumber` — the bank account customers transfer to with InstaPay; `STORE.instapayLink` — optional InstaPay payment link
+- `STORE.hidePrices` — `true` shows "xxxx EGP" instead of every price (checkout then asks customers to send the order first and pay after you confirm the total); set it to `false` to show the real prices again
 - `STORE.deliveryCairo` / `STORE.deliveryOutsideCairo` — delivery fee in EGP, `0` for free, or `null` to confirm it on WhatsApp (currently free in Cairo, confirmed on WhatsApp outside)
 - `SECTIONS` — the shop sections (name, picture, order; `menu: true` puts a section in the menu under the logo)
 - `ROOMS` — the "Rooms we've designed" gallery: one entry per kids' room, photos in `assets/img/rooms/`. Empty = "photos coming soon".

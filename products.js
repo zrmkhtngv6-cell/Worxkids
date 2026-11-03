@@ -5,6 +5,8 @@
 // ============================================================
 
 const STORE = {
+  // true = show "xxxx EGP" instead of every price (real prices below are kept)
+  hidePrices: true,
   // WhatsApp number that receives orders (international format, digits only)
   whatsapp: '201117776589',
   // Bank account customers transfer to with InstaPay. Leave accountNumber empty to send the details on WhatsApp instead.
