@@ -286,6 +286,25 @@ const PRODUCTS = [
       ar: ['المقاس: عرض 100 سم × عمق 55 سم × ارتفاع 160 سم', 'بابان بمساحة للملابس المعلقة والمطوية', 'درج صغير ودرج واسع بعرض الدولاب', 'قاعدة بحواف متموجة وأرجل خشبية مخروطة (15 سم)', 'مقابض خشبية دائرية سهلة للأيدي الصغيرة', 'تشطيب خشب طبيعي فاتح', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'little-town-wardrobe', section: 'wardrobes', price: 0,
+    images: ['little-town-wardrobe.jpg', 'little-town-wardrobe-room.jpg', 'little-town-wardrobe-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Little Town Wardrobe', ar: 'دولاب البيوت الصغيرة' },
+    desc: {
+      en: 'A storybook wardrobe shaped like a row of three little townhouses, with window cut-outs that show off clothes, baskets and treasures inside.',
+      ar: 'دولاب كأنه من قصة أطفال على شكل صف من ثلاثة بيوت صغيرة، بنوافذ مفرغة تُظهر الملابس والسلال والكنوز الصغيرة بداخلها.',
+    },
+    long: {
+      en: "Turn your child's room into a little town. The Little Town Wardrobe is shaped like three charming townhouses standing side by side, each with its own rooftop: a rounded gable, a pointed peak and a tall chimney. Arched and square window cut-outs let little ones peek inside and see their clothes, while doors open onto hanging rails and shelves for dresses, jackets, folded clothes and baskets. It's a showpiece that makes tidying up feel like playing house. Made in light natural wood, it brings warmth and a touch of fairy-tale magic to any kids' room.",
+      ar: 'حوّل غرفة طفلك إلى بلدة صغيرة. دولاب البيوت الصغيرة على شكل ثلاثة بيوت ساحرة متجاورة، لكل منها سقفها الخاص: قمة مستديرة وأخرى مدببة ومدخنة طويلة. نوافذ مقوسة ومربعة مفرغة تتيح للصغار رؤية ملابسهم بالداخل، والأبواب تفتح على أعمدة تعليق ورفوف للفساتين والجواكت والملابس المطوية والسلال. قطعة مميزة تجعل الترتيب يبدو كلعبة البيت. مصنوع من الخشب الطبيعي الفاتح، ويضيف دفئاً ولمسة من سحر الحكايات لأي غرفة أطفال.',
+    },
+    details: {
+      en: ['Size: 120 cm wide × 30 cm deep × 130 cm tall', 'Three house-shaped sections with different rooftops', 'Arched and square window cut-outs', 'Hanging rails and shelves inside', 'Child-friendly height', 'Light natural wood finish', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 120 سم × عمق 30 سم × ارتفاع 130 سم', 'ثلاثة أقسام على شكل بيوت بأسقف مختلفة', 'نوافذ مفرغة مقوسة ومربعة', 'أعمدة تعليق ورفوف بالداخل', 'ارتفاع مناسب للأطفال', 'تشطيب خشب طبيعي فاتح', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
