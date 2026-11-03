@@ -362,6 +362,25 @@ const PRODUCTS = [
       ar: ['المقاس: عرض 80 سم × عمق 40 سم × ارتفاع 90 سم', 'ارتفاع سطح العمل 55 سم، مناسب تماماً للطهاة الصغار', 'حوض بصنبور وموقد بأربع عيون وثلاثة مقابض تدور', 'فرن بباب له نافذة وغسالة ودولاب في المنتصف', 'لوح خلفي برف وخمس علاقات', 'تشطيب خشب طبيعي', 'الأدوات وطعام اللعب غير مشمولين', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'little-chef-set', section: 'kitchens', price: 0,
+    images: ['little-chef-set.jpg', 'little-chef-set-room.jpg', 'little-chef-set-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Little Chef Kitchen & Fridge Set', ar: 'طقم مطبخ وثلاجة الشيف الصغير' },
+    desc: {
+      en: 'Our Little Chef Play Kitchen with a matching two-door wooden fridge: a complete pretend kitchen for big cooking adventures.',
+      ar: 'مطبخ الشيف الصغير مع ثلاجة خشبية متناسقة ببابين: مطبخ تخيلي كامل لمغامرات طبخ كبيرة.',
+    },
+    long: {
+      en: "Everything your little chef needs for a full kitchen of their own. This set pairs the Little Chef Play Kitchen, with its sink, four-ring hob, oven, washing machine and cupboard, with a matching tall fridge that has two doors and shelves inside for play food, milk and treats. Side by side, they make a complete pretend kitchen where children can store groceries, wash, cook and serve, all while learning through role play. Built at child height in warm natural wood with sturdy angled legs, it's the heart of any playroom.",
+      ar: 'كل ما يحتاجه الشيف الصغير لمطبخ كامل خاص به. يجمع هذا الطقم مطبخ الشيف الصغير بحوضه وموقده ذي العيون الأربع وفرنه وغسالته ودولابه، مع ثلاجة طويلة متناسقة ببابين ورفوف بالداخل لطعام اللعب والحليب والحلويات. جنباً إلى جنب، يكوّنان مطبخاً تخيلياً كاملاً يخزّن فيه الأطفال المشتريات ويغسلون ويطبخون ويقدّمون الطعام، وهم يتعلمون من خلال اللعب التمثيلي. مصنوع بارتفاع الطفل من الخشب الطبيعي الدافئ بأرجل مائلة متينة، ليكون قلب أي غرفة لعب.',
+    },
+    details: {
+      en: ['Total size: 120 cm wide × 40 cm deep × 90 cm tall', 'Play kitchen: 80 cm wide, counter height 55 cm', 'Fridge: 40 cm wide with two doors and shelves inside', 'Sink with tap, four-ring hob, oven, washing machine and cupboard', 'Backboard with a shelf and five hooks', 'Natural wood finish', 'Utensils and play food not included', 'Free delivery in Cairo'],
+      ar: ['المقاس الكلي: عرض 120 سم × عمق 40 سم × ارتفاع 90 سم', 'المطبخ: عرض 80 سم، ارتفاع سطح العمل 55 سم', 'الثلاجة: عرض 40 سم ببابين ورفوف بالداخل', 'حوض بصنبور وموقد بأربع عيون وفرن وغسالة ودولاب', 'لوح خلفي برف وخمس علاقات', 'تشطيب خشب طبيعي', 'الأدوات وطعام اللعب غير مشمولين', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
