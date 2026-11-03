@@ -343,6 +343,25 @@ const PRODUCTS = [
       ar: ['المقاس: عرض 120 سم × عمق 50 سم × ارتفاع 85 سم', 'صينية تغيير بحواف مرتفعة وصينية جانبية للحفاضات والمناديل', 'خمسة أدراج كبيرة ودرج صغير', 'رفان مفتوحان للسلال والكتب', 'قاعدة بحواف متموجة وأرجل خشبية مخروطة (15 سم)', 'متناسقة مع دولاب الحواف المتموجة', 'مرتبة التغيير غير مشمولة', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'little-chef-kitchen', section: 'kitchens', price: 0,
+    images: ['little-chef-kitchen.jpg', 'little-chef-kitchen-room.jpg', 'little-chef-kitchen-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Little Chef Play Kitchen', ar: 'مطبخ الشيف الصغير' },
+    desc: {
+      en: 'A wooden play kitchen with a sink, four-ring hob, oven, washing machine and cupboard, plus a shelf and hooks for little utensils.',
+      ar: 'مطبخ لعب خشبي فيه حوض وموقد بأربع عيون وفرن وغسالة ودولاب، بالإضافة إلى رف وعلاقات لأدوات المطبخ الصغيرة.',
+    },
+    long: {
+      en: "Let your little chef cook up endless adventures. The Little Chef Play Kitchen has everything a young cook needs: a sink with a curved tap, a four-ring hob with turning knobs, an oven with a window door, a washing machine with a round porthole and a cupboard in the middle for pots and pans. Above, a backboard with a shelf and five hooks keeps play food, jars and utensils neatly on display. Built at the perfect height for small children and finished in warm natural wood, it sparks imagination, role play and sharing, and looks lovely in any playroom or kids' room.",
+      ar: 'دع الشيف الصغير يطهو مغامرات لا تنتهي. مطبخ الشيف الصغير فيه كل ما يحتاجه الطاهي الصغير: حوض بصنبور منحني، وموقد بأربع عيون ومقابض تدور، وفرن بباب له نافذة، وغسالة بنافذة دائرية، ودولاب في المنتصف للحلل والأواني. وفي الأعلى لوح خلفي برف وخمس علاقات يعرض طعام اللعب والبرطمانات والأدوات بشكل مرتب. مصمم بالارتفاع المثالي للأطفال الصغار وبتشطيب الخشب الطبيعي الدافئ، ينمّي الخيال واللعب التمثيلي والمشاركة، ويبدو جميلاً في أي غرفة لعب أو غرفة أطفال.',
+    },
+    details: {
+      en: ['Size: 80 cm wide × 40 cm deep × 90 cm tall', 'Counter height 55 cm, just right for little cooks', 'Sink with tap, four-ring hob and three turning knobs', 'Oven with window door, washing machine and middle cupboard', 'Backboard with a shelf and five hooks', 'Natural wood finish', 'Utensils and play food not included', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 80 سم × عمق 40 سم × ارتفاع 90 سم', 'ارتفاع سطح العمل 55 سم، مناسب تماماً للطهاة الصغار', 'حوض بصنبور وموقد بأربع عيون وثلاثة مقابض تدور', 'فرن بباب له نافذة وغسالة ودولاب في المنتصف', 'لوح خلفي برف وخمس علاقات', 'تشطيب خشب طبيعي', 'الأدوات وطعام اللعب غير مشمولين', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
