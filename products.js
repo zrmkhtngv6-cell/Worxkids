@@ -324,6 +324,25 @@ const PRODUCTS = [
       ar: ['المقاس: عرض 120 سم × عمق 50 سم × ارتفاع 92 سم (85 سم الجسم + 7 سم الصينية)', 'صينية تغيير بحواف مرتفعة (74 سم) وصينية جانبية للحفاضات والمناديل', 'أربعة أدراج كبيرة ودرج صغير', 'رفان مفتوحان للسلال والكتب', 'تتحول لاحقاً إلى شيفونيرة عادية', 'مقابض خشبية دائرية وتشطيب خشب طبيعي', 'مرتبة التغيير غير مشمولة', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'scallop-changing-dresser', section: 'wardrobes', price: 0,
+    images: ['scallop-changing-dresser.jpg', 'scallop-changing-dresser-room.jpg', 'scallop-changing-dresser-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Scallop Changing Dresser', ar: 'ترابيزة التغيير بالحواف المتموجة' },
+    desc: {
+      en: 'A pretty changing table and chest of drawers with a scalloped base and turned legs. It matches the Scallop Wardrobe for a complete nursery set.',
+      ar: 'ترابيزة تغيير وشيفونيرة أنيقة بقاعدة بحواف متموجة وأرجل مخروطة، متناسقة مع دولاب الحواف المتموجة لطقم غرفة رضيع كامل.',
+    },
+    long: {
+      en: "Bring a sweet, storybook feel to the nursery with the Scallop Changing Dresser. A raised-edge changing tray on top keeps the changing mat secure, with a side tray for nappies, wipes and creams. Five generous drawers, two open shelves and a small extra drawer hold tiny clothes, blankets, books and baskets. The soft scalloped trim, round wooden knobs and classic turned legs match our Scallop Wardrobe, so the two make a lovely nursery set. When the changing days are over, lift off the tray and it becomes a charming chest of drawers for years to come.",
+      ar: 'أضف لمسة حالمة كأنها من قصة أطفال إلى غرفة الرضيع مع ترابيزة التغيير بالحواف المتموجة. صينية تغيير بحواف مرتفعة في الأعلى تثبّت مرتبة التغيير بأمان، مع صينية جانبية للحفاضات والمناديل والكريمات. خمسة أدراج واسعة ورفان مفتوحان ودرج صغير إضافي تحفظ الملابس الصغيرة والبطانيات والكتب والسلال. الحافة المتموجة الناعمة ومقابض الخشب الدائرية والأرجل المخروطة الكلاسيكية تتناسق مع دولاب الحواف المتموجة، ليكوّنا معاً طقماً جميلاً لغرفة الرضيع. وعندما تنتهي أيام التغيير، ارفع الصينية لتصبح شيفونيرة ساحرة لسنوات قادمة.',
+    },
+    details: {
+      en: ['Size: 120 cm wide × 50 cm deep × 85 cm tall', 'Raised-edge changing tray plus a side tray for nappies and wipes', 'Five large drawers and one small drawer', 'Two open shelves for baskets and books', 'Scalloped base trim and turned wooden legs (15 cm)', 'Matches the Scallop Wardrobe', 'Changing mat not included', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 120 سم × عمق 50 سم × ارتفاع 85 سم', 'صينية تغيير بحواف مرتفعة وصينية جانبية للحفاضات والمناديل', 'خمسة أدراج كبيرة ودرج صغير', 'رفان مفتوحان للسلال والكتب', 'قاعدة بحواف متموجة وأرجل خشبية مخروطة (15 سم)', 'متناسقة مع دولاب الحواف المتموجة', 'مرتبة التغيير غير مشمولة', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
