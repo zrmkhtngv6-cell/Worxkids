@@ -61,7 +61,6 @@ PAIRS = [
     ('header__cta">Free Quote</a>', 'header__cta">عرض سعر مجاني</a>'),
 
     # Category names (menu, tiles, filters, product cards)
-    ('>Custom Play Areas<', '>أماكن لعب حسب الطلب<'),
     ('>Contact<', '>تواصل معنا<'),
 
     # Hero
