@@ -377,6 +377,25 @@ const PRODUCTS = [
       ar: ['المقاس الكلي: عرض 120 سم × عمق 40 سم × ارتفاع 90 سم', 'المطبخ: عرض 80 سم، ارتفاع سطح العمل 55 سم', 'الثلاجة: عرض 40 سم ببابين ورفوف بالداخل', 'حوض بصنبور وموقد بأربع عيون وفرن وغسالة ودولاب', 'لوح خلفي برف وخمس علاقات', 'تشطيب خشب طبيعي', 'الأدوات وطعام اللعب غير مشمولين', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'cottage-kitchen', section: 'kitchens', price: 0,
+    images: ['cottage-kitchen.jpg', 'cottage-kitchen-room.jpg', 'cottage-kitchen-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Cottage Play Kitchen', ar: 'مطبخ الكوخ للأطفال' },
+    desc: {
+      en: 'A charming wooden play kitchen with a scalloped cottage roof, white sink, hob, oven and a pretty curtained cupboard.',
+      ar: 'مطبخ لعب خشبي ساحر بسقف كوخ متموج وحوض أبيض وموقد وفرن ودولاب جميل بستارة.',
+    },
+    long: {
+      en: "Bring the cosy charm of a country cottage to your playroom. The Cottage Play Kitchen is topped with a scalloped wooden roof and two open shelves for play food, cups and little pots. Below, a white farmhouse-style sink with a tap sits next to a four-ring hob with turning knobs and an oven with a window door and shelf. A soft orange curtain hides a cupboard under the sink for pans and toys. Built at just the right height for small chefs in warm natural wood, it invites hours of cooking, serving and imaginative play.",
+      ar: 'أضف دفء وسحر الأكواخ الريفية إلى غرفة اللعب. مطبخ الكوخ للأطفال يعلوه سقف خشبي متموج ورفان مفتوحان لطعام اللعب والأكواب والحلل الصغيرة. وفي الأسفل حوض أبيض بطراز ريفي مع صنبور بجانب موقد بأربع عيون ومقابض تدور، وفرن بباب له نافذة ورف بالداخل. ستارة برتقالية ناعمة تخفي دولاباً تحت الحوض للحلل والألعاب. مصنوع بالارتفاع المناسب للطهاة الصغار من الخشب الطبيعي الدافئ، ليدعو إلى ساعات من الطبخ والتقديم واللعب التخيلي.',
+    },
+    details: {
+      en: ['Size: 80 cm wide × 36 cm deep × 100 cm tall', 'Counter height 60 cm, just right for little cooks', 'White sink (30 × 20 × 12 cm) with a tap', 'Four-ring hob (28 × 20 cm) with four turning knobs', 'Oven with window door and shelf (inside 30 × 28 × 20 cm)', 'Curtained cupboard under the sink and two open shelves', 'Natural wood finish', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 80 سم × عمق 36 سم × ارتفاع 100 سم', 'ارتفاع سطح العمل 60 سم، مناسب تماماً للطهاة الصغار', 'حوض أبيض (30 × 20 × 12 سم) بصنبور', 'موقد بأربع عيون (28 × 20 سم) وأربعة مقابض تدور', 'فرن بباب له نافذة ورف (من الداخل 30 × 28 × 20 سم)', 'دولاب بستارة تحت الحوض ورفان مفتوحان', 'تشطيب خشب طبيعي', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
