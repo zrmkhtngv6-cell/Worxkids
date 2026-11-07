@@ -203,8 +203,8 @@ PAIRS = [
     ("<label>Message<textarea name=\"message\" rows=\"4\" placeholder=\"Tell us what you're looking for\">",
      '<label>الرسالة<textarea name="message" rows="4" placeholder="أخبرنا بما تبحث عنه">'),
     ('>Send via WhatsApp</button>', '>أرسل عبر واتساب</button>'),
-    ('Opens WhatsApp with your message ready to send to +20 111 777 6589.',
-     'يفتح واتساب ورسالتك جاهزة للإرسال إلى <span dir="ltr">+20 111 777 6589</span>.'),
+    ('Opens WhatsApp with your message ready to send to +20 111 777 6327.',
+     'يفتح واتساب ورسالتك جاهزة للإرسال إلى <span dir="ltr">+20 111 777 6327</span>.'),
     ('title="WORX showroom location — Park Mall, New Cairo"', 'title="موقع معرض WORX — بارك مول، القاهرة الجديدة"'),
     ('>Get directions</a>', '>الاتجاهات</a>'),
 
