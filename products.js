@@ -30,11 +30,8 @@ const SECTIONS = [
   { id: 'kitchens', img: 'play-kitchen.svg', menu: true, name: { en: 'Play Kitchens & Play Shops', ar: 'مطابخ ومحلات لعب' } },
   { id: 'climbing', img: 'climbing-triangle.svg', menu: true, name: { en: 'Climbing Sets', ar: 'ألعاب التسلق' } },
   { id: 'arches', img: 'climbing-arch.svg', name: { en: 'Climbing Arches & Rockers', ar: 'أقواس تسلق وهزازات' } },
-  { id: 'dollhouses', img: 'dollhouse.svg', name: { en: 'Dollhouses', ar: 'بيوت دمى' } },
   { id: 'baby', img: 'baby-toys.svg', name: { en: 'Baby & Toddler Wooden Toys', ar: 'ألعاب خشبية للرضع والأطفال الصغار' } },
-  { id: 'tents', img: 'teepee.svg', name: { en: 'Play Tents', ar: 'خيام لعب' } },
-  { id: 'easels', img: 'easel.svg', name: { en: 'Easels & Art', ar: 'حوامل رسم وفنون' } },
-  { id: 'tables', img: 'table-chairs.svg', name: { en: "Kids' Tables & Chairs", ar: 'طاولات وكراسي أطفال' } },
+  { id: 'tables', img: 'table-chairs.svg', name: { en: "Kids' Tables, Chairs & Easels", ar: 'طاولات وكراسي وحوامل رسم للأطفال' } },
 ];
 
 // One entry per product.
