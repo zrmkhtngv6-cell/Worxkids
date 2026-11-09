@@ -7,7 +7,8 @@ const STRINGS = {
   en: {
     openMenu: 'Open menu', closeMenu: 'Close menu',
     products: n => `${n} product${n === 1 ? '' : 's'}`,
-    money: n => (STORE.hidePrices ? 'xxxx EGP' : `${n.toLocaleString('en-US')} EGP`),
+    money: n => `${n.toLocaleString('en-US')} EGP`,
+    hidden: 'xxxx EGP',
     priceOnRequest: 'Price on request',
     stepTotal: '<strong>1.</strong> Tap "Send order". We\'ll reply on WhatsApp with your order total.',
     doneTotal: 'Your order <strong class="js-order-id"></strong> is ready in WhatsApp. Send it, and we\'ll reply with the total to transfer.',
@@ -48,7 +49,8 @@ const STRINGS = {
   ar: {
     openMenu: 'فتح القائمة', closeMenu: 'إغلاق القائمة',
     products: n => (n === 2 ? 'منتجان' : n >= 3 && n <= 10 ? `${n} منتجات` : `${n} منتج`),
-    money: n => (STORE.hidePrices ? 'xxxx ج.م' : `${n.toLocaleString('en-US')} ج.م`),
+    money: n => `${n.toLocaleString('en-US')} ج.م`,
+    hidden: 'xxxx ج.م',
     priceOnRequest: 'السعر عند الطلب',
     stepTotal: '<strong>١.</strong> اضغط "أرسل الطلب"، وسنرد عليك على واتساب بإجمالي طلبك.',
     doneTotal: 'طلبك <strong class="js-order-id"></strong> جاهز في واتساب. أرسله وسنرد عليك بالإجمالي المطلوب تحويله.',
@@ -91,6 +93,8 @@ const t = STRINGS[lang];
 const waLink = text => `https://wa.me/${STORE.whatsapp}?text=${encodeURIComponent(text)}`;
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const $ = id => document.getElementById(id);
+// A product's price is shown unless prices are hidden and the product isn't marked showPrice
+const priceShown = p => !STORE.hidePrices || !!p.showPrice;
 const byId = Object.fromEntries(PRODUCTS.map(p => [p.id, p]));
 const forSale = p => p && typeof p.price === 'number';
 
@@ -114,6 +118,7 @@ onScroll();
 // ---------- Product grid ----------
 const priceHtml = p => {
   if (!forSale(p)) return `<span class="price price--ask">${t.priceOnRequest}</span>`;
+  if (!priceShown(p)) return `<span class="price">${t.hidden}</span>`;
   const old = p.oldPrice ? `<s>${t.money(p.oldPrice)}</s> ` : '';
   return `<span class="price">${old}${t.money(p.price)}</span>`;
 };
@@ -312,6 +317,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hid
 // ---------- Cart (kept in this browser between visits) ----------
 const CART_KEY = 'worxkids-cart';
 let cart = {};
+let sentPayMode = null;
 try { cart = JSON.parse(localStorage.getItem(CART_KEY)) || {}; } catch { cart = {}; }
 // Drop anything that is no longer for sale
 // Keys are "productId|colourId|custom note"; older carts (product id only) become light wood
@@ -336,9 +342,11 @@ const deliveryFee = () => ($('zone').value === 'outside' ? STORE.deliveryOutside
 const deliveryKnown = () => typeof deliveryFee() === 'number';
 const deliveryText = () => (!deliveryKnown() ? t.deliveryLater : deliveryFee() === 0 ? t.free : t.money(deliveryFee()));
 const total = () => subtotal() + (deliveryKnown() ? deliveryFee() : 0);
-const totalText = () => t.money(total()) + (deliveryKnown() || STORE.hidePrices ? '' : t.plusDelivery);
+const pricesKnown = () => cartLines().every(l => priceShown(l.p));
+const sumText = n => (pricesKnown() ? t.money(n) : t.hidden);
+const totalText = () => (pricesKnown() ? t.money(total()) + (deliveryKnown() ? '' : t.plusDelivery) : t.hidden);
 // With prices hidden (or delivery unknown) customers send the order first and pay once we confirm the total
-const payLater = () => STORE.hidePrices || !deliveryKnown();
+const payLater = () => !pricesKnown() || !deliveryKnown();
 
 const drawer = $('cart');
 const views = { cart: $('cartView'), checkout: $('checkoutForm'), done: $('orderDone') };
@@ -361,7 +369,7 @@ function renderCart() {
       <div>
         <p class="cart__name">${esc(p.name[lang])}</p>
         <p class="cart__color"><i style="${swatchStyle(colorById[color])}"></i>${esc(colorLabel(color, note))}</p>
-        <p class="cart__price">${t.money(unitPrice({ p, color }))}</p>
+        <p class="cart__price">${priceShown(p) ? t.money(unitPrice({ p, color })) : t.hidden}</p>
         <div class="qty">
           <button type="button" data-qty="${esc(key)}" data-step="-1" aria-label="${t.decrease}">−</button>
           <span>${qty}</span>
@@ -370,12 +378,14 @@ function renderCart() {
       </div>
       <button type="button" class="cart__remove" data-remove="${esc(key)}" aria-label="${t.remove}">×</button>
     </li>`).join('');
-  $('subtotal').textContent = t.money(subtotal());
+  $('subtotal').textContent = sumText(subtotal());
   // In the cart (before a zone is chosen) show the Cairo offer
   $('delivery').textContent = views.checkout.hidden && STORE.deliveryCairo === 0 ? t.freeCairo : deliveryText();
   document.querySelectorAll('.js-total').forEach(el => { el.textContent = totalText(); });
   // Delivery fee not known yet (outside Cairo): order first, pay after we confirm the fee
-  const payMode = payLater() ? 'later' : 'now';
+  if (typeof renderPayLater === 'function') renderPayLater();
+  // After an order is sent the cart is empty, so the thank-you note keeps the sent order's mode
+  const payMode = sentPayMode || (payLater() ? 'later' : 'now');
   document.querySelectorAll('[data-pay]').forEach(el => { el.hidden = el.dataset.pay !== payMode; });
   // Emptied the cart while checking out: go back to the (empty) cart
   if (!lines.length && !views.checkout.hidden) showView('cart');
@@ -384,6 +394,7 @@ function renderCart() {
 
 let lastFocus = null;
 const openCart = () => {
+  sentPayMode = null;
   lastFocus = document.activeElement;
   showView('cart');
   drawer.hidden = false;
@@ -476,10 +487,10 @@ views.checkout.addEventListener('submit', e => {
     ...cartLines().map(({ p, color, note, qty }) => {
       const c = colorById[color];
       const col = c.extra ? `${c.name[lang]}: ${note} (${t.colorExtra(c.extraPrice || 0)})` : c.name[lang];
-      return `${qty} × ${p.name[lang]} (${o.color}: ${col}) — ${t.money(unitPrice({ p, color }) * qty)}`;
+      return `${qty} × ${p.name[lang]} (${o.color}: ${col}) — ${priceShown(p) ? t.money(unitPrice({ p, color }) * qty) : t.hidden}`;
     }),
     '',
-    `${o.subtotal}: ${t.money(subtotal())}`,
+    `${o.subtotal}: ${sumText(subtotal())}`,
     `${o.delivery}: ${deliveryText()}`,
     `${o.total}: ${totalText()}`,
     '',
@@ -490,10 +501,12 @@ views.checkout.addEventListener('submit', e => {
     `${o.address}: ${data.get('address')}`,
     data.get('notes') ? `${o.notes}: ${data.get('notes')}` : null,
     '',
-    STORE.hidePrices ? o.paymentTotal : !deliveryKnown() ? o.paymentAfter : STORE.accountNumber ? o.payment(STORE.bank) : o.paymentAsk,
+    !pricesKnown() ? o.paymentTotal : !deliveryKnown() ? o.paymentAfter : STORE.accountNumber ? o.payment(STORE.bank) : o.paymentAsk,
   ].filter(l => l !== null);
   const link = waLink(lines.join('\n'));
   window.open(link, '_blank', 'noopener');
+  sentPayMode = payLater() ? 'later' : 'now';
+  laterDone.innerHTML = pricesKnown() ? laterText.done : t.doneTotal;
   document.querySelectorAll('.js-order-id').forEach(el => { el.textContent = id; });
   $('orderResend').href = link;
   cart = {};
@@ -502,10 +515,13 @@ views.checkout.addEventListener('submit', e => {
   showView('done');
 });
 
-if (STORE.hidePrices) {
-  document.querySelector('.pay [data-pay="later"]').innerHTML = t.stepTotal;
-  document.querySelector('.done [data-pay="later"]').innerHTML = t.doneTotal;
-}
+const laterStep = document.querySelector('.pay [data-pay="later"]');
+const laterDone = document.querySelector('.done [data-pay="later"]');
+const laterText = { step: laterStep.innerHTML, done: laterDone.innerHTML };
+const renderPayLater = () => {
+  const unknown = !pricesKnown();
+  laterStep.innerHTML = unknown ? t.stepTotal : laterText.step;
+};
 renderCart();
 
 // ---------- Rest of the page ----------

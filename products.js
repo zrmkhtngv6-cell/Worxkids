@@ -5,7 +5,7 @@
 // ============================================================
 
 const STORE = {
-  // true = show "xxxx EGP" instead of every price (real prices below are kept)
+  // true = show "xxxx EGP" instead of prices (real prices below are kept), except for products marked showPrice: true
   hidePrices: true,
   // WhatsApp number that receives orders (international format, digits only)
   whatsapp: '201117776327',
@@ -47,6 +47,7 @@ const SECTIONS = [
 //   id     short unique name (letters and dashes), never change it once orders exist
 //   section  id of the section it belongs to (see SECTIONS)
 //   price  in EGP, e.g. 4500. Use null to show "Price on request" (no add-to-cart button)
+//   showPrice  true = show this product's real price even while STORE.hidePrices is on
 //   oldPrice  optional, shown crossed out next to the price for a sale
 //   badge  optional label on the photo, e.g. { en: 'New', ar: 'جديد' }
 //   images photos in assets/img/products/ (square photos look best). The first is the main photo,
@@ -56,7 +57,7 @@ const SECTIONS = [
 //   details optional bullet points (size, material...) for the product details window
 const PRODUCTS = [
   {
-    id: 'fish-shelf', section: 'shelves', price: 1500,
+    id: 'fish-shelf', section: 'shelves', price: 1200, showPrice: true,
     images: ['fish-shelf.jpg', 'fish-shelf-wall.jpg', 'fish-shelf-size.jpg'],
     badge: { en: 'New', ar: 'جديد' },
     name: { en: 'Fish Shelf', ar: 'رف السمكة' },
@@ -74,7 +75,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: 'house-of-books', section: 'shelves', price: 2000,
+    id: 'house-of-books', section: 'shelves', price: 1200, showPrice: true,
     images: ['house-of-books.jpg', 'house-of-books-room.jpg', 'house-of-books-size.jpg'],
     badge: { en: 'New', ar: 'جديد' },
     name: { en: 'House of Books', ar: 'بيت الكتب' },
@@ -92,7 +93,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: 'wave-shelf', section: 'shelves', price: 1000,
+    id: 'wave-shelf', section: 'shelves', price: 800, showPrice: true,
     images: ['wave-shelf.jpg', 'wave-shelf-room.jpg', 'wave-shelf-size.jpg'],
     badge: { en: 'New', ar: 'جديد' },
     name: { en: 'Wave Shelf', ar: 'رف الموجة' },
@@ -110,7 +111,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: 'textile-bookshelf', section: 'shelves', price: 2500,
+    id: 'textile-bookshelf', section: 'shelves', price: 2000, showPrice: true,
     images: ['textile-bookshelf.jpg', 'textile-bookshelf-room.jpg', 'textile-bookshelf-size.jpg'],
     badge: { en: 'New', ar: 'جديد' },
     name: { en: 'Textile Book Shelves', ar: 'رفوف الكتب القماشية' },
@@ -236,7 +237,7 @@ const PRODUCTS = [
     },
   },
   {
-    id: 'zoo-toy-keeper', section: 'shelves', price: 1500,
+    id: 'zoo-toy-keeper', section: 'shelves', price: 1200, showPrice: true,
     images: ['zoo-toy-keeper.jpg', 'zoo-toy-keeper-room.jpg', 'zoo-toy-keeper-size.jpg'],
     badge: { en: 'New', ar: 'جديد' },
     name: { en: 'Zoo Toy Keeper', ar: 'حديقة الألعاب' },
