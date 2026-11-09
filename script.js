@@ -14,6 +14,9 @@ const STRINGS = {
     comingSoon: 'Coming soon',
     waSection: name => `Hello WORX Kids, I'm looking for something from ${name}. What do you have?`,
     addToCart: 'Add to cart',
+    colorExtra: 'extra cost',
+    chooseCustom: 'Please write the colour you want',
+    plusColor: ' + colour extra',
     viewDetails: name => `View details: ${name}`,
     photo: n => `Photo ${n}`,
     askWhatsApp: 'Ask on WhatsApp',
@@ -28,6 +31,7 @@ const STRINGS = {
     waAsk: name => `Hello WORX Kids, I'm interested in the ${name}. Could you send me the price and details?`,
     order: {
       title: id => `New order ${id}`,
+      color: 'Colour', customNote: 'extra cost, please confirm',
       subtotal: 'Subtotal', delivery: 'Delivery', total: 'Total',
       name: 'Name', phone: 'Phone', zone: 'Delivery to', area: 'Area', address: 'Address', notes: 'Notes',
       payment: bank => `Payment: InstaPay transfer to the ${bank} account (screenshot attached)`,
@@ -51,6 +55,9 @@ const STRINGS = {
     comingSoon: 'قريباً',
     waSection: name => `مرحباً WORX Kids، أبحث عن منتج من قسم ${name}. ماذا لديكم؟`,
     addToCart: 'أضف إلى السلة',
+    colorExtra: 'تكلفة إضافية',
+    chooseCustom: 'برجاء كتابة اللون الذي تريده',
+    plusColor: ' + تكلفة اللون',
     viewDetails: name => `عرض التفاصيل: ${name}`,
     photo: n => `صورة ${n}`,
     askWhatsApp: 'اسأل عبر واتساب',
@@ -65,6 +72,7 @@ const STRINGS = {
     waAsk: name => `مرحباً WORX Kids، أنا مهتم بـ ${name}. هل يمكنكم إرسال السعر والتفاصيل؟`,
     order: {
       title: id => `طلب جديد ${id}`,
+      color: 'اللون', customNote: 'تكلفة إضافية، برجاء التأكيد',
       subtotal: 'المجموع', delivery: 'التوصيل', total: 'الإجمالي',
       name: 'الاسم', phone: 'الهاتف', zone: 'التوصيل إلى', area: 'المنطقة', address: 'العنوان', notes: 'ملاحظات',
       payment: bank => `الدفع: تحويل إنستاباي إلى حساب ${bank} (مرفق صورة التحويل)`,
@@ -233,6 +241,36 @@ $('bookForm').addEventListener('submit', e => {
   window.open(waLink(lines.join('\n')), '_blank', 'noopener');
 });
 
+// ---------- Colours ----------
+const colorById = Object.fromEntries(COLORS.map(c => [c.id, c]));
+let pickedColor = COLORS[0].id;
+const swatchStyle = c => (c.swatch.includes('gradient') ? `background:${c.swatch}` : `background-color:${c.swatch}`);
+const colorLabel = (colorId, note) => {
+  const c = colorById[colorId] || COLORS[0];
+  return c.extra ? `${c.name[lang]}${note ? `: ${note}` : ''} (${t.colorExtra})` : c.name[lang];
+};
+function renderColors(p) {
+  $('pmColors').hidden = !forSale(p);
+  pickedColor = COLORS[0].id;
+  $('pmCustomInput').value = '';
+  $('pmColorList').innerHTML = COLORS.map(c => `<button type="button" class="color-btn" data-color="${c.id}" style="${swatchStyle(c)}" aria-label="${esc(c.name[lang])}" title="${esc(c.name[lang])}"></button>`).join('');
+  showColor();
+}
+function showColor() {
+  const c = colorById[pickedColor];
+  $('pmColorList').querySelectorAll('[data-color]').forEach(b => b.setAttribute('aria-pressed', b.dataset.color === pickedColor));
+  $('pmColorName').textContent = c.extra ? `${c.name[lang]} (${t.colorExtra})` : c.name[lang];
+  $('pmCustom').hidden = !c.extra;
+  $('pmCustomInput').classList.remove('is-invalid');
+}
+$('pmColorList').addEventListener('click', e => {
+  const b = e.target.closest('[data-color]');
+  if (!b) return;
+  pickedColor = b.dataset.color;
+  showColor();
+  if (colorById[pickedColor].extra) $('pmCustomInput').focus();
+});
+
 // ---------- Product details window ----------
 const modal = $('productModal');
 let modalReturn = null;
@@ -249,7 +287,8 @@ const openProduct = id => {
   $('pmLong').textContent = (p.long || p.desc)[lang];
   $('pmDetails').innerHTML = p.details ? p.details[lang].map(d => `<li>${esc(d)}</li>`).join('') : '';
   $('pmDetails').hidden = !p.details;
-  $('pmAction').innerHTML = actionHtml(p);
+  $('pmAction').innerHTML = actionHtml(p).replace('product__add', 'product__add product__add--modal');
+  renderColors(p);
   $('pmThumbs').innerHTML = p.images.length > 1
     ? p.images.map((f, i) => `<button type="button" data-photo="${i}" aria-label="${t.photo(i + 1)}"><img src="${imgSrc(f)}" alt="" width="72" height="72"></button>`).join('')
     : '';
@@ -273,19 +312,31 @@ const CART_KEY = 'worxkids-cart';
 let cart = {};
 try { cart = JSON.parse(localStorage.getItem(CART_KEY)) || {}; } catch { cart = {}; }
 // Drop anything that is no longer for sale
-Object.keys(cart).forEach(id => { if (!forSale(byId[id]) || !(cart[id] > 0)) delete cart[id]; });
+// Keys are "productId|colourId|custom note"; older carts (product id only) become light wood
+Object.keys(cart).forEach(key => {
+  const qty = cart[key];
+  if (!key.includes('|')) { delete cart[key]; if (qty > 0) cart[`${key}|${COLORS[0].id}|`] = qty; }
+});
+Object.keys(cart).forEach(key => {
+  const [id, color] = key.split('|');
+  if (!forSale(byId[id]) || !colorById[color] || !(cart[key] > 0)) delete cart[key];
+});
 
 const saveCart = () => { localStorage.setItem(CART_KEY, JSON.stringify(cart)); renderCart(); };
-const cartLines = () => Object.entries(cart).map(([id, qty]) => ({ p: byId[id], qty }));
+const cartLines = () => Object.entries(cart).map(([key, qty]) => {
+  const [id, color, ...note] = key.split('|');
+  return { key, p: byId[id], color, note: note.join('|'), qty };
+});
+const customInCart = () => cartLines().some(l => colorById[l.color].extra);
 const subtotal = () => cartLines().reduce((sum, l) => sum + l.p.price * l.qty, 0);
 // Delivery depends on the zone picked at checkout (Cairo until they choose)
 const deliveryFee = () => ($('zone').value === 'outside' ? STORE.deliveryOutsideCairo : STORE.deliveryCairo);
 const deliveryKnown = () => typeof deliveryFee() === 'number';
 const deliveryText = () => (!deliveryKnown() ? t.deliveryLater : deliveryFee() === 0 ? t.free : t.money(deliveryFee()));
 const total = () => subtotal() + (deliveryKnown() ? deliveryFee() : 0);
-const totalText = () => t.money(total()) + (deliveryKnown() || STORE.hidePrices ? '' : t.plusDelivery);
+const totalText = () => t.money(total()) + (deliveryKnown() || STORE.hidePrices ? '' : t.plusDelivery) + (customInCart() && !STORE.hidePrices ? t.plusColor : '');
 // With prices hidden (or delivery unknown) customers send the order first and pay once we confirm the total
-const payLater = () => STORE.hidePrices || !deliveryKnown();
+const payLater = () => STORE.hidePrices || !deliveryKnown() || customInCart();
 
 const drawer = $('cart');
 const views = { cart: $('cartView'), checkout: $('checkoutForm'), done: $('orderDone') };
@@ -302,19 +353,20 @@ function renderCart() {
   $('cartCount').textContent = count;
   $('cartCount').hidden = !count;
   $('cartEmpty').hidden = !!lines.length;
-  $('cartItems').innerHTML = lines.map(({ p, qty }) => `
+  $('cartItems').innerHTML = lines.map(({ key, p, color, note, qty }) => `
     <li class="cart__item">
       <img src="${imgSrc(p.images[0])}" alt="" width="72" height="72">
       <div>
         <p class="cart__name">${esc(p.name[lang])}</p>
+        <p class="cart__color"><i style="${swatchStyle(colorById[color])}"></i>${esc(colorLabel(color, note))}</p>
         <p class="cart__price">${t.money(p.price)}</p>
         <div class="qty">
-          <button type="button" data-qty="${esc(p.id)}" data-step="-1" aria-label="${t.decrease}">−</button>
+          <button type="button" data-qty="${esc(key)}" data-step="-1" aria-label="${t.decrease}">−</button>
           <span>${qty}</span>
-          <button type="button" data-qty="${esc(p.id)}" data-step="1" aria-label="${t.increase}">+</button>
+          <button type="button" data-qty="${esc(key)}" data-step="1" aria-label="${t.increase}">+</button>
         </div>
       </div>
-      <button type="button" class="cart__remove" data-remove="${esc(p.id)}" aria-label="${t.remove}">×</button>
+      <button type="button" class="cart__remove" data-remove="${esc(key)}" aria-label="${t.remove}">×</button>
     </li>`).join('');
   $('subtotal').textContent = t.money(subtotal());
   // In the cart (before a zone is chosen) show the Cairo offer
@@ -358,7 +410,17 @@ document.addEventListener('click', e => {
   const btn = e.target.closest('.product__add');
   if (!btn) return;
   const p = byId[btn.dataset.id];
-  cart[p.id] = (cart[p.id] || 0) + 1;
+  if (!btn.classList.contains('product__add--modal')) { openProduct(p.id); return; }
+  const c = colorById[pickedColor];
+  const note = c.extra ? $('pmCustomInput').value.trim().replace(/\|/g, '/') : '';
+  if (c.extra && !note) {
+    $('pmCustomInput').classList.add('is-invalid');
+    $('pmCustomInput').focus();
+    toast(t.chooseCustom);
+    return;
+  }
+  const key = `${p.id}|${c.id}|${note}`;
+  cart[key] = (cart[key] || 0) + 1;
   saveCart();
   if (!modal.hidden) closeProduct();
   toast(t.added(p.name[lang]));
@@ -409,7 +471,11 @@ views.checkout.addEventListener('submit', e => {
   const lines = [
     o.title(id),
     '',
-    ...cartLines().map(({ p, qty }) => `${qty} × ${p.name[lang]} — ${t.money(p.price * qty)}`),
+    ...cartLines().map(({ p, color, note, qty }) => {
+      const c = colorById[color];
+      const col = c.extra ? `${c.name[lang]}: ${note} (${o.customNote})` : c.name[lang];
+      return `${qty} × ${p.name[lang]} (${o.color}: ${col}) — ${t.money(p.price * qty)}`;
+    }),
     '',
     `${o.subtotal}: ${t.money(subtotal())}`,
     `${o.delivery}: ${deliveryText()}`,

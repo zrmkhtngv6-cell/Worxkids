@@ -382,6 +382,21 @@ h3 { font-size: 1.3rem; }
 .modal__info > p { color: var(--ink-soft); margin: 0; }
 .modal__details { margin: 0; padding-inline-start: 1.2rem; display: grid; gap: .3rem; }
 .modal__info .btn { width: 100%; margin-top: .6rem; }
+.colors { border: 0; margin: .4rem 0 0; padding: 0; }
+.colors legend { padding: 0; margin-bottom: .6rem; font-weight: 700; }
+.colors legend strong { font-weight: 600; color: var(--ink-soft); }
+.colors__list { display: flex; flex-wrap: wrap; gap: .6rem; }
+.color-btn { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--line); padding: 0; cursor: pointer; box-shadow: inset 0 0 0 3px #fff; transition: transform .15s; }
+.color-btn:hover { transform: scale(1.08); }
+.color-btn[aria-pressed="true"] { border-color: var(--ink); }
+.colors__custom { display: grid; gap: .4rem; margin-top: .8rem; }
+.colors__custom label { display: grid; gap: .3rem; font-weight: 700; font-size: .92rem; }
+.colors__custom input { font: inherit; font-weight: 400; padding: .7rem .9rem; border: 2px solid var(--line); border-radius: 12px; background: var(--cream); }
+.colors__custom input:focus { outline: none; border-color: var(--sky); }
+.colors__custom input.is-invalid { border-color: var(--coral); }
+.colors__note { margin: 0; font-size: .88rem; color: var(--coral-dark); }
+.cart__color { margin: 0; font-size: .88rem; color: var(--ink-soft); display: flex; align-items: center; gap: .4rem; }
+.cart__color i { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--line); display: inline-block; flex: none; }
 @media (max-width: 760px) {
   .modal { padding: 0; place-items: end center; }
   .modal__panel { grid-template-columns: 1fr; max-height: 92vh; border-radius: var(--radius) var(--radius) 0 0; }

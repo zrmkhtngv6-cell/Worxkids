@@ -250,6 +250,13 @@ PAIRS = [
     ('<dt>Total</dt>', '<dt>الإجمالي</dt>'),
     ('id="toCheckout">Checkout</button>', 'id="toCheckout">إتمام الطلب</button>'),
 
+    # Colour picker
+    ('<legend>Colour: <strong id="pmColorName"></strong></legend>', '<legend>اللون: <strong id="pmColorName"></strong></legend>'),
+    ('<label>Which colour would you like?<input id="pmCustomInput" maxlength="60" placeholder="e.g. pastel pink, sage green">',
+     '<label>ما اللون الذي تريده؟<input id="pmCustomInput" maxlength="60" placeholder="مثلاً وردي فاتح، أخضر زيتي">'),
+    ("Custom colours cost extra. We'll confirm the price with you on WhatsApp before you pay.",
+     'الألوان حسب الطلب بتكلفة إضافية. سنؤكد معك السعر على واتساب قبل الدفع.'),
+
     # Footer
     ('aria-label="WORX Kids — back to top"', 'aria-label="WORX Kids — العودة للأعلى"'),
     ('<p>Looking for kitchens or dressing rooms? Visit <a href="https://worxegypt.com/">WORX Kitchen &amp; Dressing</a>.</p>',

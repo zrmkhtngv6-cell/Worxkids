@@ -25,6 +25,7 @@ Everything is in `products.js`, in English and Arabic:
 - `STORE.bank`, `STORE.accountName`, `STORE.accountNumber` — the bank account customers transfer to with InstaPay; `STORE.instapayLink` — optional InstaPay payment link
 - `STORE.hidePrices` — `true` shows "xxxx EGP" instead of every price (checkout then asks customers to send the order first and pay after you confirm the total); set it to `false` to show the real prices again
 - `STORE.deliveryCairo` / `STORE.deliveryOutsideCairo` — delivery fee in EGP, `0` for free, or `null` to confirm it on WhatsApp (currently free in Cairo, confirmed on WhatsApp outside)
+- `COLORS` — colour options offered for every product (light wood, dark wood, white, black, custom colour at extra cost). Customers pick one in the product details window; it shows in the cart and the WhatsApp order. An order with a custom colour is always sent before payment so the extra cost can be confirmed.
 - `SECTIONS` — the shop sections (name, picture, order; `menu: true` puts a section in the menu under the logo)
 - `ROOMS` — the "Rooms we've designed" gallery: one entry per kids' room, photos in `assets/img/rooms/`. Empty = "photos coming soon".
 - `PRODUCTS` — one entry per product, with the `section` it belongs to. `price: null` shows "Price on request" with an "Ask on WhatsApp" button instead of "Add to cart". `oldPrice` shows a crossed-out sale price.
