@@ -425,6 +425,25 @@ const PRODUCTS = [
       ar: ['المقاس: طول 140 سم × عرض 76 سم × ارتفاع 96 سم', 'يناسب مرتبة 130 × 70 سم بسمك 10–12 سم (المرتبة غير مشمولة)', 'ارتفاع الجوانب 60 سم فوق قاعدة المرتبة', 'درج منزلق (130 × 60 × 20 سم) بثلاثة أقسام', 'واجهة درج متموجة بمقابض خشبية دائرية', 'متناسق مع دولاب وترابيزة التغيير بالحواف المتموجة', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'wave-changing-dresser', section: 'wardrobes', price: 0,
+    images: ['wave-changing-dresser.jpg', 'wave-changing-dresser-room.jpg', 'wave-changing-dresser-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Wave Changing Dresser', ar: 'ترابيزة التغيير المتموجة' },
+    desc: {
+      en: 'A changing table and chest of drawers with clean, handle-free drawer fronts, a soft wave-shaped base and turned legs.',
+      ar: 'ترابيزة تغيير وشيفونيرة بواجهات أدراج بسيطة بدون مقابض، وقاعدة متموجة ناعمة وأرجل مخروطة.',
+    },
+    long: {
+      en: "Simple, calm and made for busy days with a little one. The Wave Changing Dresser has a raised-edge changing tray on top to hold the changing mat securely, plus a side tray for nappies, wipes and creams. Five wide drawers with clean, handle-free fronts, two open shelves and a small extra drawer keep clothes, blankets and baskets close at hand. A gentle wave runs along the base above classic turned legs, giving it a soft, modern look. When the changing days are over, lift off the tray and it becomes a lovely chest of drawers that grows with your child.",
+      ar: 'بسيطة وهادئة ومصممة للأيام المزدحمة مع طفلك الصغير. ترابيزة التغيير المتموجة فيها صينية تغيير بحواف مرتفعة في الأعلى تثبّت مرتبة التغيير بأمان، مع صينية جانبية للحفاضات والمناديل والكريمات. خمسة أدراج واسعة بواجهات بسيطة بدون مقابض ورفان مفتوحان ودرج صغير إضافي تبقي الملابس والبطانيات والسلال في متناول يدك. موجة ناعمة تمتد على القاعدة فوق أرجل مخروطة كلاسيكية، لتمنحها مظهراً عصرياً ناعماً. وعندما تنتهي أيام التغيير، ارفع الصينية لتصبح شيفونيرة جميلة تكبر مع طفلك.',
+    },
+    details: {
+      en: ['Size: 120 cm wide × 50 cm deep × 85 cm tall', 'Raised-edge changing tray plus a side tray for nappies and wipes', 'Five large drawers and one small drawer, with handle-free fronts', 'Two open shelves for baskets and blankets', 'Wave-shaped base and turned wooden legs (15 cm)', 'Turns into a regular chest of drawers later', 'Changing mat not included', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 120 سم × عمق 50 سم × ارتفاع 85 سم', 'صينية تغيير بحواف مرتفعة وصينية جانبية للحفاضات والمناديل', 'خمسة أدراج كبيرة ودرج صغير بواجهات بدون مقابض', 'رفان مفتوحان للسلال والبطانيات', 'قاعدة متموجة وأرجل خشبية مخروطة (15 سم)', 'تتحول لاحقاً إلى شيفونيرة عادية', 'مرتبة التغيير غير مشمولة', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
