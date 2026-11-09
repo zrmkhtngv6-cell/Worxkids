@@ -14,9 +14,9 @@ const STRINGS = {
     comingSoon: 'Coming soon',
     waSection: name => `Hello WORX Kids, I'm looking for something from ${name}. What do you have?`,
     addToCart: 'Add to cart',
-    colorExtra: 'extra cost',
+    colorExtra: n => `+${n.toLocaleString('en-US')} EGP`,
+    customNote: n => `A custom colour adds ${n.toLocaleString('en-US')} EGP per item.`,
     chooseCustom: 'Please write the colour you want',
-    plusColor: ' + colour extra',
     viewDetails: name => `View details: ${name}`,
     photo: n => `Photo ${n}`,
     askWhatsApp: 'Ask on WhatsApp',
@@ -31,7 +31,7 @@ const STRINGS = {
     waAsk: name => `Hello WORX Kids, I'm interested in the ${name}. Could you send me the price and details?`,
     order: {
       title: id => `New order ${id}`,
-      color: 'Colour', customNote: 'extra cost, please confirm',
+      color: 'Colour',
       subtotal: 'Subtotal', delivery: 'Delivery', total: 'Total',
       name: 'Name', phone: 'Phone', zone: 'Delivery to', area: 'Area', address: 'Address', notes: 'Notes',
       payment: bank => `Payment: InstaPay transfer to the ${bank} account (screenshot attached)`,
@@ -55,9 +55,9 @@ const STRINGS = {
     comingSoon: 'قريباً',
     waSection: name => `مرحباً WORX Kids، أبحث عن منتج من قسم ${name}. ماذا لديكم؟`,
     addToCart: 'أضف إلى السلة',
-    colorExtra: 'تكلفة إضافية',
+    colorExtra: n => `+${n.toLocaleString('en-US')} ج.م`,
+    customNote: n => `اللون حسب الطلب يضيف ${n.toLocaleString('en-US')} ج.م لكل قطعة.`,
     chooseCustom: 'برجاء كتابة اللون الذي تريده',
-    plusColor: ' + تكلفة اللون',
     viewDetails: name => `عرض التفاصيل: ${name}`,
     photo: n => `صورة ${n}`,
     askWhatsApp: 'اسأل عبر واتساب',
@@ -72,7 +72,7 @@ const STRINGS = {
     waAsk: name => `مرحباً WORX Kids، أنا مهتم بـ ${name}. هل يمكنكم إرسال السعر والتفاصيل؟`,
     order: {
       title: id => `طلب جديد ${id}`,
-      color: 'اللون', customNote: 'تكلفة إضافية، برجاء التأكيد',
+      color: 'اللون',
       subtotal: 'المجموع', delivery: 'التوصيل', total: 'الإجمالي',
       name: 'الاسم', phone: 'الهاتف', zone: 'التوصيل إلى', area: 'المنطقة', address: 'العنوان', notes: 'ملاحظات',
       payment: bank => `الدفع: تحويل إنستاباي إلى حساب ${bank} (مرفق صورة التحويل)`,
@@ -244,10 +244,12 @@ $('bookForm').addEventListener('submit', e => {
 // ---------- Colours ----------
 const colorById = Object.fromEntries(COLORS.map(c => [c.id, c]));
 let pickedColor = COLORS[0].id;
+const customColor = COLORS.find(c => c.extra);
+if (customColor) $('pmCustomNote').textContent = t.customNote(customColor.extraPrice || 0);
 const swatchStyle = c => (c.swatch.includes('gradient') ? `background:${c.swatch}` : `background-color:${c.swatch}`);
 const colorLabel = (colorId, note) => {
   const c = colorById[colorId] || COLORS[0];
-  return c.extra ? `${c.name[lang]}${note ? `: ${note}` : ''} (${t.colorExtra})` : c.name[lang];
+  return c.extra ? `${c.name[lang]}${note ? `: ${note}` : ''} (${t.colorExtra(c.extraPrice || 0)})` : c.name[lang];
 };
 function renderColors(p) {
   $('pmColors').hidden = !forSale(p);
@@ -259,7 +261,7 @@ function renderColors(p) {
 function showColor() {
   const c = colorById[pickedColor];
   $('pmColorList').querySelectorAll('[data-color]').forEach(b => b.setAttribute('aria-pressed', b.dataset.color === pickedColor));
-  $('pmColorName').textContent = c.extra ? `${c.name[lang]} (${t.colorExtra})` : c.name[lang];
+  $('pmColorName').textContent = c.extra ? `${c.name[lang]} (${t.colorExtra(c.extraPrice || 0)})` : c.name[lang];
   $('pmCustom').hidden = !c.extra;
   $('pmCustomInput').classList.remove('is-invalid');
 }
@@ -327,16 +329,16 @@ const cartLines = () => Object.entries(cart).map(([key, qty]) => {
   const [id, color, ...note] = key.split('|');
   return { key, p: byId[id], color, note: note.join('|'), qty };
 });
-const customInCart = () => cartLines().some(l => colorById[l.color].extra);
-const subtotal = () => cartLines().reduce((sum, l) => sum + l.p.price * l.qty, 0);
+const unitPrice = l => l.p.price + (colorById[l.color].extraPrice || 0);
+const subtotal = () => cartLines().reduce((sum, l) => sum + unitPrice(l) * l.qty, 0);
 // Delivery depends on the zone picked at checkout (Cairo until they choose)
 const deliveryFee = () => ($('zone').value === 'outside' ? STORE.deliveryOutsideCairo : STORE.deliveryCairo);
 const deliveryKnown = () => typeof deliveryFee() === 'number';
 const deliveryText = () => (!deliveryKnown() ? t.deliveryLater : deliveryFee() === 0 ? t.free : t.money(deliveryFee()));
 const total = () => subtotal() + (deliveryKnown() ? deliveryFee() : 0);
-const totalText = () => t.money(total()) + (deliveryKnown() || STORE.hidePrices ? '' : t.plusDelivery) + (customInCart() && !STORE.hidePrices ? t.plusColor : '');
+const totalText = () => t.money(total()) + (deliveryKnown() || STORE.hidePrices ? '' : t.plusDelivery);
 // With prices hidden (or delivery unknown) customers send the order first and pay once we confirm the total
-const payLater = () => STORE.hidePrices || !deliveryKnown() || customInCart();
+const payLater = () => STORE.hidePrices || !deliveryKnown();
 
 const drawer = $('cart');
 const views = { cart: $('cartView'), checkout: $('checkoutForm'), done: $('orderDone') };
@@ -359,7 +361,7 @@ function renderCart() {
       <div>
         <p class="cart__name">${esc(p.name[lang])}</p>
         <p class="cart__color"><i style="${swatchStyle(colorById[color])}"></i>${esc(colorLabel(color, note))}</p>
-        <p class="cart__price">${t.money(p.price)}</p>
+        <p class="cart__price">${t.money(unitPrice({ p, color }))}</p>
         <div class="qty">
           <button type="button" data-qty="${esc(key)}" data-step="-1" aria-label="${t.decrease}">−</button>
           <span>${qty}</span>
@@ -473,8 +475,8 @@ views.checkout.addEventListener('submit', e => {
     '',
     ...cartLines().map(({ p, color, note, qty }) => {
       const c = colorById[color];
-      const col = c.extra ? `${c.name[lang]}: ${note} (${o.customNote})` : c.name[lang];
-      return `${qty} × ${p.name[lang]} (${o.color}: ${col}) — ${t.money(p.price * qty)}`;
+      const col = c.extra ? `${c.name[lang]}: ${note} (${t.colorExtra(c.extraPrice || 0)})` : c.name[lang];
+      return `${qty} × ${p.name[lang]} (${o.color}: ${col}) — ${t.money(unitPrice({ p, color }) * qty)}`;
     }),
     '',
     `${o.subtotal}: ${t.money(subtotal())}`,

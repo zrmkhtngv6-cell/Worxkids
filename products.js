@@ -20,13 +20,13 @@ const STORE = {
   deliveryOutsideCairo: null,
 };
 
-// Colour options offered for every product. extra: true = custom colour (extra cost, confirmed on WhatsApp)
+// Colour options offered for every product. extra: true = custom colour; extraPrice = what it adds per item, in EGP
 const COLORS = [
   { id: 'light', swatch: '#e4c38f', name: { en: 'Light wood', ar: 'خشب فاتح' } },
   { id: 'dark', swatch: '#7a4e2d', name: { en: 'Dark wood', ar: 'خشب غامق' } },
   { id: 'white', swatch: '#ffffff', name: { en: 'White', ar: 'أبيض' } },
   { id: 'black', swatch: '#1f1d1d', name: { en: 'Black', ar: 'أسود' } },
-  { id: 'custom', swatch: 'conic-gradient(#ff6b5b, #ffc23d, #3cc79a, #4cb4e7, #a48cf0, #ff6b5b)', extra: true, name: { en: 'Custom colour', ar: 'لون حسب الطلب' } },
+  { id: 'custom', swatch: 'conic-gradient(#ff6b5b, #ffc23d, #3cc79a, #4cb4e7, #a48cf0, #ff6b5b)', extra: true, extraPrice: 500, name: { en: 'Custom colour', ar: 'لون حسب الطلب' } },
 ];
 
 // Shop sections, in the order they appear. Each section has a picture in assets/img/products/.
