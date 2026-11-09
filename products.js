@@ -440,8 +440,27 @@ const PRODUCTS = [
       ar: 'بسيطة وهادئة ومصممة للأيام المزدحمة مع طفلك الصغير. ترابيزة التغيير المتموجة فيها صينية تغيير بحواف مرتفعة في الأعلى تثبّت مرتبة التغيير بأمان، مع صينية جانبية للحفاضات والمناديل والكريمات. خمسة أدراج واسعة بواجهات بسيطة بدون مقابض ورفان مفتوحان ودرج صغير إضافي تبقي الملابس والبطانيات والسلال في متناول يدك. موجة ناعمة تمتد على القاعدة فوق أرجل مخروطة كلاسيكية، لتمنحها مظهراً عصرياً ناعماً. وعندما تنتهي أيام التغيير، ارفع الصينية لتصبح شيفونيرة جميلة تكبر مع طفلك.',
     },
     details: {
-      en: ['Size: 120 cm wide × 50 cm deep × 85 cm tall', 'Raised-edge changing tray plus a side tray for nappies and wipes', 'Five large drawers and one small drawer, with handle-free fronts', 'Two open shelves for baskets and blankets', 'Wave-shaped base and turned wooden legs (15 cm)', 'Turns into a regular chest of drawers later', 'Changing mat not included', 'Free delivery in Cairo'],
-      ar: ['المقاس: عرض 120 سم × عمق 50 سم × ارتفاع 85 سم', 'صينية تغيير بحواف مرتفعة وصينية جانبية للحفاضات والمناديل', 'خمسة أدراج كبيرة ودرج صغير بواجهات بدون مقابض', 'رفان مفتوحان للسلال والبطانيات', 'قاعدة متموجة وأرجل خشبية مخروطة (15 سم)', 'تتحول لاحقاً إلى شيفونيرة عادية', 'مرتبة التغيير غير مشمولة', 'توصيل مجاني داخل القاهرة'],
+      en: ['Size: 120 cm wide × 50 cm deep × 85 cm tall', 'Raised-edge changing tray plus a side tray for nappies and wipes', 'Five large drawers and one small drawer, with handle-free fronts', 'Two open shelves for baskets and blankets', 'Wave-shaped base and turned wooden legs (15 cm)', 'Matches the Wave Wardrobe', 'Turns into a regular chest of drawers later', 'Changing mat not included', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 120 سم × عمق 50 سم × ارتفاع 85 سم', 'صينية تغيير بحواف مرتفعة وصينية جانبية للحفاضات والمناديل', 'خمسة أدراج كبيرة ودرج صغير بواجهات بدون مقابض', 'رفان مفتوحان للسلال والبطانيات', 'قاعدة متموجة وأرجل خشبية مخروطة (15 سم)', 'متناسقة مع الدولاب المتموج', 'تتحول لاحقاً إلى شيفونيرة عادية', 'مرتبة التغيير غير مشمولة', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'wave-wardrobe', section: 'wardrobes', price: 0,
+    images: ['wave-wardrobe.jpg', 'wave-wardrobe-room.jpg', 'wave-wardrobe-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Wave Wardrobe', ar: 'الدولاب المتموج' },
+    desc: {
+      en: 'A calm two-door wardrobe with clean, handle-free fronts, two drawers, a soft wave-shaped base and turned legs. It matches the Wave Changing Dresser.',
+      ar: 'دولاب هادئ ببابين وواجهات بسيطة بدون مقابض ودرجين وقاعدة متموجة ناعمة وأرجل مخروطة، متناسق مع ترابيزة التغيير المتموجة.',
+    },
+    long: {
+      en: "Simple lines and a gentle wave make the Wave Wardrobe a soft, modern home for your child's clothes. Two tall doors open onto plenty of space for hanging and folded clothes, while a small drawer and a wide full-width drawer keep socks, pyjamas and blankets neatly sorted. The handle-free fronts keep the look clean and calm, and the wave-shaped base and classic turned legs add a playful touch. Finished in light natural wood, it pairs perfectly with our Wave Changing Dresser for a nursery that matches beautifully.",
+      ar: 'خطوط بسيطة وموجة ناعمة تجعل الدولاب المتموج بيتاً عصرياً وهادئاً لملابس طفلك. بابان طويلان يفتحان على مساحة واسعة للملابس المعلقة والمطوية، بينما يحافظ درج صغير ودرج واسع بعرض الدولاب على ترتيب الجوارب والبيجامات والبطانيات. الواجهات بدون مقابض تحافظ على مظهر بسيط وهادئ، والقاعدة المتموجة والأرجل المخروطة الكلاسيكية تضيف لمسة مرحة. بتشطيب الخشب الطبيعي الفاتح، يتناسق تماماً مع ترابيزة التغيير المتموجة لغرفة طفل متناسقة وجميلة.',
+    },
+    details: {
+      en: ['Size: 100 cm wide × 55 cm deep × 160 cm tall', 'Two doors with space for hanging and folded clothes', 'One small drawer and one wide full-width drawer', 'Handle-free fronts for a clean look', 'Wave-shaped base and turned wooden legs (15 cm)', 'Matches the Wave Changing Dresser', 'Free delivery in Cairo'],
+      ar: ['المقاس: عرض 100 سم × عمق 55 سم × ارتفاع 160 سم', 'بابان بمساحة للملابس المعلقة والمطوية', 'درج صغير ودرج واسع بعرض الدولاب', 'واجهات بدون مقابض لمظهر بسيط', 'قاعدة متموجة وأرجل خشبية مخروطة (15 سم)', 'متناسق مع ترابيزة التغيير المتموجة', 'توصيل مجاني داخل القاهرة'],
     },
   },
 ];
