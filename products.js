@@ -463,6 +463,25 @@ const PRODUCTS = [
       ar: ['المقاس: عرض 100 سم × عمق 55 سم × ارتفاع 160 سم', 'بابان بمساحة للملابس المعلقة والمطوية', 'درج صغير ودرج واسع بعرض الدولاب', 'واجهات بدون مقابض لمظهر بسيط', 'قاعدة متموجة وأرجل خشبية مخروطة (15 سم)', 'متناسق مع ترابيزة التغيير المتموجة', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'climb-slide-set', section: 'arches', price: 0,
+    images: ['climb-slide-set.jpg', 'climb-slide-set-room.jpg', 'climb-slide-set-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Climb & Slide 3-in-1 Set', ar: 'طقم التسلق والتزحلق ٣ في ١' },
+    desc: {
+      en: 'A wooden climbing triangle, climbing arch and two-sided ramp that link together into one big play course for climbing, crawling and sliding.',
+      ar: 'مثلث تسلق خشبي وقوس تسلق ومنحدر بوجهين يتصلون معاً في مسار لعب كبير للتسلق والزحف والتزحلق.',
+    },
+    long: {
+      en: "Turn any room into an indoor playground. This 3-in-1 set includes a climbing triangle, a climbing arch and a two-sided ramp with wooden climbing holds on one side and a smooth slide on the other. Hook the ramp onto the triangle or the arch, or link all three into one long course to climb up, crawl through and slide down. Flip the arch over and it becomes a gentle rocker. Every piece helps little ones build strength, balance and confidence while they play, and the pieces can be rearranged again and again to keep things new.",
+      ar: 'حوّل أي غرفة إلى ملعب داخلي. يتضمن هذا الطقم ٣ في ١ مثلث تسلق وقوس تسلق ومنحدراً بوجهين، وجه بمقابض تسلق خشبية ووجه أملس للتزحلق. علّق المنحدر على المثلث أو على القوس، أو اربط الثلاثة معاً في مسار طويل للتسلق والزحف والتزحلق. اقلب القوس ليصبح هزازاً هادئاً. كل قطعة تساعد الصغار على بناء القوة والتوازن والثقة أثناء اللعب، ويمكن إعادة ترتيب القطع مرة بعد مرة ليبقى اللعب جديداً دائماً.',
+    },
+    details: {
+      en: ['3 pieces: climbing triangle, climbing arch and two-sided ramp', 'Triangle: 87 × 73 cm, 76 cm tall', 'Arch: 96 × 52 cm, 50 cm tall (flips over into a rocker)', 'Ramp: 97.5 × 38.5 cm, with climbing holds on one side and a slide on the other', 'Link the pieces in different ways for new play courses', 'Natural wood with smooth, rounded edges', 'Free delivery in Cairo'],
+      ar: ['٣ قطع: مثلث تسلق وقوس تسلق ومنحدر بوجهين', 'المثلث: 87 × 73 سم، ارتفاع 76 سم', 'القوس: 96 × 52 سم، ارتفاع 50 سم (ينقلب ليصبح هزازاً)', 'المنحدر: 97.5 × 38.5 سم، بمقابض تسلق من جهة ووجه للتزحلق من الجهة الأخرى', 'اربط القطع بطرق مختلفة لمسارات لعب جديدة', 'خشب طبيعي بحواف ناعمة ودائرية', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
