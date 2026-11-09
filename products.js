@@ -406,6 +406,25 @@ const PRODUCTS = [
       ar: ['المقاس: عرض 80 سم × عمق 36 سم × ارتفاع 100 سم', 'ارتفاع سطح العمل 60 سم، مناسب تماماً للطهاة الصغار', 'حوض أبيض (30 × 20 × 12 سم) بصنبور', 'موقد بأربع عيون (28 × 20 سم) وأربعة مقابض تدور', 'فرن بباب له نافذة ورف (من الداخل 30 × 28 × 20 سم)', 'دولاب بستارة تحت الحوض ورفان مفتوحان', 'تشطيب خشب طبيعي', 'توصيل مجاني داخل القاهرة'],
     },
   },
+  {
+    // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
+    id: 'scallop-crib', section: 'beds', price: 0,
+    images: ['scallop-crib.jpg', 'scallop-crib-room.jpg', 'scallop-crib-size.jpg'],
+    badge: { en: 'New', ar: 'جديد' },
+    name: { en: 'Scallop Storage Crib', ar: 'سرير الرضيع بالحواف المتموجة' },
+    desc: {
+      en: 'A soft, rounded wooden crib with a big scalloped drawer underneath for blankets and baby clothes. It matches our Scallop Wardrobe and Changing Dresser.',
+      ar: 'سرير رضيع خشبي ناعم بأركان دائرية ودرج كبير بحواف متموجة أسفله للبطانيات وملابس الطفل، متناسق مع دولاب وترابيزة التغيير بالحواف المتموجة.',
+    },
+    long: {
+      en: "Give your baby a cosy, beautiful place to sleep with the Scallop Storage Crib. Thick rounded corner posts and smooth spindles on every side create a calm, safe space, and you can see your little one clearly from anywhere in the room. Underneath, a wide pull-out drawer with a scalloped front and two round knobs is divided into three sections, perfect for sheets, blankets and tiny clothes. Made in warm natural wood, it completes the Scallop collection alongside our Scallop Wardrobe and Scallop Changing Dresser for a nursery that matches beautifully.",
+      ar: 'امنح طفلك مكاناً دافئاً وجميلاً للنوم مع سرير الرضيع بالحواف المتموجة. أعمدة أركان دائرية سميكة وقضبان ملساء من كل الجهات تصنع مساحة هادئة وآمنة، وتستطيع رؤية طفلك بوضوح من أي مكان في الغرفة. وفي الأسفل درج واسع منزلق بواجهة متموجة ومقبضين دائريين، مقسّم إلى ثلاثة أقسام، مثالي للملايات والبطانيات والملابس الصغيرة. مصنوع من الخشب الطبيعي الدافئ، ويكمل مجموعة الحواف المتموجة مع الدولاب وترابيزة التغيير لغرفة طفل متناسقة وجميلة.',
+    },
+    details: {
+      en: ['Size: 140 cm long × 76 cm wide × 96 cm tall', 'Fits a 130 × 70 cm mattress, 10–12 cm thick (mattress not included)', 'Rail height 60 cm above the mattress base', 'Pull-out drawer (130 × 60 × 20 cm) with three sections', 'Scalloped drawer front with round wooden knobs', 'Matches the Scallop Wardrobe and Scallop Changing Dresser', 'Free delivery in Cairo'],
+      ar: ['المقاس: طول 140 سم × عرض 76 سم × ارتفاع 96 سم', 'يناسب مرتبة 130 × 70 سم بسمك 10–12 سم (المرتبة غير مشمولة)', 'ارتفاع الجوانب 60 سم فوق قاعدة المرتبة', 'درج منزلق (130 × 60 × 20 سم) بثلاثة أقسام', 'واجهة درج متموجة بمقابض خشبية دائرية', 'متناسق مع دولاب وترابيزة التغيير بالحواف المتموجة', 'توصيل مجاني داخل القاهرة'],
+    },
+  },
 ];
 
 // Kids' rooms WORX has designed and built, shown in the "Rooms we've designed" gallery.
