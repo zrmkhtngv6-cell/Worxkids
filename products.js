@@ -37,8 +37,7 @@ const SECTIONS = [
   { id: 'beds', img: 'house-bed.svg', menu: true, furniture: true, name: { en: "Kids' Beds", ar: 'سراير أطفال' } },
   { id: 'wardrobes', img: 'wardrobe.svg', menu: true, furniture: true, name: { en: 'Wardrobes & Changing Tables', ar: 'دواليب وترابيزات تغيير' } },
   { id: 'kitchens', img: 'play-kitchen.svg', menu: true, name: { en: 'Play Kitchens & Play Shops', ar: 'مطابخ ومحلات لعب' } },
-  { id: 'climbing', img: 'climbing-triangle.svg', menu: true, name: { en: 'Climbing Sets', ar: 'ألعاب التسلق' } },
-  { id: 'arches', img: 'climbing-arch.svg', name: { en: 'Climbing Arches & Rockers', ar: 'أقواس تسلق وهزازات' } },
+  { id: 'climbing', img: 'climbing-triangle.svg', menu: true, name: { en: 'Climbing Sets, Arches & Rockers', ar: 'ألعاب التسلق والأقواس والهزازات' } },
   { id: 'baby', img: 'baby-toys.svg', name: { en: 'Baby & Toddler Wooden Toys', ar: 'ألعاب خشبية للرضع والأطفال الصغار' } },
   { id: 'tables', img: 'table-chairs.svg', name: { en: "Kids' Tables, Chairs & Easels", ar: 'طاولات وكراسي وحوامل رسم للأطفال' } },
 ];
@@ -465,7 +464,7 @@ const PRODUCTS = [
   },
   {
     // price: 0 is a placeholder (shown as xxxx while prices are hidden). Set the real price before showing prices.
-    id: 'climb-slide-set', section: 'arches', price: 0,
+    id: 'climb-slide-set', section: 'climbing', price: 0,
     images: ['climb-slide-set.jpg', 'climb-slide-set-room.jpg', 'climb-slide-set-size.jpg'],
     badge: { en: 'New', ar: 'جديد' },
     name: { en: 'Climb & Slide 3-in-1 Set', ar: 'طقم التسلق والتزحلق ٣ في ١' },
